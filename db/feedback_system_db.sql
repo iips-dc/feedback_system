@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 07, 2014 at 11:54 AM
+-- Generation Time: Nov 10, 2014 at 04:12 PM
 -- Server version: 5.5.38-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
@@ -80,6 +80,8 @@ CREATE TABLE IF NOT EXISTS `feedback_info` (
   `study_material` int(5) NOT NULL COMMENT 'specifies availability of material like photocopy etc',
   `resourse_availability` int(5) NOT NULL COMMENT 'specifies availability of resources like internet, computers, softwares,   database etc',
   `cleaniliness_of_class` int(5) NOT NULL,
+  `suggestion_for_subject` longtext COMMENT 'It holds the suggestion regarding subject',
+  `suggestion_for_course` longtext COMMENT 'It holds the suggestion regarding course',
   PRIMARY KEY (`s_no`),
   KEY `student_no` (`student_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table holde data entered by students' AUTO_INCREMENT=1 ;
@@ -138,7 +140,8 @@ CREATE TABLE IF NOT EXISTS `time_table` (
   PRIMARY KEY (`s_no`),
   KEY `subject_id` (`subject_id`),
   KEY `faculty_id` (`faculty_id`),
-  KEY `course_id` (`course_id`)
+  KEY `course_id` (`course_id`),
+  KEY `section` (`section`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
