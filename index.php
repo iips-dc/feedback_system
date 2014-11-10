@@ -1,7 +1,7 @@
 <!-- Including files for DB connection and Session Control -->
 <?php
     //require 'includes/login/core.inc.php';
-   // require 'includes/login/connect.inc.php';
+   require 'includes/login/connect.inc.php';
 ?>
 <!-- /End of includes -->
 <html>
