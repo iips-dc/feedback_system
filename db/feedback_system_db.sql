@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 10, 2014 at 04:25 PM
+-- Generation Time: Nov 11, 2014 at 03:58 PM
 -- Server version: 5.5.38-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
@@ -19,6 +19,35 @@ SET time_zone = "+00:00";
 --
 -- Database: `feedback_system_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `academic_assessment_info`
+--
+
+CREATE TABLE IF NOT EXISTS `academic_assessment_info` (
+  `s_no` int(11) NOT NULL AUTO_INCREMENT,
+  `student_no` int(255) NOT NULL,
+  `subject_id` varchar(20) NOT NULL,
+  `faculty_id` varchar(20) NOT NULL,
+  `conceptual_clearity` int(5) NOT NULL COMMENT 'specifies teacher''s ability to bring conceptual clearity',
+  `subject_knowledge` int(5) NOT NULL COMMENT 'specifies teacher''s subject knowledge',
+  `practical_example` int(5) NOT NULL COMMENT 'specifies teacher''s compliments theory with practical example',
+  `handling_capability` int(5) NOT NULL COMMENT 'specifies teacher''s capability of handling cases/ assignment/ exercises/ activities',
+  `motivation` int(5) NOT NULL COMMENT 'specifies motivation provided by teacher',
+  `control_ability` int(5) NOT NULL COMMENT 'teacher''s ability to control the teacher',
+  `course_completion` int(5) NOT NULL COMMENT 'specifies completion & coverage of course',
+  `communication_skill` int(5) NOT NULL COMMENT 'specifies teacher''s communication skill',
+  `regularity_punctuality` int(5) NOT NULL COMMENT 'specifies teacher''s regularity & punctuality',
+  `outside_guidance` int(5) NOT NULL COMMENT 'specifies teacher''s guidance & interaction outside the classroom',
+  `syllabus_industry_relvance` int(5) NOT NULL COMMENT 'specifies relevance of syllabus as per industry requirement',
+  `sufficiency_of_course` int(5) NOT NULL COMMENT 'specifies sufficiency of course content',
+  `suggestion_for_subject` longtext COMMENT 'It holds the suggestion regarding subject',
+  `suggestion_for_course` longtext COMMENT 'It holds the suggestion regarding course',
+  PRIMARY KEY (`s_no`),
+  KEY `student_no` (`student_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table holde data entered by students' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -54,37 +83,21 @@ CREATE TABLE IF NOT EXISTS `course` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `feedback_info`
+-- Table structure for table `infrastructure_support_info`
 --
 
-CREATE TABLE IF NOT EXISTS `feedback_info` (
-  `s_no` int(11) NOT NULL AUTO_INCREMENT,
-  `student_no` int(255) NOT NULL,
-  `subject_id` varchar(20) NOT NULL,
-  `faculty_id` varchar(20) NOT NULL,
-  `conceptual_clearity` int(5) NOT NULL COMMENT 'specifies teacher''s ability to bring conceptual clearity',
-  `subject_knowledge` int(5) NOT NULL COMMENT 'specifies teacher''s subject knowledge',
-  `practical_example` int(5) NOT NULL COMMENT 'specifies teacher''s compliments theory with practical example',
-  `handling_capability` int(5) NOT NULL COMMENT 'specifies teacher''s capability of handling cases/ assignment/ exercises/ activities',
-  `motivation` int(5) NOT NULL COMMENT 'specifies motivation provided by teacher',
-  `control_ability` int(5) NOT NULL COMMENT 'teacher''s ability to control the teacher',
-  `course_completion` int(5) NOT NULL COMMENT 'specifies completion & coverage of course',
-  `communication_skill` int(5) NOT NULL COMMENT 'specifies teacher''s communication skill',
-  `regularity_punctuality` int(5) NOT NULL COMMENT 'specifies teacher''s regularity & punctuality',
-  `outside_guidance` int(5) NOT NULL COMMENT 'specifies teacher''s guidance & interaction outside the classroom',
-  `syllabus_industry_relvance` int(5) NOT NULL COMMENT 'specifies relevance of syllabus as per industry requirement',
-  `sufficiency_of_course` int(5) NOT NULL COMMENT 'specifies sufficiency of course content',
-  `books_availability` int(5) NOT NULL COMMENT 'specifies availability of books in library',
-  `basic_requirements` int(5) NOT NULL COMMENT 'specifies requirements like chalk, duste',
-  `technological_support` int(5) NOT NULL COMMENT 'specifies supports like OHP/LCD etc',
-  `study_material` int(5) NOT NULL COMMENT 'specifies availability of material like photocopy etc',
-  `resourse_availability` int(5) NOT NULL COMMENT 'specifies availability of resources like internet, computers, softwares,   database etc',
-  `cleaniliness_of_class` int(5) NOT NULL,
-  `suggestion_for_subject` longtext COMMENT 'It holds the suggestion regarding subject',
-  `suggestion_for_course` longtext COMMENT 'It holds the suggestion regarding course',
+CREATE TABLE IF NOT EXISTS `infrastructure_support_info` (
+  `s_no` int(11) NOT NULL AUTO_INCREMENT COMMENT 'it is primary key for infrastructure_support_info table which is auto-incremented',
+  `student_no` int(255) NOT NULL COMMENT 'it is a foreign key from table student_info',
+  `books_availability` int(11) NOT NULL COMMENT 'it holds information about the availability of books in library',
+  `basic_requirements` int(11) NOT NULL COMMENT 'it holds information about the basic requirements like furniture, chalk, dusture',
+  `technological_support` int(11) NOT NULL COMMENT 'it holds information about the technological support like ohp/lcd',
+  `study_material` int(11) NOT NULL COMMENT 'it holds information about the photocopy of study material',
+  `resource_availability` int(11) NOT NULL COMMENT 'it holds the information about the availability of other resources like internet, computers',
+  `cleaniliness_of_class` int(11) NOT NULL COMMENT 'it holds information about the cleaniliness in the classroom',
   PRIMARY KEY (`s_no`),
   KEY `student_no` (`student_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table holde data entered by students' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='infrastructure_support_info table collects information about infrastructure' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -149,16 +162,22 @@ CREATE TABLE IF NOT EXISTS `time_table` (
 --
 
 --
+-- Constraints for table `academic_assessment_info`
+--
+ALTER TABLE `academic_assessment_info`
+  ADD CONSTRAINT `student_info_student_no` FOREIGN KEY (`student_no`) REFERENCES `student_info` (`student_no`);
+
+--
 -- Constraints for table `batch`
 --
 ALTER TABLE `batch`
   ADD CONSTRAINT `pro_cat_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`);
 
 --
--- Constraints for table `feedback_info`
+-- Constraints for table `infrastructure_support_info`
 --
-ALTER TABLE `feedback_info`
-  ADD CONSTRAINT `student_info_student_no` FOREIGN KEY (`student_no`) REFERENCES `student_info` (`student_no`);
+ALTER TABLE `infrastructure_support_info`
+  ADD CONSTRAINT `student_info_student` FOREIGN KEY (`student_no`) REFERENCES `student_info` (`student_no`);
 
 --
 -- Constraints for table `time_table`
