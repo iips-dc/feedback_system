@@ -1,7 +1,7 @@
 <?php session_start(); 
 
 $referrer = @$_SERVER['HTTP_REFERER']; 
-if(preg_match("/Registration.php/",$referrer))
+if(preg_match("/registration.php/",$referrer))
   
 	session_destroy();
   echo $referrer;
@@ -111,7 +111,7 @@ function digitsonly(e)
 										<div class="panel-body">
 												
 				
-											<form role="form" action="Registration2.php" method="POST" id="theForm" action="r.php"> 
+											<form role="form" action="registration2.php" method="POST" id="theForm" action="r.php"> 
 					
 					
 												<div class="form-group">

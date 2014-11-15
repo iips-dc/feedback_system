@@ -2,6 +2,7 @@
 
 <!-- Including files for DB connection and Session Control -->
 <?php
+    session_start();
     // include '../../includes/login/core.inc.php';
     include '../../includes/login/connect.inc.php';
 

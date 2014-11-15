@@ -1,194 +1,244 @@
-<!-- This is the html coding for the infrastructure support feedback-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- Including files for DB connection and Session Control -->
-<?php ob_start();  session_start();
-
-echo "kjkk";
+<?php
     // include '../../includes/login/core.inc.php';
     include '../../includes/login/connect.inc.php';
 ?>
-<!-- /End of includes -->
-
 <?php
-	if (isset($_POST['infrastructure_feedback_submit'])) {
-		# code...
-		$availabilityOfBooks = $_POST['availability_of_books'];
-		$basicRequirements = $_POST['basic_requirements'];
-		$technologicalSupport = $_POST['technological_support'];
-		$photocopyOfStudyMaterial = $_POST['photocopy_of_study_material'];
-		$availabilityOfOtherResources = $_POST['availability_of_other_resources'];
-		$cleanlinessOfClass = $_POST['cleanliness_of_class'];
-        $studentNo = $_SESSION['student_no'];
-        echo $studentNo;
- 		if (!empty($availabilityOfbooks) && !empty($basicRequirements) && !empty($technologicalSupport) && !empty($photocopyOfStudyMaterial) && !empty($availabilityOfOtherResources) && !empty($cleanlinessOfClass)) {
- 			# code...
+   session_start();
+   
+   $studentno=$_SESSION['student_no'];
 
- 			$insertQueryRun = mysqli_query($con, "INSERT INTO `infrastructure_support_info`(`s_no`, `student_no`, `books_availability`, `basic_requirements`, `technological_support`, `study_material`, `resource_availability`, `cleaniliness_of_class`) VALUES ('', '', '$availabilityOfBooks', '$basicRequirements', '$technologicalSupport', '$photocopyOfStudyMaterial', '$availabilityOfOtherResources', '$cleanlinessOfClass')", );
- 			echo "<script type='javascript'> window.alert('Feedback successfully submitted!'); </script>";
- 		}
- 		else
- 		{
- 			echo "<script type='javascript'> window.alert('Please fill all the required fields.'); </script>";
- 		}
- 	}
-	
+   echo $studentno;
+
+    if (isset($_POST['infrastructure_feedback_submit'])) {
+        # code...
+        echo "set";
+        $availabilityOfBooks = $_POST['availability_of_books'];
+        $basicRequirements = $_POST['basic_requirements'];
+        $technologicalSupport = $_POST['technological_support'];
+        $photocopyOfStudyMaterial = $_POST['photocopy_of_study_material'];
+        $availabilityOfOtherResources = $_POST['availability_of_other_resources'];
+        $cleanlinessOfClass = $_POST['cleanliness_of_class'];
+
+        //if (!empty($availabilityOfbooks) && !empty($basicRequirements) && !empty($technologicalSupport) && !empty($photocopyOfStudyMaterial) && !empty($availabilityOfOtherResources) && !empty($cleanlinessOfClass)) {
+            # code...
+            echo "not empty";
+            echo $basicRequirements;
+            $insertQueryRun = mysqli_query($con,"INSERT INTO `infrastructure_support_info`(`s_no`, `books_availability`, `basic_requirements`, `technological_support`, `study_material`, `resource_availability`, `cleaniliness_of_class`) VALUES ('','$availabilityOfBooks', '$basicRequirements', '$technologicalSupport', '$photocopyOfStudyMaterial', '$availabilityOfOtherResources', '$cleanlinessOfClass')");
+            if($insertQueryRun)
+             {   
+                echo "<script type='javascript'> window.alert('Feedback successfully submitted!'); </script>";
+                header('location:academic_assessment.php');
+             }
+            else
+                echo "Error"; 
+        //}
+        /*else
+        {
+            echo "<script type='javascript'> window.alert('Please fill all the required fields.'); </script>";
+        }*/
+    }
+    
 ?>
+
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Infrastructure Support</title>
-<link rel="stylesheet" href="..//assests//css//bootstrap//bootstrap.min.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Infrastructure Support</title>
+  <link rel="stylesheet" href="../../assests/css/bootstrap/bootstrap.min.css">
+  <style type="text/css">
+      .page-header{
+                  font-style: normal;
+                 }
+      .container{
+                 font-size: 20px;
+                 }
+       
+  </style>
 
 </head>
  
-
 <body>
   
+    <div class="panel-heading">
+         <div class="container">
+          <center>Header</center>
+         </div>
+    </div>
 
-<!--<div class="panel-heading">
-     <div class="container">
-      <center>Header</center>
-     </div>
-</div>
--->
     <div class="page-header">
-          <h1 class="text-center"><u><em>INFRASTRUCTURE SUPPORT</em></u></h1>
+              <h1 class="text-center"><u>INFRASTRUCTURE SUPPORT</u></h1>
     </div>
-    <div class="lead">
-        <div class="panel-body">
-            <div class="container">
-                                                   
-                <strong class="col-lg-6">1. Availability of Books in Library</strong>
-                <div class="col-sm-6">
-                    <label class="radio-inline">
-                    <input type="radio" name="availability_of_books" id="inlineRadio1" value="1"> Very poor
-                    </label> 
-                    <label class="radio-inline">
-                    <input type="radio" name="availability_of_books" id="inlineRadio2" value="2">Poor
-                    </label>
-                    <label class="radio-inline">
-                       <input type="radio" name="availability_of_books" id="inlineRadio3" value="3">Good
-                    </label>
-                    <label class="radio-inline">
-                       <input type="radio" name="availability_of_books" id="inlineRadio3" value="4">Average
-                    </label>
-                    <label class="radio-inline">
-                    <input type="radio" name="availability_of_books" id="inlineRadio3" value="5">Excellent
-                    </label>
-                </div>
-                                                   
-                                               
-                <strong class="col-lg-6">2. Basic Requirements like Furniture, Chalk, Duster</strong>
-                <div class="col-sm-6">
-                    <label class="radio-inline">
-                    <input type="radio" name="basic_requirements" id="inlineRadio1" value="1"> Very poor
-                    </label> 
-                    <label class="radio-inline">
-                    <input type="radio" name="basic_requirements" id="inlineRadio2" value="2">Poor
-                    </label>
-                    <label class="radio-inline">
-                       <input type="radio" name="basic_requirements" id="inlineRadio3" value="3">Good
-                    </label>
-                    <label class="radio-inline">
-                       <input type="radio" name="basic_requirements" id="inlineRadio3" value="4">Average
-                    </label>
-                    <label class="radio-inline">
-                    <input type="radio" name="basic_requirements" id="inlineRadio3" value="5">Excellent
-                    </label>
-                </div>
-                                               
-                                                
-                <strong class="col-lg-6">3. Technological Support like OHP/LCD</strong>
-                <div class="col-sm-6">
-                            <label class="radio-inline">
-                            <input type="radio" name="technological_support" id="inlineRadio1" value="1"> Very poor
-                            </label> 
-                            <label class="radio-inline">
-                            <input type="radio" name="technological_support" id="inlineRadio2" value="2">Poor
-                            </label>
-                            <label class="radio-inline">
-                               <input type="radio" name="technological_support" id="inlineRadio3" value="3">Good
-                            </label>
-                            <label class="radio-inline">
-                               <input type="radio" name="technological_support" id="inlineRadio3" value="4">Average
-                            </label>
-                            <label class="radio-inline">
-                            <input type="radio" name="technological_support" id="inlineRadio3" value="5">Excellent
-                            </label>
-                </div>
-                                                 
-                <strong class="col-lg-6">4. Photocopy of Study Material</strong>
-                <div class="col-sm-6">
-                            <label class="radio-inline">
-                            <input type="radio" name="photocopy_of_study_material" id="inlineRadio1" value="1"> Very poor
-                            </label> 
-                            <label class="radio-inline">
-                            <input type="radio" name="photocopy_of_study_material" id="inlineRadio2" value="2">Poor
-                            </label>
-                            <label class="radio-inline">
-                               <input type="radio" name="photocopy_of_study_material" id="inlineRadio3" value="3">Good
-                            </label>
-                            <label class="radio-inline">
-                               <input type="radio" name="photocopy_of_study_material" id="inlineRadio3" value="4">Average
-                            </label>
-                            <label class="radio-inline">
-                            <input type="radio" name="photocopy_of_study_material" id="inlineRadio3" value="5">Excellent
-                            </label>
-                </div>
-                                   
-                <strong class="col-lg-6">5. Availability of Other Resources Like Internet/Computers/Softwares/Databases etc</strong>
-                        <div class="col-sm-6">
-                            <label class="radio-inline">
-                            <input type="radio" name="availability_of_other_resources" id="inlineRadio1" value="1"> Very poor
-                            </label> 
-                            <label class="radio-inline">
-                            <input type="radio" name="availability_of_other_resources" id="inlineRadio2" value="2">Poor
-                            </label>
-                            <label class="radio-inline">
-                               <input type="radio" name="availability_of_other_resources" id="inlineRadio3" value="3">Good
-                            </label>
-                            <label class="radio-inline">
-                               <input type="radio" name="availability_of_other_resources" id="inlineRadio3" value="4">Average
-                            </label>
-                            <label class="radio-inline">
-                            <input type="radio" name="availability_of_other_resources" id="inlineRadio3" value="5">Excellent
-                            </label>
-                         </div>
 
-                <strong class="col-lg-6">6. Cleanliness in the Classroom</strong>
-                        <div class="col-sm-6">
-                            <label class="radio-inline">
-                            <input type="radio" name="cleanliness_of_class" id="inlineRadio1" value="1"> Very poor
-                            </label> 
-                            <label class="radio-inline">
-                            <input type="radio" name="cleanliness_of_class" id="inlineRadio2" value="2">Poor
-                            </label>
-                            <label class="radio-inline">
-                               <input type="radio" name="cleanliness_of_class" id="inlineRadio3" value="3">Good
-                            </label>
-                            <label class="radio-inline">
-                               <input type="radio" name="cleanliness_of_class" id="inlineRadio3" value="4">Average
-                            </label>
-                            <label class="radio-inline">
-                            <input type="radio" name="cleanliness_of_class" id="inlineRadio3" value="5">Excellent
-                            </label>
-                         </div>
-                
-                <input type="submit" name="infrastructure_feedback_submit" value="Submit Feedback"></input>
-
-            </div>
+    <form action="#" method="POST" name="myForm">
+        <div class="container" id="A1">
+                <strong class="col-lg-6">1.) Availability of Books in Library</strong>
+                <div class="col-sm-6">
+                     <label class="radio-inline">
+                       <input type="radio" name="books_availability" required="required" value="1" onClick="changeColour('a')">Very poor
+                     </label> 
+                     <label class="radio-inline">
+                       <input type="radio" name="books_availability" required="required" value="2" onClick="changeColour('a')">Poor
+                     </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="books_availability" required="required" value="3" onClick="changeColour('a')">Good
+                    </label>
+                    <label class="radio-inline">
+                       <input type="radio" name="books_availability" required="required" value="4" onClick="changeColour('a')">Average
+                     </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="books_availability" required="required" value="5" onClick="changeColour('a')">Excellent
+                    </label>
+                </div>
         </div>
-    </div>
+                                                           
+        <div class="container" id="A2">
+            <strong class="col-lg-6">2.) Basic Requirements like Furniture, Chalk, Duster</strong>
+                <div class="col-sm-6">
+                  <label class="radio-inline">
+                      <input type="radio" name="basic_requirements" required="required" value="1" onClick="changeColour('b')">Very poor
+                  </label> 
+                  <label class="radio-inline">
+                    <input type="radio" name="basic_requirements"  required="required" value="2" onClick="changeColour('b')">Poor
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="basic_requirements"  required="required" value="3" onClick="changeColour('b')">Good
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="basic_requirements"  required="required" value="4"onClick="changeColour('b')">Average
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="basic_requirements"  required="required" value="5" onClick="changeColour('b')">Excellent
+                  </label>
+                </div>
+        </div>  
 
-   
+        <div class="container" id="A3">                            
+          <strong class="col-lg-6">3.) Technological Support like OHP/LCD  </strong>
+              <div class="col-sm-6">
+                  <label class="radio-inline">
+                    <input type="radio" name="technological_support"  required="required" value="1" onClick="changeColour('c')">Very poor
+                  </label> 
+                  <label class="radio-inline">
+                    <input type="radio" name="technological_support"  required="required" value="2" onClick="changeColour('c')">Poor
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="technological_support"  required="required" value="3" onClick="changeColour('c')">Good
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="technological_support"  required="required" value="4" onClick="changeColour('c')">Average
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="technological_support"  required="required" value="5" onClick="changeColour('c')">Excellent
+                  </label>
+              </div>
+        </div> 
+
+        <div class="container" id="A4">                        
+          <strong class="col-lg-6">4.) Photocopy of Study Material</strong>
+            <div class="col-sm-6">
+              <label class="radio-inline">
+                <input type="radio" name="study_material" required="required" value="1" onClick="changeColour('d')">Very poor
+              </label> 
+              <label class="radio-inline">
+                <input type="radio" name="study_material" required="required" value="2" onClick="changeColour('d')">Poor
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="study_material" required="required" value="3" onClick="changeColour('d')">Good
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="study_material" required="required" value="4" onClick="changeColour('d')">Average
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="study_material" required="required" value="5" onClick="changeColour('d')">Excellent
+              </label>
+            </div>
+        </div>                           
+                                                           
+        <div class="container" id="A5">
+          <strong class="col-lg-6">5.) Availability of Other Resources Like Internet/Computers/Softwares/Databases etc</strong>
+            <div class="col-sm-6">
+              <label class="radio-inline">
+                <input type="radio" name="resourse_availability" required="required" value="1" onClick="changeColour('e')">Very poor
+              </label> 
+              <label class="radio-inline">
+                <input type="radio" name="resourse_availability" required="required" value="2" onClick="changeColour('e')">Poor
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="resourse_availability" required="required" value="3" onClick="changeColour('e')">Good
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="resourse_availability" required="required" value="4" onClick="changeColour('e')">Average
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="resourse_availability" required="required" value="5" onClick="changeColour('e')">Excellent
+              </label>
+            </div>
+        </div>                           
+
+        <div class="container" id="A6">
+            <strong class="col-lg-6">6.) Cleanliness in the Classroom</strong>
+              <div class="col-sm-6">
+                <label class="radio-inline">
+                  <input type="radio" name="cleaniliness_of_class" required="required" value="1" onClick="changeColour('f')">Very poor
+                </label> 
+                <label class="radio-inline">
+                  <input type="radio" name="cleaniliness_of_class" required="required" value="2" onClick="changeColour('f')">Poor
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="cleaniliness_of_class" required="required" value="3" onClick="changeColour('f')">Good
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="cleaniliness_of_class" required="required" value="4" onClick="changeColour('f')">Average
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="cleaniliness_of_class" required="required" value="5" onClick="changeColour('f')">Excellent
+                </label>
+              </div>
+        </div></br>
+                                      
+        <div class="col-sm-offset-6"> <button type="button" class="btn btn-primary">Submit</button></div>    
+    </form>  
     <div class="footer">
       <div class="container">
-        <!--<center>Place sticky footer content here.</center>-->
+        <center></center>
       </div>
     </div>
-          
-           
-<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
-<script src="..//assets//js/bootstrap.min.js"></script>
+
+    <script>
+    function changeColour(value, name)
+    {
+        var color = document.body.style.backgroundColor;
+        switch(value)
+        {
+            case 'a':
+                
+                color = "green";
+                document.getElementById("A1").style.backgroundColor = color;
+            break;
+            case 'b':
+                color = "green";
+                document.getElementById("A2").style.backgroundColor = color;
+            break;
+            case 'c':
+                color = "green";
+                document.getElementById("A3").style.backgroundColor = color;
+            break;
+             case 'd':
+                color = "green";
+                document.getElementById("A4").style.backgroundColor = color;
+            break;
+             case 'e':
+                color = "green";
+                document.getElementById("A5").style.backgroundColor = color;
+            break;
+             case 'f':
+                color = "green";
+                document.getElementById("A6").style.backgroundColor = color;
+            break;
+          }
+    }      
+    </script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

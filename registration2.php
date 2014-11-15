@@ -4,8 +4,8 @@
 /* for storing data of registration.php */
 
 $referrer = $_SERVER['HTTP_REFERER']; 
-if(preg_match("/registration2.php/",$referrer))
-	{session_destroy();}
+if(preg_match("/Registration2.php/",$referrer))
+	session_destroy();
 
   $highschoolname=@$_SESSION['High_School_Name'];
   $yearofpassing10=@$_SESSION['Year_Of_Passing'] ;
@@ -147,7 +147,7 @@ function digitsonly(e)
 														</tr> 		
 														<tr>
 															<td><label>Higher Secondary school Name</label></td>
-															<td><input required="required"  type="text" class="form-control" placeholder="Name of School" onkeypress="return onlyCharsn(event)" name="highersecandryschoolname" "<?php echo $highersecandryschoolname ;?>"></td>
+															<td><input required="required"  type="text" class="form-control" placeholder="Name of School" onkeypress="return onlyCharsn(event)" name="highersecandryschoolname" <?php echo $highersecandryschoolname ;?>"></td>
 														</tr>  							
 														<tr>
 															<td><label>Year of passing</label></td>
