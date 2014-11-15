@@ -3,9 +3,15 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
+<<<<<<< HEAD
 -- Generation Time: Nov 14, 2014 at 11:09 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10
+=======
+-- Generation Time: Nov 14, 2014 at 05:17 PM
+-- Server version: 5.5.38-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.5
+>>>>>>> 74d264c1fe2916d6d5366efd18f05aed4f2e53b7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -181,7 +187,11 @@ INSERT INTO `faculty_table` (`User_Id`, `name`, `Qualification`, `DOB`, `Email`,
 (105390, 'Mr.Naresh Dembla', 'B.E, MBA, ME(comp. Eng) , Ph.D(Pursuing)', '0000-00-00', ' nareshdembla@gmail.com', 'Management', 'Batch Facilitator', 'Lecturer', '', '', '', 2, 1),
 (105391, 'Ms.Shraddha Soni', 'MCA', '0000-00-00', ' so_shraddha4@yahoo.co.in', 'Computer', 'Batch Facilitator', 'Lecturer', '', '', '', 2, 1),
 (105392, 'Ms.Kirti Vijayvargiya', 'MCA,UGC-NET(CS)', '0000-00-00', 'keerti_vijay@rediffmail.com', 'Computer', 'Batch Facilitator', 'Lecturer', '', '', '', 2, 1),
+<<<<<<< HEAD
 (105393, 'Mr.Pradeep K. Jatav', 'B.Sc(Statistics),  MCA', '0000-00-00', 'p.jatav84@gmail.com', 'Computer', 'Batch Facilitator', 'Lecturer', '', 'Computer science', '9713038949', 2, 1),
+=======
+(105393, 'Mr.Pradeep K. Jatav', 'B.Sc(Statistics),	MCA', '0000-00-00', 'p.jatav84@gmail.com', 'Computer', 'Batch Facilitator', 'Lecturer', '', 'Computer science', '9713038949', 2, 1),
+>>>>>>> 74d264c1fe2916d6d5366efd18f05aed4f2e53b7
 (105394, 'Mr.Imroz Khan', 'B.E.(Electronics)', '1977-02-10', 'imroz@iips.edu.in', 'TPO', 'TPO', 'Software Engineer, P', 'M', 'Software Engineering, e-Governance and Process re-', '91-731-2468507', 2, 1),
 (105395, 'Mr.Yogendra Bawal', 'M.Sc.(Electronics. & Communication)\r<br>CCNA,', '0000-00-00', 'ybawal@yahoo.com', 'AO', 'Administrative Officer', 'Network Administrato', '', '', ' 2461888', 2, 1),
 (105396, 'Mr.Basant Namdeo', 'MCA', '0000-00-00', 'basant_nd@yahoo.com', 'Computer', 'Batch Facilitator', 'Lecturer', '', 'Application Development, Database Design, Web Appl', '', 2, 1),
@@ -361,7 +371,11 @@ CREATE TABLE IF NOT EXISTS `student_info` (
   `Alternate_Email` varchar(30) NOT NULL,
   PRIMARY KEY (`s_no`),
   KEY `student_no` (`student_no`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+=======
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+>>>>>>> 74d264c1fe2916d6d5366efd18f05aed4f2e53b7
 
 -- --------------------------------------------------------
 
@@ -490,6 +504,125 @@ CREATE TABLE IF NOT EXISTS `time_table` (
   KEY `batch_id` (`batch_id`),
   KEY `section_2` (`section`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=92 ;
+<<<<<<< HEAD
+=======
+
+--
+-- Dumping data for table `time_table`
+--
+
+INSERT INTO `time_table` (`s_no`, `course_id`, `subject_id`, `faculty_id`, `batch_id`, `year`, `section`, `day`, `time_from`, `time_to`, `room_number`) VALUES
+(1, 'IC', 'IC-104B', 105358, 'IC-2K-14', 2014, 'A', '', '00:00:00', '00:00:00', '207'),
+(2, 'IC', 'IC-104B', 105518, 'IC-2K-14', 2014, 'B', '', '00:00:00', '00:00:00', '208'),
+(3, 'IC', 'IC-105A', 105377, 'IC-2K-14', 2014, 'A', '', '00:00:00', '00:00:00', '207'),
+(4, 'IC', 'IC-105A', 105393, 'IC-2K-14', 2014, 'B', '', '00:00:00', '00:00:00', '208'),
+(5, 'IC', 'IC-106C', 105517, 'IC-2K-14', 2014, 'A', '', '00:00:00', '00:00:00', '207'),
+(6, 'IC', 'IC-106C', 105517, 'IC-2K-14', 2014, 'B', '', '00:00:00', '00:00:00', '208'),
+(7, 'IC', 'IC-107D', 105518, 'IC-2K-14', 2014, 'B', '', '00:00:00', '00:00:00', '208'),
+(8, 'IC', 'IC-110A', 105391, 'IC-2K-14', 2014, 'A', '', '00:00:00', '00:00:00', '207'),
+(9, 'IC', 'IC-110A', 105519, 'IC-2K-14', 2014, 'B', '', '00:00:00', '00:00:00', '208'),
+(10, 'IC', 'IC-304A', 105377, 'IC-2K-13', 2014, 'A', '', '00:00:00', '00:00:00', '209'),
+(11, 'IC', 'IC-304A', 105377, 'IC-2K-13', 2014, 'B', '', '00:00:00', '00:00:00', '211'),
+(12, 'IC', 'IC-305', 105357, 'IC-2K-13', 2014, 'A', '', '00:00:00', '00:00:00', '209'),
+(13, 'IC', 'IC-305', 105392, 'IC-2K-13', 2014, 'B', '', '00:00:00', '00:00:00', '211'),
+(14, 'IC', 'IC-306', 105389, 'IC-2K-13', 2014, 'B', '', '00:00:00', '00:00:00', '211'),
+(15, 'IC', 'IC-307 ', 105379, 'IC-2K-13', 2014, 'A', '', '00:00:00', '00:00:00', '209'),
+(16, 'IC', 'IC-307 ', 105392, 'IC-2K-13', 2014, 'B', '', '00:00:00', '00:00:00', '211'),
+(17, 'IC', 'IC-310C', 105387, 'IC-2K-13', 2014, 'A', '', '00:00:00', '00:00:00', '209'),
+(18, 'IC', 'IC-310C', 105377, 'IC-2K-13', 2014, 'B', '', '00:00:00', '00:00:00', '211'),
+(23, 'IC', 'IC-501A', 105520, 'IC-2K-12', 2014, 'A', '', '00:00:00', '00:00:00', '207'),
+(25, 'IC', 'IC-501A', 105520, 'IC-2K-12', 2014, 'B', '', '00:00:00', '00:00:00', '208'),
+(26, 'IC', 'IC-502A', 105385, 'IC-2K-12', 2014, 'A', '', '00:00:00', '00:00:00', '207'),
+(27, 'IC', 'IC-502A', 105385, 'IC-2K-12', 2014, 'B', '', '00:00:00', '00:00:00', '208'),
+(28, 'IC', 'IC-503', 105396, 'IC-2K-12', 2014, 'A', '', '00:00:00', '00:00:00', '207'),
+(29, 'IC', 'IC-503', 105396, 'IC-2K-12', 2014, 'B', '', '00:00:00', '00:00:00', '208'),
+(30, 'IC', 'IC-504A', 105392, 'IC-2K-12', 2014, 'A', '', '00:00:00', '00:00:00', '207'),
+(31, 'IC', 'IC-504A', 105392, 'IC-2K-12', 2014, 'B', '', '00:00:00', '00:00:00', '208'),
+(32, 'IC', 'IC-512A', 105389, 'IC-2K-12', 2014, 'A', '', '00:00:00', '00:00:00', '207'),
+(33, 'IC', 'IC-512A', 105389, 'IC-2K-12', 2014, 'B', '', '00:00:00', '00:00:00', '208'),
+(34, 'IC', 'IC-507D', 105396, 'IC-2K-12', 2014, 'A', '', '00:00:00', '00:00:00', '207'),
+(35, 'IC', 'IC-507D', 105380, 'IC-2K-12', 2014, 'B', '', '00:00:00', '00:00:00', '208'),
+(36, 'IC', 'IC-508B', 105385, 'IC-2K-12', 2014, 'A', '', '00:00:00', '00:00:00', '207'),
+(37, 'IC', 'IC-508B', 105518, 'IC-2K-12', 2014, 'B', '', '00:00:00', '00:00:00', '208'),
+(38, 'IC', 'IC-701', 105379, 'IC-2K-11', 2014, 'A', '', '00:00:00', '00:00:00', '209'),
+(39, 'IC', 'IC-701', 105379, 'IC-2K-11', 2014, 'B', '', '00:00:00', '00:00:00', '211'),
+(40, 'IC', 'IC-702', 105521, 'IC-2K-11', 2014, 'A', '', '00:00:00', '00:00:00', '209'),
+(41, 'IC', 'IC-702', 105521, 'IC-2K-11', 2014, 'B', '', '00:00:00', '00:00:00', '211'),
+(42, 'IC', 'IC-703', 105373, 'IC-2K-11', 2014, 'A', '', '00:00:00', '00:00:00', '209'),
+(43, 'IC', 'IC-703', 105386, 'IC-2K-11', 2014, 'B', '', '00:00:00', '00:00:00', '211'),
+(44, 'IC', 'IC-708', 105391, 'IC-2K-11', 2014, 'A', '', '00:00:00', '00:00:00', '209'),
+(45, 'IC', 'IC-708', 105391, 'IC-2K-11', 2014, 'B', '', '00:00:00', '00:00:00', '211'),
+(46, 'IC', 'IC-705A', 105387, 'IC-2K-11', 2014, 'A', '', '00:00:00', '00:00:00', '209'),
+(47, 'IC', 'IC-705A', 105387, 'IC-2K-11', 2014, 'B', '', '00:00:00', '00:00:00', '211'),
+(48, 'IC', 'IC-901', 105373, 'IC-2K-10', 2014, NULL, '', '00:00:00', '00:00:00', 'LT-2'),
+(49, 'IC', 'IC-905A', 105357, 'IC-2K-10', 2014, NULL, '', '00:00:00', '00:00:00', 'LT-2'),
+(50, 'IC', 'IC-911', 105386, 'IC-2K-10', 2014, NULL, '', '00:00:00', '00:00:00', 'LT-2'),
+(51, 'IC', 'IC-910', 105517, 'IC-2K-10', 2014, NULL, '', '00:00:00', '00:00:00', 'LT-2'),
+(52, 'IC', 'IC-907A-B1', 105360, 'IC-2K-10', 2014, NULL, '', '00:00:00', '00:00:00', 'LT-2'),
+(53, 'IC', 'IC-907A-B2', 105373, 'IC-2K-10', 2014, NULL, '', '00:00:00', '00:00:00', 'LT-2'),
+(54, 'IC', 'IC-1109A', 105360, 'IC-2K-9', 2014, NULL, '', '00:00:00', '00:00:00', '101'),
+(55, 'IC', 'IC-1108', 105359, 'IC-2K-9', 2014, NULL, '', '00:00:00', '00:00:00', '101'),
+(56, 'IC', 'IC-1105', 105522, 'IC-2K-9', 2014, NULL, '', '00:00:00', '00:00:00', '101'),
+(57, 'IC', 'IC-1107A', 105353, 'IC-2K-9', 2014, NULL, '', '00:00:00', '00:00:00', '101'),
+(58, 'IT', 'IT-101', 105523, 'IT-2K-14', 2014, NULL, '', '00:00:00', '00:00:00', '205'),
+(59, 'IT', 'IT-103', 105524, 'IT-2K-14', 2014, NULL, '', '00:00:00', '00:00:00', '205'),
+(62, 'IT', 'IT-104', 105380, 'IT-2K-14', 2014, NULL, '', '00:00:00', '00:00:00', '205'),
+(63, 'IT', 'IT-105', 105393, 'IT-2K-14', 0, NULL, '', '00:00:00', '00:00:00', '205'),
+(64, 'IT', 'IT-106', 105525, 'IT-2K-14', 2014, NULL, '', '00:00:00', '00:00:00', '205'),
+(65, 'IT', 'IT-107', 105380, 'IT-2K-14', 2014, NULL, '', '00:00:00', '00:00:00', '205'),
+(66, 'IT', 'IT-109', 105393, 'IT-2K-14', 2014, NULL, '', '00:00:00', '00:00:00', '205'),
+(67, 'IT', 'IT-301', 105523, 'IT-2K-13', 2014, NULL, '', '00:00:00', '00:00:00', '204'),
+(68, 'IT', 'IT-302', 105396, 'IT-2K-13', 2014, NULL, '', '00:00:00', '00:00:00', '204'),
+(69, 'IT', 'IT-303', 105379, 'IT-2K-13', 2014, NULL, '', '00:00:00', '00:00:00', '204'),
+(70, 'IT', 'IT-304', 105359, 'IT-2K-13', 2014, NULL, '', '00:00:00', '00:00:00', '204'),
+(71, 'IT', 'IT-305', 105470, 'IT-2K-13', 2014, NULL, '', '00:00:00', '00:00:00', '204'),
+(72, 'IT', 'IT-306', 105518, 'IT-2K-13', 2014, NULL, '', '00:00:00', '00:00:00', '204'),
+(73, 'IT', 'IT-307', 105389, 'IT-2K-13', 2014, NULL, '', '00:00:00', '00:00:00', '204'),
+(74, 'IT', 'IT-501A', 105520, 'IT-2K-12', 2014, NULL, '', '00:00:00', '00:00:00', '201'),
+(75, 'IT', 'IT-503A', 105526, 'IT-2K-12', 2014, NULL, '', '00:00:00', '00:00:00', '201'),
+(78, 'IT', 'IT-504', 105353, 'IT-2K-12', 2014, NULL, '', '00:00:00', '00:00:00', '201'),
+(79, 'IT', 'IT-506', 105360, 'IT-2K-12', 2014, NULL, '', '00:00:00', '00:00:00', '201'),
+(80, 'IT', 'IT–510', 105386, 'IT-2K-12', 2014, NULL, '', '00:00:00', '00:00:00', '201'),
+(81, 'IT', 'IT-508C', 105380, 'IT-2K-12', 2014, NULL, '', '00:00:00', '00:00:00', '201'),
+(82, 'IT', 'IT-508D', 105386, 'IT-2K-12', 2014, NULL, '', '00:00:00', '00:00:00', '201'),
+(83, 'IT', 'IT-701', 105391, 'IT-2K-11', 2014, NULL, '', '00:00:00', '00:00:00', '204'),
+(84, 'IT', 'IT-703', 105387, 'IT-2K-11', 2014, NULL, '', '00:00:00', '00:00:00', '204'),
+(85, 'IT', 'IT-705A', 105353, 'IT-2K-11', 2014, NULL, '', '00:00:00', '00:00:00', '204'),
+(86, 'IT', 'IT-708', 105393, 'IT-2K-11', 2014, NULL, '', '00:00:00', '00:00:00', '2014'),
+(87, 'IT', 'IT-901A', 105527, 'IT-2K-10', 2014, NULL, '', '00:00:00', '00:00:00', '201'),
+(88, 'IT', 'IT-902A', 105357, 'IT-2K-10', 2014, NULL, '', '00:00:00', '00:00:00', '201'),
+(89, 'IT', 'IT-907', 105358, 'IT-2K-10', 2014, NULL, '', '00:00:00', '00:00:00', '201'),
+(90, 'IT', 'IT-908A', 105385, 'IT-2K-10', 2014, NULL, '', '00:00:00', '00:00:00', '201'),
+(91, 'IT', 'IT-911', 105359, 'IT-2K-10', 2014, NULL, '', '00:00:00', '00:00:00', '201');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_master`
+--
+
+CREATE TABLE IF NOT EXISTS `user_master` (
+  `student_no` int(255) NOT NULL AUTO_INCREMENT COMMENT 'The unique student number',
+  `First_Name` text NOT NULL,
+  `Mid_name` text NOT NULL,
+  `Last_Name` text NOT NULL,
+  `Father_Name` text NOT NULL,
+  `Mother_Name` text NOT NULL,
+  `Bmonth` varchar(50) NOT NULL,
+  `Bdate` int(2) NOT NULL,
+  `Byear` varchar(4) NOT NULL,
+  `Gender` varchar(8) NOT NULL,
+  `Category` varchar(10) NOT NULL,
+  `Mobile_Number` varchar(14) NOT NULL,
+  `Telephone_Number` varchar(16) DEFAULT NULL,
+  `Email` varchar(40) NOT NULL COMMENT '(Domain Specific Email)This is another identity of a user. Ex- username@iips.edu.in',
+  `Current_Address` varchar(40) NOT NULL,
+  `Permanent_Address` varchar(40) NOT NULL,
+  `Type` text NOT NULL COMMENT 'This is type of user like student, faculty , staff, alumni, admin',
+  `Status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Status of user whether he is active(1) in the system or not(0). ',
+  PRIMARY KEY (`student_no`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='This table includes basic info of each user exist/left in the system.' AUTO_INCREMENT=22 ;
+>>>>>>> 74d264c1fe2916d6d5366efd18f05aed4f2e53b7
 
 --
 -- Dumping data for table `time_table`
@@ -610,6 +743,11 @@ CREATE TABLE IF NOT EXISTS `user_master` (
 --
 -- Constraints for dumped tables
 --
+<<<<<<< HEAD
+=======
+ALTER TABLE `academic_assessment_info`
+  ADD CONSTRAINT `user_student_no` FOREIGN KEY (`student_no`) REFERENCES `user_master` (`student_no`);
+>>>>>>> 74d264c1fe2916d6d5366efd18f05aed4f2e53b7
 
 --
 -- Constraints for table `batch`
@@ -626,6 +764,21 @@ ALTER TABLE `student_info`
 --
 -- Constraints for table `subject`
 --
+<<<<<<< HEAD
+=======
+ALTER TABLE `infrastructure_support_info`
+  ADD CONSTRAINT `user_std_no` FOREIGN KEY (`student_no`) REFERENCES `user_master` (`student_no`);
+
+--
+-- Constraints for table `student_info`
+--
+ALTER TABLE `student_info`
+  ADD CONSTRAINT `user_master_student_no` FOREIGN KEY (`student_no`) REFERENCES `user_master` (`student_no`);
+
+--
+-- Constraints for table `subject`
+--
+>>>>>>> 74d264c1fe2916d6d5366efd18f05aed4f2e53b7
 ALTER TABLE `subject`
   ADD CONSTRAINT `c_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`);
 
