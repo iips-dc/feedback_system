@@ -1,7 +1,9 @@
 <!-- This is the html coding for the infrastructure support feedback-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- Including files for DB connection and Session Control -->
-<?php
+<?php ob_start();  session_start();
+
+echo "kjkk";
     // include '../../includes/login/core.inc.php';
     include '../../includes/login/connect.inc.php';
 ?>
@@ -16,11 +18,12 @@
 		$photocopyOfStudyMaterial = $_POST['photocopy_of_study_material'];
 		$availabilityOfOtherResources = $_POST['availability_of_other_resources'];
 		$cleanlinessOfClass = $_POST['cleanliness_of_class'];
-
+        $studentNo = $_SESSION['student_no'];
+        echo $studentNo;
  		if (!empty($availabilityOfbooks) && !empty($basicRequirements) && !empty($technologicalSupport) && !empty($photocopyOfStudyMaterial) && !empty($availabilityOfOtherResources) && !empty($cleanlinessOfClass)) {
  			# code...
 
- 			$insertQueryRun = mysqli_query("INSERT INTO `infrastructure_support_info`(`s_no`, `student_no`, `books_availability`, `basic_requirements`, `technological_support`, `study_material`, `resource_availability`, `cleaniliness_of_class`) VALUES ('', '', '$availabilityOfBooks', '$basicRequirements', '$technologicalSupport', '$photocopyOfStudyMaterial', '$availabilityOfOtherResources', '$cleanlinessOfClass')", );
+ 			$insertQueryRun = mysqli_query($con, "INSERT INTO `infrastructure_support_info`(`s_no`, `student_no`, `books_availability`, `basic_requirements`, `technological_support`, `study_material`, `resource_availability`, `cleaniliness_of_class`) VALUES ('', '', '$availabilityOfBooks', '$basicRequirements', '$technologicalSupport', '$photocopyOfStudyMaterial', '$availabilityOfOtherResources', '$cleanlinessOfClass')", );
  			echo "<script type='javascript'> window.alert('Feedback successfully submitted!'); </script>";
  		}
  		else
