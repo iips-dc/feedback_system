@@ -196,8 +196,8 @@
                 </label>
               </div>
         </div></br>
-                                      
-        <div class="col-sm-offset-6"> <button type="button" class="btn btn-primary">Submit</button></div>    
+        <br>                            
+        <div class="col-sm-offset-6"> <input type="submit" class="btn btn-primary" value="Submit"></div>    
     </form>  
     <div class="footer">
       <div class="container">
