@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Academic Assessment</title>
+<link rel="stylesheet" href="../../assests/css/bootstrap/bootstrap.min.css">
+<style type="text/css">
+  
+
+   #name{
+         font-style: italic;
+     }
+     
+</style>
+</head>
+ 
+<body>
+
+<div class="panel panel-primary"> <!--Outermost panel-->
+    <div class="panel-title">   <!--class=panelheading-->
+        <div class="container">    <!--class=container-->
+            <div class="row">   <!--class=row-->
+               <div><img src="../../assests/img/iipsheader.png"></div>
+            </div> <!--closing of class=row-->
+        </div>     <!--closing of class=container-->
+    </div> <!--closing of class=panelheading--> 
+</div>  <!--closing of outermost panel-->
+
+<div class="panel panel-primary">
+        <div class="panel-heading">
+          <h2 class="text-center"><u>Academic Assessment</u></h2>
+        </div>
+</div>
+
+<div class="lead"> <!--this class is for font size-->
+    <div class="row">
+            <label class=" control-label col-sm-offset-2 col-sm-2" for="faculty">Faculty Name:</label>  
+                <div class=" col-sm-2 col-sm-2">
+                        <select id="company" class="form-control">
+                                       <option>Faculty1</option>
+                                       <option>Faculty2</option>
+                                       <option>Faculty3</option>
+                                       <option>Faculty4</option>
+                                       <option>Faculty5</option>
+                        </select> 
+                </div>
+
+            <label class=" control-label col-sm-offset-2 col-sm-2" for="faculty">Subject Code:</label>  
+                <div class=" col-sm-2 col-sm-2">
+                        <select id="company" class="form-control">
+                                       <option>Code1</option>
+                                       <option>Code2</option>
+                                       <option>Code3</option>
+                                       <option>Code4</option>
+                                       <option>Code5</option>
+                        </select> 
+                </div>
+    </div> </br>
+
+    <div class="container">
+        <h3><div class="panel-heading" id="name"><u>Faculty Assesment:</u></div></h3>  
+    </div>
+
+    <div class="panel-body"> <!--class=panel-body-->
+        <div class="container" id="A1">  <!--class=container-->
+            <strong class="col-lg-6">1.) Availability to bring conceptual clarity</strong>
+            <div class="col-sm-6">   <!--class=col-sm-6-->
+              <label class="radio-inline">
+                <input type="radio" name="conceptual_clarity" value="1" onClick="changeColour('a')">Very poor
+              </label>         
+              <label class="radio-inline">
+                <input type="radio" name="conceptual_clarity" value="2" onClick="changeColour('a')">Poor
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="conceptual_clarity" value="3" onClick="changeColour('a')">Good
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="conceptual_clarity" value="4" onClick="changeColour('a')">Average
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="conceptual_clarity" value="5" onClick="changeColour('a')">Excellent
+              </label>
+            </div> <!--closing of class=col-sm-6-->
+        </div>  <!--closing of class=container-->
+    </div>  <!--closing of class=panel-body-->
+
+    <div class="panel-body">  <!--class=panel-body--> 
+        <div class="container" id="A2"> <!--class=container-->
+             <strong class="col-lg-6">2.) Teacher's Subject Knowledge</strong>
+            <div class="col-sm-6">  <!--class=col-sm-6-->
+               <label class="radio-inline">
+                <input type="radio" name="subject_knowledge" value="1" onClick="changeColour('b')">Very poor
+               </label> 
+               <label class="radio-inline">
+                <input type="radio" name="subject_knowledge" value="2" onClick="changeColour('b')">Poor
+               </label>
+               <label class="radio-inline">
+                <input type="radio" name="subject_knowledge" value="3" onClick="changeColour('b')">Good
+               </label>
+               <label class="radio-inline">
+                <input type="radio" name="subject_knowledge" value="4" onClick="changeColour('b')">Average
+               </label>
+               <label class="radio-inline">
+                <input type="radio" name="subject_knowledge" value="5" onClick="changeColour('b')">Excellent
+               </label>
+            </div>  <!--closing of class=col-sm-6-->
+        </div> <!--closing of class=container-->
+    </div>  <!--closing of class=panel-body-->
+
+    <div class="panel-body">    <!--class=panel-body--> 
+        <div class="container" id="A3">      <!--class=container-->     
+            <strong class="col-lg-6">3.) Compliments theory with practical examples</strong>
+            <div class="col-sm-6" id="A3">   <!--class=col-sm-6-->
+                <label class="radio-inline">
+                <input type="radio" name="practicl_example" value="1" onClick="changeColour('c')">Very poor
+                </label> 
+                <label class="radio-inline">
+                <input type="radio" name="practicl_example" value="2" onClick="changeColour('c')">Poor
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="practicl_example" value="3" onClick="changeColour('c')">Good
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="practicl_example" value="4" onClick="changeColour('c')">Average
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="practicl_example" value="5" onClick="changeColour('c')">Excellent
+                </label>
+            </div>  <!--closing of class=col-sm-6-->
+        </div>   <!--closing of class=container-->
+    </div>  <!--closing of class=panel-body-->
+
+    <div class="panel-body">   <!--class=panel-body--> 
+        <div class="container" id="A4">   <!--class=container-->                                                    
+            <strong class="col-lg-6">4.) Handling of cases/ assignment/ exercises/ activities</strong>
+            <div class="col-sm-6">   <!--class=col-sm-6-->
+                <label class="radio-inline">
+                <input type="radio" name="practicl_example" value="1" onClick="changeColour('d')"> Very poor
+                </label> 
+                <label class="radio-inline">
+                <input type="radio" name="practicl_example" value="2" onClick="changeColour('d')">Poor
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="practicl_example" value="3" onClick="changeColour('d')">Good
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="practicl_example" value="4" onClick="changeColour('d')">Average
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="practicl_example" value="5" onClick="changeColour('d')">Excellent
+                </label>
+            </div> <!--closing of class=col-sm-6-->
+        </div>    <!--closing of class=container-->
+    </div>    <!--closing of class=panel-body-->
+
+    <div class="panel-body">   <!--class=panel-body-->                     
+        <div class="container" id="A5">  <!--class=container-->   
+            <strong class="col-lg-6">5.) Motivation Provided By Teacher</strong>
+            <div class="col-sm-6">   <!--class=col-sm-6-->
+                <label class="radio-inline">
+                <input type="radio" name="motivation" value="1" onClick="changeColour('e')">Very poor
+                </label> 
+                <label class="radio-inline">
+                <input type="radio" name="motivation" value="2" onClick="changeColour('e')">Poor
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="motivation" value="3" onClick="changeColour('e')">Good
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="motivation" value="4" onClick="changeColour('e')">Average
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="motivation" value="5" onClick="changeColour('e')">Excellent
+                </label>
+            </div>  <!--closing of class=col-sm-6-->
+        </div>   <!--closing of class=container-->
+    </div>    <!--closing of class=panel-body-->
+
+    <div class="panel-body">   <!--class=panel-body-->  
+        <div class="container" id="A6">  <!--class=container-->  
+              <strong class="col-lg-6">6.) Ability of control the class</strong>
+            <div class="col-sm-6"> <!--class=col-sm-6-->
+                <label class="radio-inline">
+                <input type="radio" name="control_ability" value="1" onClick="changeColour('f')">Very poor
+                </label> 
+                <label class="radio-inline">
+                <input type="radio" name="control_ability" value="2" onClick="changeColour('f')">Poor
+                </label>
+                <label class="radio-inline"> 
+                <input type="radio" name="control_ability" value="3" onClick="changeColour('f')">Good
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="control_ability" value="4" onClick="changeColour('f')">Average
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="control_ability" value="5" onClick="changeColour('f')">Excellent
+                </label>
+            </div>  <!--closing of class=col-sm-6-->
+        </div>   <!--closing of class=container-->
+    </div>   <!--closing of class=panel-body-->
+
+    <div class="panel-body">   <!--class=panel-body-->         
+        <div class="container" id="A7"> <!--class=container--> 
+            <strong class="col-lg-6">7.) Completion and coverage of course</strong>
+            <div class="col-sm-6">  <!--class=col-sm-6-->
+                <label class="radio-inline">
+                <input type="radio" name="course_completion" value="1" onClick="changeColour('g')">Very poor
+                </label> 
+                <label class="radio-inline">
+                <input type="radio" name="course_completion" value="2" onClick="changeColour('g')">Poor
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="course_completion" value="3" onClick="changeColour('g')">Good
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="course_completion" value="4" onClick="changeColour('g')">Average
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="course_completion" value="5" onClick="changeColour('g')">Excellent
+                </label>
+            </div>  <!--closing of class=col-sm-6-->
+        </div>    <!--closing of class=container-->
+    </div>   <!--closing of class=panel-body-->
+  
+    <div class="panel-body">   <!--class=panel-body-->       
+        <div class="container" id="A8">  <!--class=container-->  
+            <strong class="col-lg-6">8.) Teacher's communication of skill  </strong>
+            <div class="col-sm-6">  <!--class=col-sm-6-->
+                <label class="radio-inline">
+                <input type="radio" name="communication_skill" value="1" onClick="changeColour('h')">Very poor
+                </label> 
+                <label class="radio-inline">
+                <input type="radio" name="communication_skill"  value="2" onClick="changeColour('h')">Poor
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="communication_skill"  value="3" onClick="changeColour('h')">Good
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="communication_skill"  value="4" onClick="changeColour('h')">Average
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="communication_skill" value="5" onClick="changeColour('h')">Excellent
+                 </label>
+            </div>  <!--closing of class=col-sm-6-->
+        </div>  <!--closing of class=container-->
+    </div>   <!--closing of class=panel-body-->
+
+    <div class="panel-body">   <!--class=panel-body-->  
+        <div class="container" id="A9">  <!--class=container-->  
+             <strong class="col-lg-6">9.) Teacher's Regularity and Punctuality</strong>
+            <div class="col-sm-6">    <!--class=col-sm-6-->
+                <label class="radio-inline">
+                <input type="radio" name="regularity_punctuality" value="option1" onClick="changeColour('i')">Very poor
+                </label> 
+                <label class="radio-inline">
+                <input type="radio" name="regularity_punctuality" value="option2" onClick="changeColour('i')">Poor
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="regularity_punctuality" value="option3" onClick="changeColour('i')">Good
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="regularity_punctuality" value="option3" onClick="changeColour('i')">Average
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="regularity_punctuality" value="option3" onClick="changeColour('i')">Excellent
+                </label>
+            </div>  <!--closing of class=col-sm-6-->
+        </div>   <!--closing of class=container-->
+    </div>  <!--closing of class=panel-body-->
+
+    <div class="panel-body">   <!--class=panel-body-->   
+        <div class="container" id="A10">   <!--class=container-->  
+                 <strong class="col-lg-6">10.) Interaction and Guidance Outside the Classroom</strong>
+            <div class="col-sm-6">    <!--class=col-sm-6-->
+                <label class="radio-inline">
+                <input type="radio" name="outside_guidance" value="1" onClick="changeColour('j')">Very poor
+                </label> 
+                <label class="radio-inline">
+                <input type="radio" name="outside_guidance" value="2" onClick="changeColour('j')">Poor
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="outside_guidance"  value="3" onClick="changeColour('j')">Good
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="outside_guidance" value="4" onClick="changeColour('j')">Average
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="outside_guidance"  value="5" onClick="changeColour('j')">Excellent
+                </label>
+            </div>  <!--closing of class=col-sm-6-->
+        </div>   <!--closing of class=container-->
+    </div>  <!--closing of class=panel-body-->
+
+    <div class="panel panel-primary"></br> <!--outermost class-->
+        <div class="container">  <!--class=container-->
+                <label class="col-lg-6">Any Other Suggestions(Regarding Subject):</label>
+            <div class="col-sm-6">
+                <textarea rows="5" class="form-control" placeholder="Comments"></textarea>
+            </div>   <!--closing of col-sm-6 -->
+        </div></br>  <!--closing of class=container-->
+    </div> <!--closing of outermost class-->
+
+    <div class="panel-body">
+        <div class="container">
+           <h3><div class="panel-heading" id="name"><u>Course Assesment:</u></div></h3>  
+        </div>
+    </div>
+
+    <div class="panel-body">  <!--outermost class-->
+        <div class="container" id="C1"> <!--class=container-->
+                  <strong class="col-lg-6">1.) Relevance Of Syllabus As Per Industry Requirement</strong>
+            <div class="col-sm-6">
+                 <label class="radio-inline">
+                <input type="radio" name="syllabus_industry_relevance" value="1" onClick="changeColour('A')" >Very poor
+                </label> 
+                <label class="radio-inline"
+                <input type="radio" name="syllabus_industry_relevance" value="2" onClick="changeColour('A')">Poor
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="syllabus_industry_relevance" value="3" onClick="changeColour('A')">Good
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="syllabus_industry_relevance" value="4" onClick="changeColour('A')">Average
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="syllabus_industry_relevance" value="5" onClick="changeColour('A')">Excellent
+                 </label>
+            </div> <!--closing of col-sm-6 -->
+        </div>   <!--closing of class=container-->
+    </div>    <!--closing of outermost class-->
+
+    <div class="panel-body">  <!--outermost class-->                       
+        <div class="container" id="C2">  <!--class=container-->
+              <strong class="col-lg-6">2.) Sufficiency Of Course Content</strong>
+            <div class="col-sm-6">
+	            <label class="radio-inline">
+	            <input type="radio" name="sufficiency_of_course"  value="1" onClick="changeColour('B')"> Very poor
+	            </label> 
+	            <label class="radio-inline">
+	            <input type="radio" name="sufficiency_of_course"  value="2" onClick="changeColour('B')">Poor
+	            </label>
+	            <label class="radio-inline">
+	            <input type="radio" name="sufficiency_of_course"  value="3" onClick="changeColour('B')">Good
+	            </label>
+	            <label class="radio-inline">
+	            <input type="radio" name="sufficiency_of_course" value="4" onClick="changeColour('B')"> Average
+	            </label>
+	            <label class="radio-inline">
+	            <input type="radio" name="sufficiency_of_course"  value="5" onClick="changeColour('B')">Excellent
+	            </label>
+            </div>  <!--closing of col-sm-6 -->
+        </div>    <!--closing of class=container-->
+    </div>      <!--closing of outermost class-->
+
+    <div class="panel panel-primary"></br><!--outermost class-->   
+        <div class="container">         <!--class=container-->
+              <label class="col-lg-6">Any Other Suggestions(Regarding Subject):</label>
+            <div class="col-sm-6">
+                <textarea rows="5" class="form-control" placeholder="Comments"></textarea>  
+            </div>  <!--closing of col-sm-6 -->
+        </div></br>  <!--closing of class=container-->
+    <div class="col-md-offset-6"><button type="button" class="btn btn-primary">Submit</button></div></br>  
+</div>    <!--closing of outermost class-->
+
+<script>
+function changeColour(value, name)
+{
+    
+    switch(value)
+    {
+        case 'a':
+        	
+            color = "#D9F7BC";
+            document.getElementById("A1").style.backgroundColor = color;
+            document.getElementById("A1").style.color = "white";
+        break;
+        case 'b':
+            color = "#D9F7BC";
+            document.getElementById("A2").style.backgroundColor = color;
+            document.getElementById("A2").style.color = "white";
+        break;
+        case 'c':
+            color = "#D9F7BC";
+            document.getElementById("A3").style.backgroundColor = color;
+            document.getElementById("A3").style.color = "white";
+        break;
+         case 'd':
+            color = "#D9F7BC";
+            document.getElementById("A4").style.backgroundColor = color;
+            document.getElementById("A4").style.color = "white";
+        break;
+         case 'e':
+            color = "#D9F7BC";
+            document.getElementById("A5").style.backgroundColor = color;
+            document.getElementById("A5").style.color = "white";
+        break;
+         case 'f':
+            color = "#D9F7BC";
+            document.getElementById("A6").style.backgroundColor = color;
+             document.getElementById("A6").style.color = "white";
+        break;
+         case 'g':
+            color = "#D9F7BC";
+            document.getElementById("A7").style.backgroundColor = color;
+             document.getElementById("A7").style.color = "white";
+        break;
+         case 'h':
+            color = "#D9F7BC";
+            document.getElementById("A8").style.backgroundColor = color;
+             document.getElementById("A8").style.color = "white";
+        break;
+         case 'i':
+            color = "#D9F7BC";
+            document.getElementById("A9").style.backgroundColor = color;
+             document.getElementById("A9").style.color = "white";
+        break;
+         case 'j':
+            color = "#D9F7BC";
+            document.getElementById("A10").style.backgroundColor = color;
+             document.getElementById("A10").style.color = "white";
+        break;
+        case 'A':
+            color = "#D9F7BC";
+            document.getElementById("C1").style.backgroundColor = color;
+            document.getElementById("C1").style.color = "white";
+        break;
+        case 'B':
+            color = "#D9F7BC";
+            document.getElementById("C2").style.backgroundColor = color;
+            document.getElementById("C2").style.color = "white";
+        break;
+    }
+    
+}
+</script>
+
+<script src="../../assests/js/bootstrap.min.js"></script>
+</body>
+</html>
