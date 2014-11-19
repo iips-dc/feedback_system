@@ -1,12 +1,18 @@
-<?php session_start(); 
-
+<?php 
+session_start(); 
+include 'includes/login/connect.inc.php';
 /* variables from previous page */
 /* for storing data of registration.php */
 
 $referrer = $_SERVER['HTTP_REFERER']; 
-if(preg_match("/Registration2.php/",$referrer))
+if(preg_match("/registration2.php/",$referrer))
 	session_destroy();
 
+  
+    
+  
+    
+  
   $highschoolname=@$_SESSION['High_School_Name'];
   $yearofpassing10=@$_SESSION['Year_Of_Passing'] ;
   $highersecandryschoolname=@$_SESSION['Higher_Secondary_School_Name'];
@@ -18,6 +24,13 @@ if(preg_match("/Registration2.php/",$referrer))
   $section=@$_SESSION['Current_section'];
   $enrollmentnumber=@$_SESSION['Enrollment_Year'];
   $altemail=@$_SESSION['Alternate_Email'];
+
+
+  
+  
+  
+  
+
 
   $_SESSION['First_Name']=$_POST['firstname'];
   $_SESSION['Mid_name']=$_POST['midname'];
@@ -131,13 +144,13 @@ function digitsonly(e)
 												<div class="form-group">
 													<table border="0" class="table">
 														<tr>
-															<td style="width:200px"><label>High school Name</label></td>
+															<td style="width:200px"><label>High school Name<span style="color:#ff0000"> *</span></label></td>
 															<td>
 																<input required="required"  type="text" class="form-control" placeholder="Name of School" onkeypress="return onlyChars(event)" name="highschoolname" value ="<?php echo $highschoolname ;?>">
 															</td>
 														</tr>			
 														<tr>
-															<td><label>Year of passing</label></td>
+															<td><label>Year of passing<span style="color:#ff0000"> *</span></label></td>
 															<td><div class="row">
 																	<div class="col-xs-4">
 																		<input required="required"  type="text" class="form-control" placeholder="2010" onkeypress="return onlyNumbers(event)"  maxlength="4" name="yearofpassing10" value ="<?php echo $yearofpassing10 ;?>">
@@ -146,20 +159,26 @@ function digitsonly(e)
 															</td>
 														</tr> 		
 														<tr>
-															<td><label>Higher Secondary school Name</label></td>
-															<td><input required="required"  type="text" class="form-control" placeholder="Name of School" onkeypress="return onlyCharsn(event)" name="highersecandryschoolname" <?php echo $highersecandryschoolname ;?>"></td>
+															<td>
+																<label>Higher Secondary school Name
+																	<span style="color:#ff0000"> *</span>
+																</label>
+															</td>
+															<td>
+																<input required="required"  type="text" class="form-control" placeholder="Name of School" onkeypress="return onlyCharsn(event)" name="highersecandryschoolname" value="<?php echo $highersecandryschoolname ;?>">
+															</td>
 														</tr>  							
 														<tr>
-															<td><label>Year of passing</label></td>
+															<td><label>Year of passing <span style="color:#ff0000"> *</span></label></td>
 															<td><div class="row">
 																	<div class="col-xs-4">
 																		<input required="required"  type="text" class="form-control" placeholder="2010" onkeypress="return onlyNumbers(event)"  maxlength="4" name="yearofpassing12" value ="<?php echo $yearofpassing12 ;?>">
 																	</div>
-																</div>
+																
 															</td>
 														</tr> 
 													</table>
-										 
+												</div>
 										
 														
 													<center><h2>Academic Information</h2></center>
@@ -168,7 +187,7 @@ function digitsonly(e)
 													<table border="0" class="table">
 														
 														<tr>
-															<td  style="width:200px"><label>Enrollment Number</label></td>
+															<td  style="width:200px"><label>Enrollment Number<span style="color:#ff0000"> *</span></label></td>
 															<td>
 																<div class="row">
 																<div class="col-md-4"><input required="required"  type="text" class="form-control" placeholder="DE/11/****" name="enrollmentnumber" value ="<?php echo $enrollmentnumber ;?>"></div>
@@ -180,7 +199,7 @@ function digitsonly(e)
 														
 														
 														<tr>
-															<td><label>Roll Number</label></td>
+															<td><label>Roll Number<span style="color:#ff0000"> *</span></label></td>
 															<td><div class="row">
 																	<div class="col-md-4"><input required="required"  type="text" class="form-control" placeholder="IT-2K11-10" name="rollno" value ="<?php echo $rollno ;?>"></div>
 																</div>
@@ -189,7 +208,7 @@ function digitsonly(e)
 											
 														
 											
-														<tr><td><label>Course,Sem and Section</label></td>
+														<tr><td><label>Course,Sem and Section<span style="color:#ff0000"> *</span></label></td>
 															<td><div class="row">
 																	<div class="col-xs-4">
 																		<select onchange ="generate(this.value)" class="form-control" name="course" value ="<?php echo $course ;?>">
@@ -214,7 +233,7 @@ function digitsonly(e)
 															</td>
 														</tr> 
 											 
-														<tr><td><label>Enrollment year</label></td>
+														<tr><td><label>Enrollment year<span style="color:#ff0000"> *</span></label></td>
 															<td><div class="row">
 																	<div class="col-md-4"><input required="required"  type="text" class="form-control" placeholder="2012" onkeypress="return onlyNumbers(event)"  maxlength="4" name="enrollmentnumber" value ="<?php echo $enrollmentnumber ;?>"></div>
 																</div>
@@ -222,7 +241,7 @@ function digitsonly(e)
 														</tr>
 											
 														<tr><td><label>Alternate Email</label></td>
-															<td><input required="required"  type="email" class="form-control" id="inputEmail3" placeholder="Email" name="altemail" value ="<?php echo $altemail ;?>">
+															<td><input  type="email" class="form-control" id="inputEmail3" placeholder="Email" name="altemail" value ="<?php echo $altemail ;?>">
 															</td>
 														</tr>
 													</table>
