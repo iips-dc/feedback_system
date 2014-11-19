@@ -20,9 +20,71 @@
     $section = "A";
     //Query to find course id from course table using course name
     $courseIdQuery = mysqli_query($con, "SELECT `course_id` FROM `course` WHERE `course_name` = '$course'");
+    /*if($courseIdQuery)
+        echo "Success".$course;
+    else
+        echo "Failure";*/
     $courseRow = mysqli_fetch_array($courseIdQuery);
     $courseId = $courseRow['course_id'];
     echo $courseId;
+
+    if (isset($_POST['submit_feedback'])) 
+        {
+            # code...
+            echo "feedback submit";
+            $subjectId = $_POST['subject_code'];
+            $conceptualClearity = $_POST['conceptual_clearity'];
+            $subjectKnowledge = $_POST['subject_knowledge'];
+            $practicalExamples = $_POST['practical_example'];
+            $handlingCapability = $_POST['handling_capability'];
+            $motivation = $_POST['motivation'];
+            $controlAbility = $_POST['control_ability'];
+            $courseCompletion = $_POST['course_completion'];
+            $communicationSkill = $_POST['communication_skill'];
+            $regularityPunctuality = $_POST['regularity_punctuality'];
+            $outsideGuidance = $_POST['outside_guidance'];
+            $syllabusIndustryRelvance = $_POST['syllabus_industry_relevance'];
+            $sufficiencyOfCourse = $_POST['sufficiency_of_course'];
+            $suggestionForSubject = $_POST['suggestion_for_subject'];
+            $suggestionForCourse = $_POST['suggestion_for_course'];
+
+            /*if (!empty($conectualClearity) && !empty($subjectKnowledge) && !empty($practicalExamples) && !empty($handlingCapability) 
+                && !empty($motivation) && !empty($controlAbility) && !empty($courseCompletion) && !empty($communicationSkill)
+                && !empty($regularityPunctuality) && !empty($outsideGuidance) && !empty($syllabusIndustryRelvance) && !empty($sufficiencyOfCourse)
+                && !empty($suggestionForSubject) && !empty($suggestionForCourse)) 
+            {*/
+                # Query to find faculty id from time table using subject id 
+            $facultyIdQuery = mysqli_query($con, "SELECT `faculty_id` FROM `time_table` WHERE `subject_id` = '$subjectId'");
+            if($facultyIdQuery)
+                echo "Success";
+            else
+                echo "Failure";
+            /*$facultyRow = mysqli_fetch_array($facultyIdQuery);
+            $facultyId = $facultyRow['faculty_id'];
+            echo "faculty id = ".$facultyId."  ";*/
+
+            $insertQueryRun = mysqli_query($con, "INSERT INTO `academic_assessment_info`(`s_no`, `subject_id`, `faculty_id`, `conceptual_clarity`, `subject_knowledge`, `practical_example`, `handling_capability`, `motivation`, `control_ability`, `course_completion`, `communication_skill`, `regularity_punctuality`, `outside_guidance`, `syllabus_industry_relvance`, `sufficiency_of_course`, `suggestion_for_subject`, `suggestion_for_course`) 
+                                                VALUES ('' , '$subjectId', '$facultyId', '$conceptualClearity', '$subjectKnowledge', '$practicalExamples', '$handlingCapability', '$motivation', '$controlAbility', '$courseCompletion', '$communicationSkill', '$regularityPunctuality', '$outsideGuidance', '$syllabusIndustryRelvance', '$sufficiencyOfCourse', '$suggestionForSubject', '$suggestionForCourse')");
+            echo $insertQueryRun;
+            mysqli_query($con, "UPDATE `subject` SET `status` = 1 WHERE `subject_id` = '$subjectId'");
+            echo "no. of rows- ".$subjectRows;
+            
+            if ($subjectRows == 0) {
+                # code...
+                echo "final feedback submission";
+                mysqli_query($con, "UPDATE `subject` SET `status` = 0" );
+                echo "<script type='javascript'> window.alert('Feedback successfully submitted!'); </script>";
+            }
+            else {
+                echo "<script type='javascript'> window.alert('Feedback for ".$name." submitted, Press OK to submit next subject feedback.'); </script>";
+            }
+            header('Location: '.$_SERVER['PHP_SELF']);
+            /*}
+            else
+            {
+                echo "<script type='javascript'> window.alert('Please fill all the required fields.'); </script>";
+            }*/
+        }
 ?>
 
 <html>
@@ -255,19 +317,19 @@
                 <strong class="col-lg-6">9. Teacher's Regularity and Punctuality</strong>
                 <div class="col-sm-6">
                     <label class="radio-inline">
-                        <input type="radio" name="regularity_punctuality" required="required" value="option1" onClick="changeColour('i')">Very poor
+                        <input type="radio" name="regularity_punctuality" required="required" value="1" onClick="changeColour('i')">Very poor
                     </label> 
                     <label class="radio-inline">
-                        <input type="radio" name="regularity_punctuality" required="required" value="option2" onClick="changeColour('i')">Poor
+                        <input type="radio" name="regularity_punctuality" required="required" value="2" onClick="changeColour('i')">Poor
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="regularity_punctuality" required="required" value="option3" onClick="changeColour('i')">Good
+                        <input type="radio" name="regularity_punctuality" required="required" value="3" onClick="changeColour('i')">Good
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="regularity_punctuality" required="required" value="option3" onClick="changeColour('i')">Average
+                        <input type="radio" name="regularity_punctuality" required="required" value="4" onClick="changeColour('i')">Average
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="regularity_punctuality" required="required" value="option3" onClick="changeColour('i')">Excellent
+                        <input type="radio" name="regularity_punctuality" required="required" value="5" onClick="changeColour('i')">Excellent
                     </label>
                 </div>
             </div>
@@ -296,7 +358,7 @@
             <div class="container">
                 <label class="col-lg-6">Any Other Suggestions(Regarding Subject):</label>
                 <div class="col-sm-6">
-                   <textarea rows="5" class="form-control" placeholder="Comments"></textarea>
+                   <textarea rows="5" class="form-control" name="suggestion_for_subject" placeholder="Comments"></textarea>
                 </div>
             </div>
 
@@ -310,8 +372,8 @@
                     <label class="radio-inline">
                         <input type="radio" name="syllabus_industry_relevance" required="required" value="1" onClick="changeColour('A')" >Very poor
                     </label> 
-                    <label class="radio-inline"
-                        <input type="radio" name="syllabus_industry_relevance" required="required" value="2" onClick="changeColour('A')">Poor
+                    <label class="radio-inline">
+                        <input type="radio" name="syllabus_industry_relevance" required="required" value="2" onClick="changeColour('A')" >Poor
                     </label>
                     <label class="radio-inline">
                         <input type="radio" name="syllabus_industry_relevance" required="required" value="3" onClick="changeColour('A')">Good
@@ -349,7 +411,7 @@
             <div class="container">
                 <label class="col-lg-6">Any Other Suggestions(Regarding Subject):</label>
                  <div class="col-sm-6">
-                    <textarea rows="5" class="form-control" placeholder="Comments"></textarea>  
+                    <textarea rows="5" class="form-control" name="suggestion_for_course" placeholder="Comments"></textarea>  
                  </div>
             </div>
 
@@ -428,9 +490,9 @@
             # code...
             echo "feedback submit";
             $subjectId = $_POST['subject_code'];
-            $conectualClearity = $_POST['conceptual_clearity'];
+            $conceptualClearity = $_POST['conceptual_clearity'];
             $subjectKnowledge = $_POST['subject_knowledge'];
-            $practicalExamples = $_POST['practical_examples'];
+            $practicalExamples = $_POST['practical_example'];
             $handlingCapability = $_POST['handling_capability'];
             $motivation = $_POST['motivation'];
             $controlAbility = $_POST['control_ability'];
@@ -455,10 +517,11 @@
             echo "faculty id = ".$facultyId."  ";
 
             $insertQueryRun = mysqli_query($con, "INSERT INTO `academic_assessment_info`(`s_no`, `subject_id`, `faculty_id`, `conceptual_clarity`, `subject_knowledge`, `practical_example`, `handling_capability`, `motivation`, `control_ability`, `course_completion`, `communication_skill`, `regularity_punctuality`, `outside_guidance`, `syllabus_industry_relvance`, `sufficiency_of_course`, `suggestion_for_subject`, `suggestion_for_course`) 
-                VALUES ('', '$subjectId', '$facultyId', '$conectualClearity', '$subjectKnowledge', '$practicalExamples', '$handlingCapability', '$motivation', '$controlAbility', 'courseCompletion', '$communicationSkill', 'regularityPunctuality', '$outsideGuidance', '$syllabusIndustryRelvance', '$sufficiencyOfCourse', '$suggestionForSubject', '$suggestionForCourse')");
+                                                VALUES ('' , '$subjectId', '$facultyId', '$conceptualClearity', '$subjectKnowledge', '$practicalExamples', '$handlingCapability', '$motivation', '$controlAbility', '$courseCompletion', '$communicationSkill', '$regularityPunctuality', '$outsideGuidance', '$syllabusIndustryRelvance', '$sufficiencyOfCourse', '$suggestionForSubject', '$suggestionForCourse')");
             echo $insertQueryRun;
             mysqli_query($con, "UPDATE `subject` SET `status` = 1 WHERE `subject_id` = '$subjectId'");
             echo "update query for subject status";
+
             if ($subjectRows == 0) {
                 # code...
                 echo "final feedback submission";

@@ -13,12 +13,12 @@
     if (isset($_POST['infrastructure_feedback_submit'])) {
         # code...
         echo "set";
-        $availabilityOfBooks = $_POST['availability_of_books'];
+        $availabilityOfBooks = $_POST['books_availability'];
         $basicRequirements = $_POST['basic_requirements'];
         $technologicalSupport = $_POST['technological_support'];
-        $photocopyOfStudyMaterial = $_POST['photocopy_of_study_material'];
-        $availabilityOfOtherResources = $_POST['availability_of_other_resources'];
-        $cleanlinessOfClass = $_POST['cleanliness_of_class'];
+        $photocopyOfStudyMaterial = $_POST['study_material'];
+        $availabilityOfOtherResources = $_POST['resourse_availability'];
+        $cleanlinessOfClass = $_POST['cleaniliness_of_class'];
 
         //if (!empty($availabilityOfbooks) && !empty($basicRequirements) && !empty($technologicalSupport) && !empty($photocopyOfStudyMaterial) && !empty($availabilityOfOtherResources) && !empty($cleanlinessOfClass)) {
             # code...
@@ -197,7 +197,7 @@
               </div>
         </div></br>
         <br>                            
-        <div class="col-sm-offset-6"> <input type="submit" class="btn btn-primary" value="Submit"></div>    
+        <div class="col-sm-offset-6"> <input type="submit" class="btn btn-primary" name="infrastructure_feedback_submit" value="Submit"></div>    
     </form>  
     <div class="footer">
       <div class="container">
