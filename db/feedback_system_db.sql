@@ -1,9 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
-
+-- Generation Time: Nov 19, 2014 at 12:18 PM
+-- Server version: 5.5.40
+-- PHP Version: 5.3.10-1ubuntu3.15
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `feedback_system_db`
 --
-CREATE DATABASE `feedback_system_db` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `feedback_system_db`;
 
 -- --------------------------------------------------------
 
@@ -179,9 +179,7 @@ INSERT INTO `faculty_table` (`User_Id`, `name`, `Qualification`, `DOB`, `Email`,
 (105390, 'Mr.Naresh Dembla', 'B.E, MBA, ME(comp. Eng) , Ph.D(Pursuing)', '0000-00-00', ' nareshdembla@gmail.com', 'Management', 'Batch Facilitator', 'Lecturer', '', '', '', 2, 1),
 (105391, 'Ms.Shraddha Soni', 'MCA', '0000-00-00', ' so_shraddha4@yahoo.co.in', 'Computer', 'Batch Facilitator', 'Lecturer', '', '', '', 2, 1),
 (105392, 'Ms.Kirti Vijayvargiya', 'MCA,UGC-NET(CS)', '0000-00-00', 'keerti_vijay@rediffmail.com', 'Computer', 'Batch Facilitator', 'Lecturer', '', '', '', 2, 1),
-
-(105393, 'Mr.Pradeep K. Jatav', 'B.Sc(Statistics),	MCA', '0000-00-00', 'p.jatav84@gmail.com', 'Computer', 'Batch Facilitator', 'Lecturer', '', 'Computer science', '9713038949', 2, 1),
-
+(105393, 'Mr.Pradeep K. Jatav', 'B.Sc(Statistics),  MCA', '0000-00-00', 'p.jatav84@gmail.com', 'Computer', 'Batch Facilitator', 'Lecturer', '', 'Computer science', '9713038949', 2, 1),
 (105394, 'Mr.Imroz Khan', 'B.E.(Electronics)', '1977-02-10', 'imroz@iips.edu.in', 'TPO', 'TPO', 'Software Engineer, P', 'M', 'Software Engineering, e-Governance and Process re-', '91-731-2468507', 2, 1),
 (105395, 'Mr.Yogendra Bawal', 'M.Sc.(Electronics. & Communication)\r<br>CCNA,', '0000-00-00', 'ybawal@yahoo.com', 'AO', 'Administrative Officer', 'Network Administrato', '', '', ' 2461888', 2, 1),
 (105396, 'Mr.Basant Namdeo', 'MCA', '0000-00-00', 'basant_nd@yahoo.com', 'Computer', 'Batch Facilitator', 'Lecturer', '', 'Application Development, Database Design, Web Appl', '', 2, 1),
@@ -329,7 +327,7 @@ CREATE TABLE IF NOT EXISTS `infrastructure_support_info` (
   `resource_availability` int(11) NOT NULL COMMENT 'it holds the information about the availability of other resources like internet, computers',
   `cleaniliness_of_class` int(11) NOT NULL COMMENT 'it holds information about the cleaniliness in the classroom',
   PRIMARY KEY (`s_no`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='infrastructure_support_info table collects information about infrastructure' AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='infrastructure_support_info table collects information about infrastructure' AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `infrastructure_support_info`
@@ -337,7 +335,14 @@ CREATE TABLE IF NOT EXISTS `infrastructure_support_info` (
 
 INSERT INTO `infrastructure_support_info` (`s_no`, `books_availability`, `basic_requirements`, `technological_support`, `study_material`, `resource_availability`, `cleaniliness_of_class`) VALUES
 (1, 0, 0, 0, 0, 0, 0),
-(2, 0, 0, 0, 0, 0, 0);
+(2, 0, 0, 0, 0, 0, 0),
+(3, 0, 0, 0, 0, 0, 0),
+(4, 2, 2, 2, 2, 2, 2),
+(5, 5, 5, 5, 5, 5, 5),
+(6, 4, 4, 3, 3, 5, 3),
+(7, 4, 5, 4, 5, 4, 5),
+(8, 1, 1, 1, 1, 1, 1),
+(9, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -361,9 +366,24 @@ CREATE TABLE IF NOT EXISTS `student_info` (
   `Alternate_Email` varchar(30) NOT NULL,
   PRIMARY KEY (`s_no`),
   KEY `student_no` (`student_no`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+--
+-- Dumping data for table `student_info`
+--
 
+INSERT INTO `student_info` (`s_no`, `student_no`, `High_School_Name`, `Year_Of_Passing`, `Higher_Secondary_School_Name`, `Year_Of_Passing1`, `Enrollment_Number`, `Roll_Number`, `Current_Course`, `Current_Sem`, `Current_section`, `Enrollment_Year`, `Alternate_Email`) VALUES
+(1, 1, 'asd', 2344, 'werrwesd', 2344, '3242', 'sdafsad', 'M.Tech', 1, '-', 3242, 'sdfsdf@dtfd.dgdsa'),
+(2, 1, 'asd', 2344, 'ertrry', 2344, '3242', 'sdafsad', 'Select Course', 0, '-', 3242, 'sdfsdf@dtfd.dgdsa'),
+(3, 1, 'asd', 2344, 'dfgf', 2344, '3242', 'sdafsad', 'M.Tech', 1, '-', 3242, 'sdfsdf@dtfd.dgdsa'),
+(4, 4, 'erweq', 2344, 'fdghfdhdf', 2344, '3534', 'rfhfg', 'M.Tech', 1, '-', 3534, 'eert@ds.gjgf'),
+(5, 4, 'erweq', 2344, 'trdhf', 2344, '3534', 'rfhfg', 'Select Course', 0, '-', 3534, 'eert@ds.gjgf'),
+(6, 4, 'erweq', 2344, 'rfghtr', 2344, '3534', 'rfhfg', 'MCA', 5, 'A', 3534, 'eert@ds.gjgf'),
+(7, 4, '', 0, '', 0, '', '', '', 0, '-', 0, ''),
+(8, 4, 'erweq', 2344, 'gsddf', 2344, '3534', 'rfhfg', 'M.Tech', 1, '-', 3534, 'eert@ds.gjgf'),
+(9, 4, 'dfg', 3453, 'fdgdfg', 3453, '4353', 'dfgdf', 'M.Tech', 2, '-', 4353, 'dgr@dsff.gfjgf'),
+(10, 10, 'eferter', 3453, 'efdfgdsdf', 3453, '5634', 'erterter', 'M.Tech', 3, '-', 5634, 'eraae@FSDF.FDGDF'),
+(11, 11, 'xcxcv', 5465, 'xxcvxcv', 5465, '5435', 'IC-2k11-66', 'M.Tech', 1, '-', 5435, 'Rajeeat@garg.cos');
 
 -- --------------------------------------------------------
 
@@ -377,6 +397,7 @@ CREATE TABLE IF NOT EXISTS `subject` (
   `name_of_subject` varchar(50) NOT NULL,
   `semester` int(20) NOT NULL,
   `credits` int(10) NOT NULL COMMENT 'credits of that particular subjects',
+  `status` int(1) NOT NULL,
   PRIMARY KEY (`subject_id`),
   KEY `subject_id` (`subject_id`),
   KEY `course_id` (`course_id`)
@@ -386,85 +407,85 @@ CREATE TABLE IF NOT EXISTS `subject` (
 -- Dumping data for table `subject`
 --
 
-INSERT INTO `subject` (`subject_id`, `course_id`, `name_of_subject`, `semester`, `credits`) VALUES
-('IC-101A', 'IC', 'Mathematics-I', 1, 0),
-('IC-103A', 'IC', 'Physics-I', 1, 0),
-('IC-104B', 'IC', 'Fundamental of Programming using C', 1, 0),
-('IC-105A', 'IC', 'Computer Fundamentals', 1, 0),
-('IC-106C', 'IC', 'English & Communicative Skills', 1, 0),
-('IC-107D', 'IC', 'C-Programming Lab', 1, 0),
-('IC-108', 'IC', 'Comprehensive Viva', 1, 0),
-('IC-1104', 'IC', 'Comprehensive Viva', 11, 0),
-('IC-1105', 'IC', 'VLSI  Design', 11, 0),
-('IC-1107A', 'IC', 'Research in Computing', 11, 0),
-('IC-1108', 'IC', 'Mobile & Wireless Computing', 11, 0),
-('IC-1109A', 'IC', 'Data Mining & warehousing', 11, 0),
-('IC-110A', 'IC', 'PC Software Lab', 1, 0),
-('IC-301', 'IC', 'Mathematics-III', 3, 0),
-('IC-302', 'IC', 'Chemistry & Environmental Science', 3, 0),
-('IC-304A', 'IC', 'Digital Electronics', 3, 0),
-('IC-305', 'IC', 'Data Structure & Algorithms', 3, 0),
-('IC-306', 'IC', 'Digital Computer Organization', 3, 0),
-('IC-307 ', 'IC', 'DS & Algorithm Lab', 3, 0),
-('IC-309', 'IC', 'Comprehensive Viva', 3, 0),
-('IC-310C', 'IC', 'Digital Elex Lab', 3, 0),
-('IC-501A', 'IC', 'Accounting & Financial Management - II', 5, 0),
-('IC-502A', 'IC', 'Microprocessor & Assembly Language', 5, 0),
-('IC-503', 'IC', 'Computer Graphics', 5, 0),
-('IC-504A', 'IC', 'System Programming', 5, 0),
-('IC-507D', 'IC', 'Computer Lab ', 5, 0),
-('IC-508B', 'IC', 'Elex Lab', 5, 0),
-('IC-509', 'IC', 'Comprehensive Viva', 5, 0),
-('IC-512A', 'IC', 'Numerical Analysis & Design', 5, 0),
-('IC-701', 'IC', 'Computer Architecture', 7, 0),
-('IC-702', 'IC', 'Linear Systems', 7, 0),
-('IC-703', 'IC', 'Discrete Structure', 7, 0),
-('IC-705A', 'IC', 'Operating System', 7, 0),
-('IC-707', 'IC', 'Comprehensive Viva', 7, 0),
-('IC-708', 'IC', 'Bio-Informatics', 7, 0),
-('IC-901', 'IC', 'Theory of Computation', 9, 0),
-('IC-905A', 'IC', 'Object Oriented Analysis & Design', 9, 0),
-('IC-906', 'IC', 'Comprehensive Viva', 9, 0),
-('IC-907A-B1', 'IC', 'Project ', 9, 0),
-('IC-907A-B2', 'IC', 'Project', 9, 0),
-('IC-910', 'IC', 'Managerial Economics', 9, 0),
-('IC-911', 'IC', 'Software Testing & Quality Assurance', 9, 0),
-('IT-101', 'IT', 'Mathematics-1', 1, 5),
-('IT-102', 'IT', 'Statistical Methods-1', 1, 5),
-('IT-103', 'IT', 'Physics', 1, 5),
-('IT-104', 'IT', 'C-Programming', 1, 5),
-('IT-105', 'IT', 'PC-Software', 1, 5),
-('IT-106', 'IT', 'Communicative English', 1, 5),
-('IT-107', 'IT', 'C- Programming Lab', 1, 5),
-('IT-108', 'IT', 'Comprehensive Viva', 1, 5),
-('IT-109', 'IT', 'PC s/w Lab', 1, 5),
-('IT-301', 'IT', 'Linear Algebra', 3, 0),
-('IT-302', 'IT', 'Internet Tools', 3, 0),
-('IT-303', 'IT', 'Digital Electronics', 3, 0),
-('IT-304', 'IT', 'Data Structures with C++', 3, 0),
-('IT-305', 'IT', 'Engineering Drawing', 3, 0),
-('IT-306', 'IT', 'Comp Lab', 3, 0),
-('IT-307', 'IT', 'Elex Lab', 3, 0),
-('IT-308', 'IT', 'Comprehensive Viva', 3, 0),
-('IT-501A', 'IT', 'Accounting & Financial Management - II', 5, 0),
-('IT-503A', 'IT', 'Computer Graphics & Multimedia', 5, 0),
-('IT-504', 'IT', 'System Programming', 5, 0),
-('IT-506', 'IT', 'Numerical Analysis & Design', 5, 0),
-('IT-508C', 'IT', 'Computer Lab', 5, 0),
-('IT-508D', 'IT', 'Elex Lab', 5, 0),
-('IT-509', 'IT', 'Comprehensive Viva', 5, 0),
-('IT-701', 'IT', 'Computer Architecture', 7, 0),
-('IT-702', 'IT', 'Linear System', 7, 0),
-('IT-703', 'IT', 'Discrete Structures', 7, 0),
-('IT-705A', 'IT', 'Operating System', 7, 0),
-('IT-708', 'IT', 'Bio Informatics', 7, 0),
-('IT-901A', 'IT', 'Principles of Optimization', 9, 0),
-('IT-902A', 'IT', 'Component Technology', 9, 0),
-('IT-907', 'IT', 'Artificial Intelligence', 9, 0),
-('IT-908A', 'IT', 'Object Oriented Analysis & Design', 9, 0),
-('IT-911', 'IT', 'Project', 9, 0),
-('IT906', 'IT', 'Comprehensive Viva', 9, 0),
-('IT–510', 'IT', 'Micro Processor & Assembly Language', 5, 0);
+INSERT INTO `subject` (`subject_id`, `course_id`, `name_of_subject`, `semester`, `credits`, `status`) VALUES
+('IC-101A', 'IC', 'Mathematics-I', 1, 0, 0),
+('IC-103A', 'IC', 'Physics-I', 1, 0, 0),
+('IC-104B', 'IC', 'Fundamental of Programming using C', 1, 0, 0),
+('IC-105A', 'IC', 'Computer Fundamentals', 1, 0, 0),
+('IC-106C', 'IC', 'English & Communicative Skills', 1, 0, 0),
+('IC-107D', 'IC', 'C-Programming Lab', 1, 0, 0),
+('IC-108', 'IC', 'Comprehensive Viva', 1, 0, 0),
+('IC-1104', 'IC', 'Comprehensive Viva', 11, 0, 0),
+('IC-1105', 'IC', 'VLSI  Design', 11, 0, 0),
+('IC-1107A', 'IC', 'Research in Computing', 11, 0, 0),
+('IC-1108', 'IC', 'Mobile & Wireless Computing', 11, 0, 0),
+('IC-1109A', 'IC', 'Data Mining & warehousing', 11, 0, 0),
+('IC-110A', 'IC', 'PC Software Lab', 1, 0, 0),
+('IC-301', 'IC', 'Mathematics-III', 3, 0, 0),
+('IC-302', 'IC', 'Chemistry & Environmental Science', 3, 0, 0),
+('IC-304A', 'IC', 'Digital Electronics', 3, 0, 0),
+('IC-305', 'IC', 'Data Structure & Algorithms', 3, 0, 0),
+('IC-306', 'IC', 'Digital Computer Organization', 3, 0, 0),
+('IC-307 ', 'IC', 'DS & Algorithm Lab', 3, 0, 0),
+('IC-309', 'IC', 'Comprehensive Viva', 3, 0, 0),
+('IC-310C', 'IC', 'Digital Elex Lab', 3, 0, 0),
+('IC-501A', 'IC', 'Accounting & Financial Management - II', 5, 0, 0),
+('IC-502A', 'IC', 'Microprocessor & Assembly Language', 5, 0, 0),
+('IC-503', 'IC', 'Computer Graphics', 5, 0, 0),
+('IC-504A', 'IC', 'System Programming', 5, 0, 0),
+('IC-507D', 'IC', 'Computer Lab ', 5, 0, 0),
+('IC-508B', 'IC', 'Elex Lab', 5, 0, 0),
+('IC-509', 'IC', 'Comprehensive Viva', 5, 0, 0),
+('IC-512A', 'IC', 'Numerical Analysis & Design', 5, 0, 0),
+('IC-701', 'IC', 'Computer Architecture', 7, 0, 0),
+('IC-702', 'IC', 'Linear Systems', 7, 0, 0),
+('IC-703', 'IC', 'Discrete Structure', 7, 0, 0),
+('IC-705A', 'IC', 'Operating System', 7, 0, 0),
+('IC-707', 'IC', 'Comprehensive Viva', 7, 0, 0),
+('IC-708', 'IC', 'Bio-Informatics', 7, 0, 0),
+('IC-901', 'IC', 'Theory of Computation', 9, 0, 0),
+('IC-905A', 'IC', 'Object Oriented Analysis & Design', 9, 0, 0),
+('IC-906', 'IC', 'Comprehensive Viva', 9, 0, 0),
+('IC-907A-B1', 'IC', 'Project ', 9, 0, 0),
+('IC-907A-B2', 'IC', 'Project', 9, 0, 0),
+('IC-910', 'IC', 'Managerial Economics', 9, 0, 0),
+('IC-911', 'IC', 'Software Testing & Quality Assurance', 9, 0, 0),
+('IT-101', 'IT', 'Mathematics-1', 1, 5, 0),
+('IT-102', 'IT', 'Statistical Methods-1', 1, 5, 0),
+('IT-103', 'IT', 'Physics', 1, 5, 0),
+('IT-104', 'IT', 'C-Programming', 1, 5, 0),
+('IT-105', 'IT', 'PC-Software', 1, 5, 0),
+('IT-106', 'IT', 'Communicative English', 1, 5, 0),
+('IT-107', 'IT', 'C- Programming Lab', 1, 5, 0),
+('IT-108', 'IT', 'Comprehensive Viva', 1, 5, 0),
+('IT-109', 'IT', 'PC s/w Lab', 1, 5, 0),
+('IT-301', 'IT', 'Linear Algebra', 3, 0, 0),
+('IT-302', 'IT', 'Internet Tools', 3, 0, 0),
+('IT-303', 'IT', 'Digital Electronics', 3, 0, 0),
+('IT-304', 'IT', 'Data Structures with C++', 3, 0, 0),
+('IT-305', 'IT', 'Engineering Drawing', 3, 0, 0),
+('IT-306', 'IT', 'Comp Lab', 3, 0, 0),
+('IT-307', 'IT', 'Elex Lab', 3, 0, 0),
+('IT-308', 'IT', 'Comprehensive Viva', 3, 0, 0),
+('IT-501A', 'IT', 'Accounting & Financial Management - II', 5, 0, 0),
+('IT-503A', 'IT', 'Computer Graphics & Multimedia', 5, 0, 0),
+('IT-504', 'IT', 'System Programming', 5, 0, 0),
+('IT-506', 'IT', 'Numerical Analysis & Design', 5, 0, 0),
+('IT-508C', 'IT', 'Computer Lab', 5, 0, 0),
+('IT-508D', 'IT', 'Elex Lab', 5, 0, 0),
+('IT-509', 'IT', 'Comprehensive Viva', 5, 0, 0),
+('IT-701', 'IT', 'Computer Architecture', 7, 0, 0),
+('IT-702', 'IT', 'Linear System', 7, 0, 0),
+('IT-703', 'IT', 'Discrete Structures', 7, 0, 0),
+('IT-705A', 'IT', 'Operating System', 7, 0, 0),
+('IT-708', 'IT', 'Bio Informatics', 7, 0, 0),
+('IT-901A', 'IT', 'Principles of Optimization', 9, 0, 0),
+('IT-902A', 'IT', 'Component Technology', 9, 0, 0),
+('IT-907', 'IT', 'Artificial Intelligence', 9, 0, 0),
+('IT-908A', 'IT', 'Object Oriented Analysis & Design', 9, 0, 0),
+('IT-911', 'IT', 'Project', 9, 0, 0),
+('IT906', 'IT', 'Comprehensive Viva', 9, 0, 0),
+('IT–510', 'IT', 'Micro Processor & Assembly Language', 5, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -492,7 +513,6 @@ CREATE TABLE IF NOT EXISTS `time_table` (
   KEY `batch_id` (`batch_id`),
   KEY `section_2` (`section`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=92 ;
-
 
 --
 -- Dumping data for table `time_table`
@@ -588,12 +608,6 @@ INSERT INTO `time_table` (`s_no`, `course_id`, `subject_id`, `faculty_id`, `batc
 -- Table structure for table `user_master`
 --
 
--- Dumping data for table `time_table`
---
---
--- Table structure for table `user_master`
---
-
 CREATE TABLE IF NOT EXISTS `user_master` (
   `student_no` int(255) NOT NULL AUTO_INCREMENT COMMENT 'The unique student number',
   `First_Name` text NOT NULL,
@@ -614,50 +628,49 @@ CREATE TABLE IF NOT EXISTS `user_master` (
   `Type` text NOT NULL COMMENT 'This is type of user like student, faculty , staff, alumni, admin',
   `Status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Status of user whether he is active(1) in the system or not(0). ',
   PRIMARY KEY (`student_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table includes basic info of each user exist/left in the system.' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='This table includes basic info of each user exist/left in the system.' AUTO_INCREMENT=12 ;
 
-/*
-Constraints for dumped tables
+--
+-- Dumping data for table `user_master`
+--
 
+INSERT INTO `user_master` (`student_no`, `First_Name`, `Mid_name`, `Last_Name`, `Father_Name`, `Mother_Name`, `Bmonth`, `Bdate`, `Byear`, `Gender`, `Category`, `Mobile_Number`, `Telephone_Number`, `Email`, `Current_Address`, `Permanent_Address`, `Type`, `Status`) VALUES
+(1, 'Rajat', 'Garg', 'ljlk', 'jkljlk', 'lbv', 'January', 1, '1950', 'Male', 'General', '1212211212', '2121212121', 'rgs@buu.fggfjartbvsa', 'jkhhjkhkhh', 'jhjkhjhhhk', 'student', 1),
+(2, 'Rajat', 'Garg', 'ljlk', 'jkljlk', 'lbv', 'January', 1, '1950', 'Male', 'General', '1212211212', '2121212121', 'rgs@buu.fggfjartbvsa', 'jkhhjkhkhh', 'jhjkhjhhhk', 'student', 1),
+(3, 'Rajat', 'Garg', 'ljlk', 'jkljlk', 'lbv', 'January', 1, '1950', 'Male', 'General', '1212211212', '2121212121', 'rgs@buu.fggfjartbvsa', 'jkhhjkhkhh', 'jhjkhjhhhk', 'student', 1),
+(4, 'Rajat', 'Garg', 'ljlk', 'jkljlk', 'lbv', 'January', 1, '1950', 'Male', 'General', '1212211212', '2121212121', 'rgs@buu.fggfjartbvsadf', 'jkhhjkhkhh', 'jhjkhjhhhk', 'student', 1),
+(5, 'Rajat', 'Garg', 'ljlk', 'jkljlk', 'lbv', 'January', 1, '1950', 'Male', 'General', '1212211212', '2121212121', 'rgs@buu.fggfjartbvsadf', 'jkhhjkhkhh', 'jhjkhjhhhk', 'student', 1),
+(6, 'Rajat', 'Garg', 'ljlk', 'jkljlk', 'lbv', 'January', 1, '1950', 'Male', 'General', '1212211212', '2121212121', 'rgs@buu.fggfjartbvsadf', 'jkhhjkhkhh', 'jhjkhjhhhk', 'student', 1),
+(7, 'Rajat', 'Garg', 'ljlk', 'jkljlk', 'lbv', 'January', 1, '1950', 'Male', 'General', '1212211212', '2121212121', 'rgs@buu.fggfjartbvsadf', 'jkhhjkhkhh', 'jhjkhjhhhk', 'student', 1),
+(8, 'Rajat', 'Garg', 'ljlk', 'jkljlk', 'lbv', 'January', 1, '1950', 'Male', 'General', '1212211212', '2121212121', 'rgs@buu.fggfjartbvsadf', 'jkhhjkhkhh', 'jhjkhjhhhk', 'student', 1),
+(9, 'Rajat', 'Garg', 'ljlk', 'jkljlk', 'lbv', 'January', 1, '1950', 'Male', 'General', '1212211212', '2121212121', 'rgs@buu.fggfjartbvsadf', 'jkhhjkhkhh', 'jhjkhjhhhk', 'student', 1),
+(10, 'Rajat', 'Garg', 'ljlk', 'jkljlk', 'lbv', 'January', 1, '1950', 'Male', 'General', '1212211212', '2121212121', 'rgs@buu.fggfjartbvsadfwere', 'jkhhjkhkhh', 'jhjkhjhhhk', 'student', 1),
+(11, 'hh', 'jhk', 'j', 'jk', 'j', 'January', 1, '1950', 'Male', 'General', '3464564564', '45645645645', 'rgr@buu.fggfjart', 'xcv', 'xcv', 'student', 1);
 
+--
+-- Constraints for dumped tables
+--
 
-
-Constraints for table `batch`
-
+--
+-- Constraints for table `batch`
+--
 ALTER TABLE `batch`
- ADD CONSTRAINT `pro_cat_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`);
+  ADD CONSTRAINT `pro_cat_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`);
 
-
-Constraints for table `student_info`
-
-ALTER TABLE `student_info`
- ADD CONSTRAINT `user_master_student_no` FOREIGN KEY (`student_no`) REFERENCES `user_master` (`student_no`);
-
-
-Constraints for table `subject`
-
-
-
-Constraints for table `student_info`
-
-ALTER TABLE `student_info`
- ADD CONSTRAINT `user_master_student_no` FOREIGN KEY (`student_no`) REFERENCES `user_master` (`student_no`);
-
-
-Constraints for table `subject`
-
-
+--
+-- Constraints for table `subject`
+--
 ALTER TABLE `subject`
- ADD CONSTRAINT `c_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`);
+  ADD CONSTRAINT `c_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`);
 
-
-Constraints for table `time_table`
-
+--
+-- Constraints for table `time_table`
+--
 ALTER TABLE `time_table`
- ADD CONSTRAINT `batch_batch_id` FOREIGN KEY (`batch_id`) REFERENCES `batch` (`batch_id`),
- ADD CONSTRAINT `course_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
- ADD CONSTRAINT `faculty_table_user_id` FOREIGN KEY (`faculty_id`) REFERENCES `faculty_table` (`User_Id`),
- ADD CONSTRAINT `subject_subject_id` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`subject_id`);*/
+  ADD CONSTRAINT `batch_batch_id` FOREIGN KEY (`batch_id`) REFERENCES `batch` (`batch_id`),
+  ADD CONSTRAINT `course_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
+  ADD CONSTRAINT `faculty_table_user_id` FOREIGN KEY (`faculty_id`) REFERENCES `faculty_table` (`User_Id`),
+  ADD CONSTRAINT `subject_subject_id` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`subject_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
