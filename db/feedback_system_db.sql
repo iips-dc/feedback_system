@@ -663,24 +663,24 @@ INSERT INTO `user_master` (`student_no`, `First_Name`, `Mid_name`, `Last_Name`, 
 (10, 'Rajat', 'Garg', 'ljlk', 'jkljlk', 'lbv', 'January', 1, '1950', 'Male', 'General', '1212211212', '2121212121', 'rgs@buu.fggfjartbvsadfwere', 'jkhhjkhkhh', 'jhjkhjhhhk', 'student', 1),
 (11, 'hh', 'jhk', 'j', 'jk', 'j', 'January', 1, '1950', 'Male', 'General', '3464564564', '45645645645', 'rgr@buu.fggfjart', 'xcv', 'xcv', 'student', 1);
 
---
--- Constraints for dumped tables
---
+/*
+Constraints for dumped tables
 
---
--- Constraints for table `subject`
---
---ALTER TABLE `subject`
---  ADD CONSTRAINT `c_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`);
 
---
--- Constraints for table `time_table`
---
---ALTER TABLE `time_table`
-  --ADD CONSTRAINT `batch_batch_id` FOREIGN KEY (`batch_id`) REFERENCES `batch` (`batch_id`),
-  --ADD CONSTRAINT `course_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
-  --ADD CONSTRAINT `faculty_table_user_id` FOREIGN KEY (`faculty_id`) REFERENCES `faculty_table` (`User_Id`),
-  --ADD CONSTRAINT `subject_subject_id` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`subject_id`);
+
+Constraints for table `subject`
+
+ALTER TABLE `subject`
+ ADD CONSTRAINT `c_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`);
+
+
+Constraints for table `time_table`
+
+ALTER TABLE `time_table`
+  ADD CONSTRAINT `batch_batch_id` FOREIGN KEY (`batch_id`) REFERENCES `batch` (`batch_id`),
+  ADD CONSTRAINT `course_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
+  ADD CONSTRAINT `faculty_table_user_id` FOREIGN KEY (`faculty_id`) REFERENCES `faculty_table` (`User_Id`),
+  ADD CONSTRAINT `subject_subject_id` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`subject_id`);*/
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
