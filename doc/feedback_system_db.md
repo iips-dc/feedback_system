@@ -21,6 +21,7 @@ Adding the supplementary table for feedback but are main table for other modules
 7. FACULTY TABLE
 8. USER MASTER TABLE
 9. STUDENT INFO TABLE
+10. FEEDBACK STUDENT INFO
 
 ### 1. COURSE :
 - course_id                                            // the unique course id
@@ -34,6 +35,8 @@ Adding the supplementary table for feedback but are main table for other modules
 - name_of_subject                                      // Name of the subject
 - semester                                             // The semester in which it is taught
 - credits                                              // The credits of that particular subjects
+- status                                               // To check the feedback about concerned subject is taken or not
+- is_viva_or_lab                                       // Subject is (viva, lab)(1) or not(0) (boolean value)
 
 ### 3. BATCH :
 - batch_id                                             // The batch id of the batch like (IC-2K9, IM-2K7) and composite primary key
@@ -56,7 +59,7 @@ Adding the supplementary table for feedback but are main table for other modules
 
 ### 5. ACADEMIC ASSESSMENT INFO :
 - s_no                                                 // The serial number unique
-- student_no                                           // The foreign key from user_master table 
+- fs_id                                                // The fs_id from feedback_student_info table 
 - subject_id                                           // Subject for which following data is entered 
 - faculty_id                                           // faculty for which following data is entered
 - conceptual_clarity                                   // specifies teacher's ability to bring conceptual clarity
@@ -76,7 +79,7 @@ Adding the supplementary table for feedback but are main table for other modules
 
 ### 6. INFRASTRUCTURE SUPPORT INFO
 - s_no                                                 // The serial number unique
-- student_no                                           // The foreign key from user_master table
+- fs_id                                                // The fs_id from feedback_student_info table
 - books_availability                                   // specifies availability of books in library
 - basic_requirements                                   // specifies requirements like chalk, duster
 - technological_support                                // specifies supports like OHP/LCD etc
@@ -121,7 +124,7 @@ Adding the supplementary table for feedback but are main table for other modules
 
 ### 9. STUDENT INFO TABLE
 - s_no                                                 // The unique serial number
-- student_no                                           // The foreign key from user_master table
+- student_no                                           // The student_no from user_master table
 - High_School_Name                                     // Student's high school name
 - Year_Of_Passing                                      // Student's year of passing of high school
 - Higher_Secondary_School_Name                         // Student's higher secondary school name
@@ -133,5 +136,12 @@ Adding the supplementary table for feedback but are main table for other modules
 - Current_section                                      // Student's current section
 - Enrollment_Year                                      // Student's enrollment number
 - Alternate_Email                                      // Student's alternate email other than IIPS specific domain
+
+### 10. FFEDBACK STUDENT INFO TABLE
+- fs_id                                                // The unique feedback student number
+- batch_id                                             // Batch_id of the student 
+- semester                                             // Current semester of student
+- section                                              // Section of the student
+- feedback_session                                     // Year in which feedback is taken
 
 
