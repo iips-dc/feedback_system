@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 19, 2014 at 12:18 PM
--- Server version: 5.5.40
--- PHP Version: 5.3.10-1ubuntu3.15
+-- Generation Time: Nov 21, 2014 at 09:28 AM
+-- Server version: 5.5.38-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.5
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `academic_assessment_info` (
   `s_no` int(11) NOT NULL AUTO_INCREMENT,
+  `batch_id` varchar(20) NOT NULL COMMENT 'batch_id from feedback_student_info',
   `subject_id` varchar(20) NOT NULL,
   `faculty_id` varchar(20) NOT NULL,
   `conceptual_clarity` int(5) NOT NULL COMMENT 'specifies teacher''s ability to bring conceptual clearity',
@@ -315,11 +316,26 @@ INSERT INTO `faculty_table` (`User_Id`, `name`, `Qualification`, `DOB`, `Email`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `feedback_student_info`
+--
+
+CREATE TABLE IF NOT EXISTS `feedback_student_info` (
+  `s_no` int(11) NOT NULL AUTO_INCREMENT COMMENT 'composite primary key',
+  `batch_id` varchar(20) NOT NULL COMMENT 'composite primary key',
+  `semester` int(2) NOT NULL,
+  `section` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`s_no`,`batch_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table is used to maintain batch_id of students ' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `infrastructure_support_info`
 --
 
 CREATE TABLE IF NOT EXISTS `infrastructure_support_info` (
   `s_no` int(11) NOT NULL AUTO_INCREMENT COMMENT 'it is primary key for infrastructure_support_info table which is auto-incremented',
+  `batch_id` varchar(20) NOT NULL COMMENT 'batch_id from feedback_student_info',
   `books_availability` int(11) NOT NULL COMMENT 'it holds information about the availability of books in library',
   `basic_requirements` int(11) NOT NULL COMMENT 'it holds information about the basic requirements like furniture, chalk, dusture',
   `technological_support` int(11) NOT NULL COMMENT 'it holds information about the technological support like ohp/lcd',
@@ -333,16 +349,16 @@ CREATE TABLE IF NOT EXISTS `infrastructure_support_info` (
 -- Dumping data for table `infrastructure_support_info`
 --
 
-INSERT INTO `infrastructure_support_info` (`s_no`, `books_availability`, `basic_requirements`, `technological_support`, `study_material`, `resource_availability`, `cleaniliness_of_class`) VALUES
-(1, 0, 0, 0, 0, 0, 0),
-(2, 0, 0, 0, 0, 0, 0),
-(3, 0, 0, 0, 0, 0, 0),
-(4, 2, 2, 2, 2, 2, 2),
-(5, 5, 5, 5, 5, 5, 5),
-(6, 4, 4, 3, 3, 5, 3),
-(7, 4, 5, 4, 5, 4, 5),
-(8, 1, 1, 1, 1, 1, 1),
-(9, 1, 1, 1, 1, 1, 1);
+INSERT INTO `infrastructure_support_info` (`s_no`, `batch_id`, `books_availability`, `basic_requirements`, `technological_support`, `study_material`, `resource_availability`, `cleaniliness_of_class`) VALUES
+(1, '', 0, 0, 0, 0, 0, 0),
+(2, '', 0, 0, 0, 0, 0, 0),
+(3, '', 0, 0, 0, 0, 0, 0),
+(4, '', 2, 2, 2, 2, 2, 2),
+(5, '', 5, 5, 5, 5, 5, 5),
+(6, '', 4, 4, 3, 3, 5, 3),
+(7, '', 4, 5, 4, 5, 4, 5),
+(8, '', 1, 1, 1, 1, 1, 1),
+(9, '', 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -650,12 +666,6 @@ INSERT INTO `user_master` (`student_no`, `First_Name`, `Mid_name`, `Last_Name`, 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `batch`
---
-ALTER TABLE `batch`
-  ADD CONSTRAINT `pro_cat_course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`);
 
 --
 -- Constraints for table `subject`
