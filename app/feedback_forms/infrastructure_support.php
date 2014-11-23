@@ -5,9 +5,9 @@
 ?>
 <?php
    session_start();
-   
+   $feedBatchId = $_SESSION['feedBatchId'];
+   $_SESSION['feedBatchId'] = $feedBatchId;
    $studentno=$_SESSION['student_no'];
-
    echo $studentno;
 
     if (isset($_POST['infrastructure_feedback_submit'])) {
@@ -24,7 +24,7 @@
             # code...
             echo "not empty";
             echo $basicRequirements;
-            $insertQueryRun = mysqli_query($con,"INSERT INTO `infrastructure_support_info`(`s_no`, `books_availability`, `basic_requirements`, `technological_support`, `study_material`, `resource_availability`, `cleaniliness_of_class`) VALUES ('','$availabilityOfBooks', '$basicRequirements', '$technologicalSupport', '$photocopyOfStudyMaterial', '$availabilityOfOtherResources', '$cleanlinessOfClass')");
+            $insertQueryRun = mysqli_query($con,"INSERT INTO `infrastructure_support_info`(`s_no`,`batch_id`,`books_availability`, `basic_requirements`, `technological_support`, `study_material`, `resource_availability`, `cleaniliness_of_class`) VALUES ('','$feedBatchId','$availabilityOfBooks', '$basicRequirements', '$technologicalSupport', '$photocopyOfStudyMaterial', '$availabilityOfOtherResources', '$cleanlinessOfClass')");
             if($insertQueryRun)
              {   
                 echo "<script type='javascript'> window.alert('Feedback successfully submitted!'); </script>";
