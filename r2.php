@@ -2,7 +2,7 @@
 session_start();
 $server = "localhost";
 $username = "root";
-$password="";
+$password="root";
 $database="feedback_system_db";
 
 $con=mysqli_connect($server,$username,$password,$database);
