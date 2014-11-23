@@ -2,7 +2,7 @@
 session_start();
 $server = "localhost";
 $username = "root";
-$password="root";
+$password="";
 $database="feedback_system_db";
 
 $con=mysqli_connect($server,$username,$password,$database);
@@ -70,7 +70,7 @@ $con=mysqli_connect($server,$username,$password,$database);
   echo $course_id."-2K-".$year_id;
   echo $feedBatchId;
 
-  $feedbackStudentInfo="INSERT INTO `feedback_system_db`.`feedback_student_info` (`s_no`, `batch_id`,`course`,`semester`, `section`) VALUES ('','$feedBatchId','$course_id','$Current_Sem' ,'$Current_section')";
+  $feedbackStudentInfo="INSERT INTO `feedback_system_db`.`feedback_student_info` (`fs_id`, `batch_id`,`course`,`semester`, `section`, `feedback_session`) VALUES ('','$feedBatchId','$course_id','$Current_Sem' ,'$Current_section',2014)";
   $test2=mysqli_query($con,$feedbackStudentInfo);
   
 
