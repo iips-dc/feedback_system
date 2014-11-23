@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 21, 2014 at 02:41 PM
+-- Generation Time: Nov 24, 2014 at 03:28 PM
 -- Server version: 5.5.38-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
@@ -47,16 +47,6 @@ CREATE TABLE IF NOT EXISTS `academic_assessment_info` (
   `suggestion_for_course` longtext COMMENT 'It holds the suggestion regarding course',
   PRIMARY KEY (`s_no`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='This table holde data entered by students' AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `academic_assessment_info`
---
-
-INSERT INTO `academic_assessment_info` (`s_no`, `fs_id`, `subject_id`, `faculty_id`, `conceptual_clarity`, `subject_knowledge`, `practical_example`, `handling_capability`, `motivation`, `control_ability`, `course_completion`, `communication_skill`, `regularity_punctuality`, `outside_guidance`, `syllabus_industry_relvance`, `sufficiency_of_course`, `suggestion_for_subject`, `suggestion_for_course`) VALUES
-(1, '', 'IC-103A', '', 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 1, 1, 'hjkhklhjlk', 'guigiugiulgil'),
-(2, '', 'IC-103A', '', 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 1, 1, 'hjkhklhjlk', 'guigiugiulgil'),
-(3, '', 'IC-104B', '', 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 1, 1, 'jhhlkl;lk', 'ghjggkglk'),
-(4, '', 'IC-104B', '105358', 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 1, 1, 'jhhlkl;lk', 'ghjggkglk');
 
 -- --------------------------------------------------------
 
@@ -332,6 +322,7 @@ INSERT INTO `faculty_table` (`User_Id`, `name`, `Qualification`, `DOB`, `Email`,
 CREATE TABLE IF NOT EXISTS `feedback_student_info` (
   `fs_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'composite primary key',
   `batch_id` varchar(20) NOT NULL COMMENT 'composite primary key',
+  `course` varchar(2) NOT NULL,
   `semester` int(2) NOT NULL,
   `section` varchar(1) DEFAULT NULL,
   `feedback_session` int(4) NOT NULL COMMENT 'the year in which feedback is taken',
@@ -354,23 +345,7 @@ CREATE TABLE IF NOT EXISTS `infrastructure_support_info` (
   `resource_availability` int(11) NOT NULL COMMENT 'it holds the information about the availability of other resources like internet, computers',
   `cleaniliness_of_class` int(11) NOT NULL COMMENT 'it holds information about the cleaniliness in the classroom',
   PRIMARY KEY (`s_no`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='infrastructure_support_info table collects information about infrastructure' AUTO_INCREMENT=11 ;
-
---
--- Dumping data for table `infrastructure_support_info`
---
-
-INSERT INTO `infrastructure_support_info` (`s_no`, `fs_id`, `books_availability`, `basic_requirements`, `technological_support`, `study_material`, `resource_availability`, `cleaniliness_of_class`) VALUES
-(1, '', 0, 0, 0, 0, 0, 0),
-(2, '', 0, 0, 0, 0, 0, 0),
-(3, '', 0, 0, 0, 0, 0, 0),
-(4, '', 2, 2, 2, 2, 2, 2),
-(5, '', 5, 5, 5, 5, 5, 5),
-(6, '', 4, 4, 3, 3, 5, 3),
-(7, '', 4, 5, 4, 5, 4, 5),
-(8, '', 1, 1, 1, 1, 1, 1),
-(9, '', 1, 1, 1, 1, 1, 1),
-(10, '', 1, 1, 1, 2, 2, 2);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='infrastructure_support_info table collects information about infrastructure' AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 
@@ -395,24 +370,6 @@ CREATE TABLE IF NOT EXISTS `student_info` (
   PRIMARY KEY (`s_no`),
   KEY `student_no` (`student_no`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
-
---
--- Dumping data for table `student_info`
---
-
-INSERT INTO `student_info` (`s_no`, `student_no`, `High_School_Name`, `Year_Of_Passing`, `Higher_Secondary_School_Name`, `Year_Of_Passing1`, `Enrollment_Number`, `Roll_Number`, `Current_Course`, `Current_Sem`, `Current_section`, `Enrollment_Year`, `Alternate_Email`) VALUES
-(1, 1, 'asd', 2344, 'werrwesd', 2344, '3242', 'sdafsad', 'M.Tech', 1, '-', 3242, 'sdfsdf@dtfd.dgdsa'),
-(2, 1, 'asd', 2344, 'ertrry', 2344, '3242', 'sdafsad', 'Select Course', 0, '-', 3242, 'sdfsdf@dtfd.dgdsa'),
-(3, 1, 'asd', 2344, 'dfgf', 2344, '3242', 'sdafsad', 'M.Tech', 1, '-', 3242, 'sdfsdf@dtfd.dgdsa'),
-(4, 4, 'erweq', 2344, 'fdghfdhdf', 2344, '3534', 'rfhfg', 'M.Tech', 1, '-', 3534, 'eert@ds.gjgf'),
-(5, 4, 'erweq', 2344, 'trdhf', 2344, '3534', 'rfhfg', 'Select Course', 0, '-', 3534, 'eert@ds.gjgf'),
-(6, 4, 'erweq', 2344, 'rfghtr', 2344, '3534', 'rfhfg', 'MCA', 5, 'A', 3534, 'eert@ds.gjgf'),
-(7, 4, '', 0, '', 0, '', '', '', 0, '-', 0, ''),
-(8, 4, 'erweq', 2344, 'gsddf', 2344, '3534', 'rfhfg', 'M.Tech', 1, '-', 3534, 'eert@ds.gjgf'),
-(9, 4, 'dfg', 3453, 'fdgdfg', 3453, '4353', 'dfgdf', 'M.Tech', 2, '-', 4353, 'dgr@dsff.gfjgf'),
-(10, 10, 'eferter', 3453, 'efdfgdsdf', 3453, '5634', 'erterter', 'M.Tech', 3, '-', 5634, 'eraae@FSDF.FDGDF'),
-(11, 11, 'xcxcv', 5465, 'xxcvxcv', 5465, '5435', 'IC-2k11-66', 'M.Tech', 1, '-', 5435, 'Rajeeat@garg.cos'),
-(12, 12, 'yuiy', 6576, 'ikuo', 6576, '6858', '68', 'Select Course', 0, '-', 6858, 'fewf@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -659,13 +616,6 @@ CREATE TABLE IF NOT EXISTS `user_master` (
   `Status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Status of user whether he is active(1) in the system or not(0). ',
   PRIMARY KEY (`student_no`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='This table includes basic info of each user exist/left in the system.' AUTO_INCREMENT=13 ;
-
---
--- Dumping data for table `user_master`
---
-
-INSERT INTO `user_master` (`student_no`, `First_Name`, `Mid_name`, `Last_Name`, `Father_Name`, `Mother_Name`, `Bmonth`, `Bdate`, `Byear`, `Gender`, `Category`, `Mobile_Number`, `Telephone_Number`, `Email`, `Current_Address`, `Permanent_Address`, `Type`, `Status`) VALUES
-(12, 'r', '', 'c', 'v', 'k', 'January', 1, '1950', 'Male', 'General', '544565', '454646', 'gfhfgh@gmail.com', 'njhkm', 'njhkm', 'student', 1);
 
 --
 -- Constraints for dumped tables
