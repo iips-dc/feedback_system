@@ -92,7 +92,7 @@
       </div>     <!--closing of class=container-->
   </div>       <!--closing of class=panelheading-->
 </div>         <!--closing of outermost panel-->
-
+<div class="container">
 <div class="panel panel-primary">    
     <div class="panel-heading">
           <h2 class="panel-title text-center">INFRASTRUCTURE SUPPORT</h2>
@@ -249,7 +249,7 @@
         <center></center>
       </div>
     </div>
-
+</div>
     <script>
     function changeColour(id)
     {
