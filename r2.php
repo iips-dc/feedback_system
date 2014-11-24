@@ -67,8 +67,12 @@ $con=mysqli_connect($server,$username,$password,$database);
   
   $feedBatchId= $course_id."-2K-".$year_id;
   $_SESSION['feedBatchId'] = $feedBatchId;
+  echo $course_id."-2K-".$year_id;
+  echo $feedBatchId;
 
-  $feedbackStudentInfo="INSERT INTO `feedback_system_db`.`feedback_student_info` (`s_no`, `batch_id`, `semester`, `section`) VALUES ('','$feedBatchId','$Current_Sem','$Current_section')";
+  $feedbackStudentInfo="INSERT INTO `feedback_system_db`.`feedback_student_info` (`s_no`, `batch_id`,`course`,`semester`, `section`) VALUES ('','$feedBatchId','$course_id','$Current_Sem' ,'$Current_section')";
+  $test2=mysqli_query($con,$feedbackStudentInfo);
+  
 
   $sql="INSERT INTO `student_info`(`student_no`,`High_School_Name`, `Year_Of_Passing`, `Higher_Secondary_School_Name`, `Year_Of_Passing1`, `Enrollment_Number`, `Roll_Number`, `Current_Course`, `Current_Sem`, `Current_section`, `Enrollment_Year`, `Alternate_Email`) VALUES ('$studentno','$High_School_Name','$Year_Of_Passing10','$Higher_Secondary_School_Name','$Year_Of_Passing12','$Enrollment_Number','$Roll_Number','$Current_Course','$Current_Sem','$Current_section','$Enrollment_Year','$Alternate_Email' )";
   $test=mysqli_query($con,$sql);

@@ -8,6 +8,7 @@
    session_start();
    $feedBatchId = $_SESSION['feedBatchId'];
    $_SESSION['feedBatchId'] = $feedBatchId;
+   echo $feedBatchId;
    $studentno=$_SESSION['student_no'];
    echo $studentno;
 
