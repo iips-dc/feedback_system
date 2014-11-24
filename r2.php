@@ -37,13 +37,24 @@ $con=mysqli_connect($server,$username,$password,$database);
    $result = mysqli_query($con,$sql);
    $row = mysqli_fetch_array($result);
    $studentno=$row['student_no'];
+   $_SESSION['student_no'] = $studentno; 
 
   $High_School_Name=$_POST['highschoolname'];
-  $Year_Of_Passing= $_POST['yearofpassing10'];
+  $Year_Of_Passing10= $_POST['yearofpassing10'];
   $Higher_Secondary_School_Name= $_POST['highersecandryschoolname'];
-  $Year_Of_Passing= $_POST['yearofpassing12'];
-  $Enrollment_Number=$_POST['enrollmentnumber'];
-  $Roll_Number=$_POST['rollno'];
+  $Year_Of_Passing12= $_POST['yearofpassing12'];
+  //$Enrollment_Number=$_POST['enrollmentnumber'];
+  $enroll_id=$_POST['enroll_id'];
+  $enroll_year=$_POST['enroll_year'];
+  $enroll_no=$_POST['enroll_no'];
+  $Enrollment_Number=$enroll_id."/".$enroll_year."/".$enroll_no;
+  
+  //$Roll_Number=$_POST['rollno'];
+  $course_id=$_POST['course_id'];
+  $year_id=$_POST['year_id'];
+  $roll_id=$_POST['roll_id'];
+  $Roll_Number = $course_id."-2K-".$year_id."-".$roll_id;
+
   $Current_Course=$_POST['course'];
   $Current_Sem=$_POST['sem'];
   $Current_section=$_POST['section'];
@@ -54,10 +65,16 @@ $con=mysqli_connect($server,$username,$password,$database);
   if($Current_Course!='MCA')
   $Current_section='-';
   
-  $sql="INSERT INTO `student_info`(`student_no`,`High_School_Name`, `Year_Of_Passing`, `Higher_Secondary_School_Name`, `Year_Of_Passing1`, `Enrollment_Number`, `Roll_Number`, `Current_Course`, `Current_Sem`, `Current_section`, `Enrollment_Year`, `Alternate_Email`) VALUES ('$studentno','$High_School_Name','$Year_Of_Passing','$Higher_Secondary_School_Name','$Year_Of_Passing','$Enrollment_Number','$Roll_Number','$Current_Course','$Current_Sem','$Current_section','$Enrollment_Year','$Alternate_Email' )";
+  $feedBatchId= $course_id."-2K-".$year_id;
+  $_SESSION['feedBatchId'] = $feedBatchId;
+
+  $feedbackStudentInfo="INSERT INTO `feedback_system_db`.`feedback_student_info` (`s_no`, `batch_id`, `semester`, `section`) VALUES ('','$feedBatchId','$Current_Sem','$Current_section')";
+
+  $sql="INSERT INTO `student_info`(`student_no`,`High_School_Name`, `Year_Of_Passing`, `Higher_Secondary_School_Name`, `Year_Of_Passing1`, `Enrollment_Number`, `Roll_Number`, `Current_Course`, `Current_Sem`, `Current_section`, `Enrollment_Year`, `Alternate_Email`) VALUES ('$studentno','$High_School_Name','$Year_Of_Passing10','$Higher_Secondary_School_Name','$Year_Of_Passing12','$Enrollment_Number','$Roll_Number','$Current_Course','$Current_Sem','$Current_section','$Enrollment_Year','$Alternate_Email' )";
   $test=mysqli_query($con,$sql);
   
   if($test){
     header('location:app/feedback_forms/infrastructure_support.php');
   }
+  echo "thank you";
 ?>
