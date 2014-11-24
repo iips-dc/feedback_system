@@ -8,6 +8,9 @@
    session_start();
    $feedBatchId = $_SESSION['feedBatchId'];
    $_SESSION['feedBatchId'] = $feedBatchId;
+   $course_id = $_SESSION['course_id'];
+   $Current_Sem = $_SESSION['Current_Sem'];
+   $Current_section = $_SESSION['Current_section'];
    echo $feedBatchId;
    $studentno=$_SESSION['student_no'];
    echo $studentno;
@@ -26,7 +29,9 @@
             # code...
             echo "not empty";
             echo $basicRequirements;
-            $insertQueryRun = mysqli_query($con,"INSERT INTO `infrastructure_support_info`(`s_no`,`batch_id`,`books_availability`, `basic_requirements`, `technological_support`, `study_material`, `resource_availability`, `cleaniliness_of_class`) VALUES ('','$feedBatchId','$availabilityOfBooks', '$basicRequirements', '$technologicalSupport', '$photocopyOfStudyMaterial', '$availabilityOfOtherResources', '$cleanlinessOfClass')");
+            $feedbackStudentInfo="INSERT INTO `feedback_system_db`.`feedback_student_info` (`fs_id`, `batch_id`,`course`,`semester`, `section`, `feedback_session`) VALUES ('','$feedBatchId','$course_id','$Current_Sem' ,'$Current_section',2014)";
+            $test2=mysqli_query($con,$feedbackStudentInfo);
+            $insertQueryRun = mysqli_query($con,"INSERT INTO `infrastructure_support_info`(`s_no`,`fs_id`,`books_availability`, `basic_requirements`, `technological_support`, `study_material`, `resource_availability`, `cleaniliness_of_class`) VALUES ('','$','$availabilityOfBooks', '$basicRequirements', '$technologicalSupport', '$photocopyOfStudyMaterial', '$availabilityOfOtherResources', '$cleanlinessOfClass')");
             if($insertQueryRun)
              {   
                 echo "<script type='javascript'> window.alert('Feedback successfully submitted!'); </script>";
