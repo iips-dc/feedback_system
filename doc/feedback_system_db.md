@@ -139,7 +139,8 @@ Adding the supplementary table for feedback but are main table for other modules
 
 ### 10. FFEDBACK STUDENT INFO TABLE
 - fs_id                                                // The unique feedback student number
-- batch_id                                             // Batch_id of the student 
+- batch_id                                             // Batch_id of the student
+- course                                               // Course of the student
 - semester                                             // Current semester of student
 - section                                              // Section of the student
 - feedback_session                                     // Year in which feedback is taken
