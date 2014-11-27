@@ -34,7 +34,7 @@
             <div class="panel-heading">
                 <h2 class="panel-title text-center">New User </h2>
             </div>
-            <h2 align="center"><a href="feedback_registration.php"> For Registration </a> </h2> 
+            <h2 align="center"><a href="feedback_registration.php"> IIPS Registration </a> </h2> 
        </div> 
      </div>  
     <div class="col-sm-1" style="margin-left:-10px;">
@@ -47,7 +47,7 @@
             </div>
             <!-- Button trigger modal -->
 			<a  href="#" class="" data-toggle="modal" data-target="#myModal">
-			  <h2 align="center">For Resume</h2>
+			  <h2 align="center">Resume</h2>
 			</a>
 
 			<!-- Modal -->
@@ -56,15 +56,17 @@
 				<div class="modal-content">
 				  <div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					<h4 class="modal-title" id="myModalLabel">Enter the ID provided to you :</h4>
 				  </div>
 				  <div class="modal-body">
-					...
+                    <div class="row">
+                      <div class="col-md-8"><input required="required"  id="fs_id" type="text" class="form-control" class="col-md-7" placeholder="Enter ID"  name="fs_id">  </div>
+                      <div class="col-md-2"><button type="button" class="btn btn-primary" class="col-md-3">Submit</button></div>
+                      <div class="col-md-2"><button type="button" class="btn btn-default" class="col-md-2" data-dismiss="modal">Close</button></div>
+                    </div> 
 				  </div>
-				  <div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				  </div>
+                    
+				  
 				</div><!-- ./modal-content -->
 			  </div>
 			</div><!-- ./modal-dialog -->
