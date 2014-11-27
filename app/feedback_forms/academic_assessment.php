@@ -114,10 +114,11 @@
                                    <?php
 
                                         //query to find subjects which are available in this course.
-                                        $selectSubjectQuery = mysqli_query($con, "SELECT * FROM subject WHERE course_id = '$course_id' AND semester = '$Current_Sem' AND status = 0 AND is_viva_or_lab=0" );
+                                        $selectSubjectQuery = mysqli_query($con, "SELECT * FROM subject WHERE course_id = 'IC' AND semester = '11'  AND is_viva_or_lab=0" );
                                         $subjectRows = mysqli_num_rows($selectSubjectQuery);
                                         echo "rows";
                                         echo $subjectRows;
+                                        print_r($subjectRows);
                                         while ($row = mysqli_fetch_array($selectSubjectQuery)){
                                             $name = $row['name_of_subject'];
                                             $id = $row['subject_id'];
@@ -449,7 +450,7 @@
 </html>
 
 <?php
-    if (isset($_POST['submit_feedback'])) 
+/*    if (isset($_POST['submit_feedback'])) 
         {
             # code...
             echo "feedback submit";
@@ -468,7 +469,7 @@
             $sufficiencyOfCourse = $_POST['sufficiency_of_course'];
             $suggestionForSubject = $_POST['suggestion_for_subject'];
             $suggestionForCourse = $_POST['suggestion_for_course'];
-
+*/
             /*if (!empty($conectualClearity) && !empty($subjectKnowledge) && !empty($practicalExamples) && !empty($handlingCapability) 
                 && !empty($motivation) && !empty($controlAbility) && !empty($courseCompletion) && !empty($communicationSkill)
                 && !empty($regularityPunctuality) && !empty($outsideGuidance) && !empty($syllabusIndustryRelvance) && !empty($sufficiencyOfCourse)
@@ -483,7 +484,7 @@
             /*$insertQueryRun = mysqli_query($con, "INSERT INTO `academic_assessment_info`(`s_no`, `subject_id`, `faculty_id`, `conceptual_clarity`, `subject_knowledge`, `practical_example`, `handling_capability`, `motivation`, `control_ability`, `course_completion`, `communication_skill`, `regularity_punctuality`, `outside_guidance`, `syllabus_industry_relvance`, `sufficiency_of_course`, `suggestion_for_subject`, `suggestion_for_course`) 
                                                 VALUES ('' , '$subjectId', '$facultyId', '$conceptualClearity', '$subjectKnowledge', '$practicalExamples', '$handlingCapability', '$motivation', '$controlAbility', '$courseCompletion', '$communicationSkill', '$regularityPunctuality', '$outsideGuidance', '$syllabusIndustryRelvance', '$sufficiencyOfCourse', '$suggestionForSubject', '$suggestionForCourse')");
             echo $insertQueryRun;*/
-            mysqli_query($con, "UPDATE `subject` SET `status` = 1 WHERE `subject_id` = '$subjectId'");
+ /*           mysqli_query($con, "UPDATE `subject` SET `status` = 1 WHERE `subject_id` = '$subjectId'");
             echo "update query for subject status";
 
             if ($subjectRows == 0) {
@@ -495,12 +496,12 @@
             else {
                 echo "<script type='javascript'> window.alert('Feedback for ".$name." submitted, Press OK to submit next subject feedback.'); </script>";
             }
-            /*}
+ */           /*}
             else
             {
                 echo "<script type='javascript'> window.alert('Please fill all the required fields.'); </script>";
             }*/
-        }
+       // }
 ?>
 <?php
     if (isset($_POST['submit_feedback'])) 
