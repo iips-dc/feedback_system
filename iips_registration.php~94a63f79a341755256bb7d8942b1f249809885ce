@@ -5,7 +5,7 @@ $referrer = @$_SERVER['HTTP_REFERER'];
 if(preg_match("/registration.php/",$referrer))
   
 	session_destroy();
-  //echo $referrer;
+  echo $referrer;
   
   $firstname=@$_SESSION['First_Name'];
   $midname=@$_SESSION['Mid_name'];

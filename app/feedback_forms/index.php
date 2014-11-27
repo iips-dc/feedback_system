@@ -1,5 +1,23 @@
-<?php
-	
+
+<?php 
+session_start(); 
+include 'includes/login/connect.inc.php';
+/* variables from previous page */
+/* for storing data of registration.php */
+ 
+ //$_SESSION['course_id']=$_POST['course_id'];
+
+ 
+ 
+   //$_SESSION['course_id']=$_POST['course_id'];
+
+ 
+  /*$course=@$_SESSION['Current_Course'];
+  $sem=@$_SESSION['Current_Sem'];
+  $section=@$_SESSION['Current_section'];*/
+ 
+/* End of session variables */
+
 ?>
 
 <html>
@@ -23,77 +41,121 @@
     <link rel="stylesheet" href="../../assests/css/bootstrap/bootstrap.min.css">
 </head>
 <body>
-   <div class="page-header">
-          <h1 class="text-center"><u>Student's Feedback Form</u></h1>
+  <div class="panel panel-primary">
+   <!-- <div class="page-header"> -->
+      <div class="panel-heading">
+          <h1 class="text-center">STUDENT's FEEDBACK</h1>
+      </div>
+   <!-- </div> -->
    </div>
-
- <div class="panel-body">
+   <div class="row alert alert-info">
+      <div class="panel-body">
           <h3><strong>Instructions:</strong></h3>
           <p><small>1.)You are requested to give your frank and objective opinion about various aspects of the subject taught to you for improving and maintaining quality of teaching.</br>
           2.) Your response will be kept confidential.</br>
           3.) Specify the BatchId correctly you have provided e.g:IC-2k10</small>
           </p>
+       </div>
   </div>
-
-
+<form name="feedback_login_form" method="post" action='../../php_scripts/feedback_login.php' id = 'feedback__login_form'>
 <div class="jumbotron container-custom">
     <div class="form-group">
          <div class="row">  
               <label class="control-label col-sm-offset-2 col-sm-2" for="company">Name of programmes</label>
             <div class="col-sm-6 col-sm-4">
-               <select id="company" class="form-control">
-                  <option>M.C.A-6yrs</option>
-                  <option>M.Tech-5 1/2yrs</option>
-                  <option>M.B.A(MS)-5yrs</option>
-                  <option>B.COM(Hons)-4yrs</option>
-                  <option>M.B.A(MS)-2yrs</option>
-                  <option>M.B.A(TA)-2yrs</option>
-                  <option>M.B.A(APR)-2yrs</option>
+               <select name="course" class="form-control">
+                  <option>MCA</option>
+                  <option>MTECH</option>
+                  
                </select> 
             </div>
         </div>
      </div>
 
+     <div class="form-group">
+         <div class="row">  
+              <label class="control-label col-sm-offset-2 col-sm-2" for="company">Course ID</label>
+            <div class="col-sm-6 col-sm-4">
+               <select name="course_id" class="form-control">
+                  <option>IC</option>
+                  <option>IT</option>
+                  
+               </select> 
+
+            </div>
+        </div>
+     </div>
+
+     <div class="form-group">
+         <div class="row">  
+              <label class="control-label col-sm-offset-2 col-sm-2" for="company">Batch ID</label>
+            <div class="col-sm-6 col-sm-4">
+                <select name="batch_id" class="form-control">
+                  <option>2K9</option>
+                  <option>2K10</option>
+                  <option>2K11</option>
+                  <option>2K12</option>
+                  <option>2K13</option>
+                  <option>2K14</option>              
+               </select>
+
+            </div>
+        </div>
+     </div>
+
+      <div class="form-group">
+         <div class="row">  
+              <label class="control-label col-sm-offset-2 col-sm-2" for="company">Section</label>
+            <div class="col-sm-6 col-sm-4">
+                <select name="section" class="form-control">
+                  <option>A</option>
+                  <option>B</option>              
+               </select>
+
+            </div>
+        </div>
+     </div>         
+
    <div class="form-group">
         <div class="row">
                    <label class="control-label col-md-offset-2 col-md-2" for="company">Semester</label>
             <div class="col-md-4 col-md-4">
-                     <select id="company" class="form-control">
-                            <option>Semester1</option>
-                            <option>Semester2</option>
-                            <option>Semester4</option>
-                            <option>Semester5</option>
-                            <option>Semester6</option>
-                            <option>Semester7</option>
-                            <option>Semester8</option>
-                            <option>Semester9</option>
-                            <option>Semester10</option>
-                            <option>Semester11</option>
-                            <option>Semester12</option>
+                     <select name="semester" class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
                     </select> 
             </div>
         </div>
     </div>
 
-<div class="form-group">
+<!-- <div class="form-group">
         <div class="row">
                          <label class="control-label col-sm-offset-2 col-md-2" for="company">Id(Provided to you):</label>
             <div class="col-sm-2 col-md-4">
                  <input type="text" class="form-control" id="inputLabel4" placeholder="Id">
             </div>
         </div>
-</div>
+</div> -->
 
-<div class="form-group">
-    <div class="row">
-                      <label class="control-label col-sm-offset-2 col-md-2" for="company">BatchId</label>
-           <div class="col-sm-2 col-md-4">
-               <input type="text" class="form-control" id="inputLabel4" placeholder="BatchId"></br>
-               <button type="button" class="btn btn-primary">Submit</button> <button type="button" class="btn btn-danger">Exit</button>     
+<div class="form-group" >
+    <div class="row" >
+                      <!-- <label class="control-label col-sm-offset-2 col-md-2" for="company">BatchId</label> -->
+           <div  align="center">
+               <!-- <input type="text" class="form-control" id="inputLabel4" placeholder="BatchId"></br> -->
+               <button type="submit" name="submit" class="btn btn-primary">Submit</button> <button type="button" class="btn btn-danger">Exit</button>     
            </div>
     <div>
 </div>
-
+</form>
     
 
 </div>
@@ -102,3 +164,4 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
+

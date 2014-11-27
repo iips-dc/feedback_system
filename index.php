@@ -65,7 +65,9 @@ $fsidRow = mysqli_fetch_array($fsidQuery);
             <div class="panel-heading">
                 <h2 class="panel-title text-center">New User </h2>
             </div>
-            <h2 align="center"><a href="feedback_registration.php"> IIPS Registration </a> </h2> 
+
+            <h2 align="center"><a href="iips_registration.php"> IIPS Registration </a> </h2> 
+
        </div> 
      </div>  
     <div class="col-sm-1" style="margin-left:-10px;">

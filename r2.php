@@ -77,7 +77,7 @@ $con=mysqli_connect($server,$username,$password,$database);
   $test=mysqli_query($con,$sql);
   
   if($test){
-    header('location:app/feedback_forms/infrastructure_support.php');
+    header('location:app/feedback_forms/index.php');
   }
   echo "thank you";
 ?>
