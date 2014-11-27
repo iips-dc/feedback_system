@@ -119,7 +119,7 @@
                                         $subjectRows = mysqli_num_rows($selectSubjectQuery);
                                         echo "rows";
                                         echo $subjectRows;
-                                        print_r($subjectRows);
+                                        //print_r($subjectRows);
                                         while ($row = mysqli_fetch_array($selectSubjectQuery)){
                                             $name = $row['name_of_subject'];
                                             $id = $row['subject_id'];
