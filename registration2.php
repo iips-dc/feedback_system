@@ -269,9 +269,9 @@ function digitsonly(e)
 																	<div class="col-xs-4">
 																		<select onchange ="generate(this.value)" class="form-control" name="course" value ="<?php echo $course ;?>">
 																		<option >Select Course</option>
-																		<option >M.Tech</option>
+																		<option >MTECH</option>
 																		<option >MCA</option>
-																		<option>B.Com</option>
+																		
 																		</select>
 																	</div>	
 
