@@ -1,4 +1,35 @@
 
+<?php 
+session_start(); 
+include 'includes/login/connect.inc.php';
+$fs_id= $_POST['fs_id'];
+if (isset($_POST['submit'])){
+    //echo $fs_id= $_POST['fs_id'];
+    // This query is used to check that whether this id exist or not.
+$fsidQuery = mysqli_query($con, "SELECT * FROM `feedback_student_info` WHERE `fs_id` = '$fs_id'");
+$fsidRow = mysqli_fetch_array($fsidQuery); 
+
+    if($fsidRow>0){
+        // This query is used to check that fs_id is exist in infrastructure table or not.
+        $fsid_infraQuery = mysqli_query($con, "SELECT * FROM `infrastructure_support_info` WHERE `fs_id` = '$fs_id'");
+        $fsid_infraRow = mysqli_fetch_array($fsid_infraQuery);
+        if ($fsid_infraRow>0){
+            //header(location : 'app/feedback_forms/academic_assessment.php');
+            echo "reached ass";
+        }
+        else{
+            //header(location : app/feedback_forms/infrastructure_support.php);
+            echo "reached infra";
+        }
+    }
+    else{
+        echo "This user is not yet registered.";
+    }
+ }
+//echo $fs_id= $_POST['fs_id'];
+?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -59,13 +90,14 @@
 					<h4 class="modal-title" id="myModalLabel">Enter the ID provided to you :</h4>
 				  </div>
 				  <div class="modal-body">
+                  <form action="#" method="POST">
                     <div class="row">
                       <div class="col-md-8"><input required="required"  id="fs_id" type="text" class="form-control" class="col-md-7" placeholder="Enter ID"  name="fs_id">  </div>
-                      <div class="col-md-2"><button type="button" class="btn btn-primary" class="col-md-3">Submit</button></div>
+                      <div class="col-md-2"><button type="submit" name="submit" class="btn btn-primary" class="col-md-3">Submit</button></div>
                       <div class="col-md-2"><button type="button" class="btn btn-default" class="col-md-2" data-dismiss="modal">Close</button></div>
                     </div> 
 				  </div>
-                    
+                  </form>  
 				  
 				</div><!-- ./modal-content -->
 			  </div>
