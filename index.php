@@ -1,55 +1,76 @@
-<!-- Including files for DB connection and Session Control -->
-<?php
-    //require 'includes/login/core.inc.php';
-   // require 'includes/login/connect.inc.php';
-?>
-<!-- /End of includes -->
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Feedback | Login</title>
-    
-    <!-- Configuration for the absoulte path -->
-     <?php //include "config_global.php";   ?>
-    <!-- Core Css -->
-    <?php //include "includes/cssLinks.inc.php";   ?>
 
-   
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+     Student Feedback Form
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <!-- Bootstrap -->
+     <!--link rel="stylesheet" type="text/css" href="bootstrap/Flat-UI-master/css/flat-ui.css"-->
+    <link rel="stylesheet" href="assests/css/bootstrap/bootstrap.min.css">
+    
 </head>
 <body>
 
-    <label><center><b><h1>IIPS - DAVV</b></h1></center></label>
-	<label><center><b><h3>STUDENT'S FEEDBACK FORM</b></h3></center></label>
-	
-	<label>Instuctions:</label>
-	<ol>
-		<li></li>
-	</ol> 
+<div class="panel panel-primary"> <!--Outermost panel-->
+    <div class="panel-title">   <!--class=panelheading-->
+        <div class="container">    <!--class=container-->
+            <div class="row">   <!--class=row-->
+               <div><img src="assests/img/2.png"></div>
+            </div> <!--closing of class=row-->
+        </div>     <!--closing of class=container-->
+    </div> <!--closing of class=panelheading--> 
+</div>  <!--closing of outermost panel-->
 
-	<label>Name Of Programme</label>
-	<select name="programme" required="required">
-		<option>MCA</option>
-		<option>M.Tech</option>
-		<option>MBA</option>
-	</select>
+<div class="row alert alert-info">
 
-	<br/>
+    <div class="col-sm-1" style="margin-left:-10px;">
+     
+    </div>
+    <div class="col-sm-5" style="margin-left:-10px;">
+       <div class="panel panel-primary" >
+            <div class="panel-heading">
+                <h2 class="panel-title text-center">New User </h2>
+            </div>
+            <h2 align="center"><a href="feedback_registration.php"> For Registration </a> </h2> 
+       </div> 
+     </div>  
+    <div class="col-sm-1" style="margin-left:-10px;">
+     
+    </div>
+    <div class="col-sm-5" style="margin-left:-10px;">
+       <div class="panel panel-primary" >
+            <div class="panel-heading">
+                <h2 class="panel-title text-center">Existing User</h2>
+            </div>
+            <h2 align="center"><a href="#Modal" role="button" class="btn" data-toggle="modal">For Resume</a></h2>
+            
+        </div> 
+    </div>
+</div> 
 
-	<label>Semester</label>
-	<select name="semester" required="required">
-		<option>1</option>
-		<option>2</option>
-		<option>3</option>
-	</select>
 
-	<br/>
+<!-- Modal -->
+<div id="Modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>
 
-	<label>ID (provided to you)</label>
-	<input type="text" name="id" required="required">	
-   
-        
-  
-   
+
+
+<script src="assests/js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
-
-<?php session_start(); 
+<?php 
+session_start(); 
 include 'includes/login/connect.inc.php';
 $referrer = @$_SERVER['HTTP_REFERER']; 
 if(preg_match("/registration.php/",$referrer))
@@ -25,20 +25,25 @@ if(preg_match("/registration.php/",$referrer))
 
 
   $_SESSION['High_School_Name']=@$_POST['highschoolname'];
-  $_SESSION['Year_Of_Passing']=@ $_POST['yearofpassing10'];
+  $_SESSION['Year_Of_Passing10']=@ $_POST['yearofpassing10'];
   $_SESSION['Higher_Secondary_School_Name']=@ $_POST['highersecandryschoolname'];
-  $_SESSION['Year_Of_Passing']=@ $_POST['yearofpassing12'];
-  $_SESSION['Enrollment_Number']=@$_POST['enrollmentnumber'];
-  $_SESSION['Roll_Number']=@$_POST['rollno'];
+  $_SESSION['Year_Of_Passing12']=@ $_POST['yearofpassing12'];
+  
+  //$_SESSION['Enrollment_Number']=@$_POST['enrollmentnumber'];
+  $_SESSION['enroll_id']=@$_POST['enroll_id'];
+  $_SESSION['enroll_year']=@$_POST['enroll_year'];
+  $_SESSION['enroll_no']=@$_POST['enroll_no'];
+  
+  //$_SESSION['Roll_Number']=@$_POST['rollno'];
+  $_SESSION['course_id']=@$_POST['course_id'];
+  $_SESSION['year_id']=@$_POST['year_id'];
+  $_SESSION['roll_id']=@$_POST['roll_id'];
+
   $_SESSION['Current_Course']=@$_POST['course'];
   $_SESSION['Current_Sem']=@$_POST['sem'];
   $_SESSION['Current_section']=@$_POST['section'];
   $_SESSION['Enrollment_Year']=@$_POST['enrollmentnumber'];
-  $_SESSION['Alternate_Email']=@$_POST['altemail'];
-  
- 
-  
-  
+  $_SESSION['Alternate_Email']=@$_POST['altemail']; 
 
 ?>
 
@@ -109,6 +114,17 @@ function digitsonly(e)
     	return true;   
 }
 </script>
+
+<script>
+$(document).ready(function() {
+	$ ( "#firstname").focus();
+});
+
+
+
+</script>
+
+
 </head>
 <body>
 	<div>  <!-- This div for outermost panel where panel property is removed-->
@@ -148,7 +164,7 @@ function digitsonly(e)
 															<td>
 																<div class="row">
 																<div class="col-md-4">
-																	<input required="required"  type="text" class="form-control" placeholder="FirstName" onkeypress="return onlyCharsn(event)" name="firstname" value ="<?php echo $firstname;?>"> 
+																	<input required="required"  id="firstname" type="text" class="form-control" placeholder="FirstName" onkeypress="return onlyCharsn(event)" name="firstname" value ="<?php echo $firstname;?>"> 
 																</div>
 																
 							
@@ -329,6 +345,7 @@ function digitsonly(e)
 													<!--	<input required="required"  class="btn btn-success" type="submit" value="Submit" id="submit"> -->
 													<input class="btn btn-danger" type="reset" value="Reset">	
 												</center>
+												<br><br>
 		
 											</form>
 

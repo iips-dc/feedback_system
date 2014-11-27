@@ -1,7 +1,8 @@
-<?php session_start(); 
-
+<?php 
+session_start(); 
+include 'includes/login/connect.inc.php';
 $referrer = @$_SERVER['HTTP_REFERER']; 
-if(preg_match("/Registration.php/",$referrer))
+if(preg_match("/registration.php/",$referrer))
   
 	session_destroy();
   echo $referrer;
@@ -23,21 +24,27 @@ if(preg_match("/Registration.php/",$referrer))
   $permanentaddress=@$_SESSION['Permanent_Address'];
 
 
-  
-  
-  
-  
   $_SESSION['High_School_Name']=@$_POST['highschoolname'];
-  $_SESSION['Year_Of_Passing']=@ $_POST['yearofpassing10'];
+  $_SESSION['Year_Of_Passing10']=@ $_POST['yearofpassing10'];
   $_SESSION['Higher_Secondary_School_Name']=@ $_POST['highersecandryschoolname'];
-  $_SESSION['Year_Of_Passing']=@ $_POST['yearofpassing12'];
-  $_SESSION['Enrollment_Number']=@$_POST['enrollmentnumber'];
-  $_SESSION['Roll_Number']=@$_POST['rollno'];
+  $_SESSION['Year_Of_Passing12']=@ $_POST['yearofpassing12'];
+  
+  //$_SESSION['Enrollment_Number']=@$_POST['enrollmentnumber'];
+  $_SESSION['enroll_id']=@$_POST['enroll_id'];
+  $_SESSION['enroll_year']=@$_POST['enroll_year'];
+  $_SESSION['enroll_no']=@$_POST['enroll_no'];
+  
+  //$_SESSION['Roll_Number']=@$_POST['rollno'];
+  $_SESSION['course_id']=@$_POST['course_id'];
+  $_SESSION['year_id']=@$_POST['year_id'];
+  $_SESSION['roll_id']=@$_POST['roll_id'];
+
   $_SESSION['Current_Course']=@$_POST['course'];
   $_SESSION['Current_Sem']=@$_POST['sem'];
   $_SESSION['Current_section']=@$_POST['section'];
   $_SESSION['Enrollment_Year']=@$_POST['enrollmentnumber'];
-  $_SESSION['Alternate_Email']=@$_POST['altemail'];
+  $_SESSION['Alternate_Email']=@$_POST['altemail']; 
+
 ?>
 
 <!DOCTYPE html>
@@ -67,11 +74,26 @@ function onlyChars(event)
 {
 	var e =event;
 	var charCode = e.which || e.keyCode;
-	if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 8 || charCode == 9)
+	if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 8 || charCode == 9 )
 		return true;
 	else 
 		return false;
 }
+
+
+function onlyCharsn(event)
+{
+	var e =event;
+	var charCode = e.which || e.keyCode;
+	if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 8 || charCode == 9 
+	||charCode == 32 || charCode == 46)
+		return true;
+	else 
+		return false;
+}
+
+
+
 /*Function used to copy the current address to permanent address*/
 function Copy(add)
 {
@@ -92,6 +114,17 @@ function digitsonly(e)
     	return true;   
 }
 </script>
+
+<script>
+$(document).ready(function() {
+	$ ( "#firstname").focus();
+});
+
+
+
+</script>
+
+
 </head>
 <body>
 	<div>  <!-- This div for outermost panel where panel property is removed-->
@@ -111,7 +144,7 @@ function digitsonly(e)
 										<div class="panel-body">
 												
 				
-											<form role="form" action="Registration2.php" method="POST" id="theForm" action="r.php"> 
+											<form role="form" action="registration2.php" method="POST" id="theForm" action="r.php"> 
 					
 					
 												<div class="form-group">
@@ -119,7 +152,7 @@ function digitsonly(e)
 													<table border="0" class="table">
 														<tr>
 															<td>
-																<label>Name</label>
+																<label>Name<span style="color:#ff0000"> *</span></label>
 																
 																
 																
@@ -131,14 +164,15 @@ function digitsonly(e)
 															<td>
 																<div class="row">
 																<div class="col-md-4">
-																	<input required="required"  type="text" class="form-control" placeholder="FirstName" onkeypress="return onlyChars(event)" name="firstname" value ="<?php echo $firstname;?>"> 
+																	<input required="required"  id="firstname" type="text" class="form-control" placeholder="FirstName" onkeypress="return onlyCharsn(event)" name="firstname" value ="<?php echo $firstname;?>"> 
 																</div>
+																
 							
 																<div class="col-md-4">
-																	<input type="text" class="form-control" placeholder="MiddleName" onkeypress="return onlyChars(event)" name="midname" value ="<?php echo $midname ;?>">
+																	<input type="text" class="form-control" placeholder="MiddleName" onkeypress="return onlyCharsn(event)" name="midname" value ="<?php echo $midname ;?>">
 																</div>
 																<div class="col-md-4">
-																	<input required="required"  type="text" class="form-control" placeholder="LastName" onkeypress="return onlyChars(event)" name="lastname" value ="<?php echo $lastname ;?>"> 
+																	<input required="required"  type="text" class="form-control" placeholder="LastName" onkeypress="return onlyCharsn(event)" name="lastname" value ="<?php echo $lastname ;?>"> 
 																</div>
 																</div>
 															</td>
@@ -147,25 +181,25 @@ function digitsonly(e)
       
 														<tr>
 															<td>
-																<label>Father's Name</label>
+																<label>Father's Name<span style="color:#ff0000"> *</span></label>
 															</td>
 															<td>
-																<input required="required"  type="text" class="form-control" placeholder="Father Name" onkeypress="return onlyChars(event)" name="fathername" value ="<?php echo $fathername ;?>">
+																<input required="required"  type="text" class="form-control" placeholder="Father Name" onkeypress="return onlyCharsn(event)" name="fathername" value ="<?php echo $fathername ;?>" >
 															</td>
 														</tr> 
 	
 														<tr>
 															<td>
-																<label>Mother's Name</label>
+																<label>Mother's Name<span style="color:#ff0000"> *</span></label>
 															</td>
 															<td>
-																<input required="required"  type="text" class="form-control" placeholder="Mother Name" onkeypress="return onlyChars(event)" name="mothername" value ="<?php echo $mothername ;?>">
+																<input required="required"  type="text" class="form-control" placeholder="Mother Name" onkeypress="return onlyCharsn(event)" name="mothername" value ="<?php echo $mothername ;?>">
 															</td>
 														</tr>
     	
 														<tr>
 															<td>
-																<label>BirthDay</label>
+																<label>BirthDay<span style="color:#ff0000"> *</span></label>
 															</td>
 															<td>
 																<div class="row">
@@ -202,7 +236,7 @@ function digitsonly(e)
 
 														<tr>
 															<td>
-																<label>Gender</label>
+																<label>Gender<span style="color:#ff0000"> *</span></label>
 															</td>
                                                         	<td>
 																<div class="row">
@@ -218,7 +252,7 @@ function digitsonly(e)
 														</tr>	
 														<tr>
 															<td>
-																<label>Category</label>
+																<label>Category<span style="color:#ff0000"> *</span></label>
 															</td>
 															<td><div class="row">
 																<div class="col-md-4">
@@ -236,12 +270,12 @@ function digitsonly(e)
    
 														<tr>
 															<td>
-																<label>Mobile_Number</label>
+																<label>Mobile_Number<span style="color:#ff0000"> *</span></label>
 															</td>
 															<td>
 																<div class="row">
 																<div class="col-md-1" style="padding:0px">
-																	<input required="required"  style="border-right:#ffffff;" "text" class="form-control" value="+91" disabled>
+																	<input required="required"  style="border-right:#ffffff;" type="text" class="form-control" value="+91" disabled>
 																</div>
 																	<div class="col-md-4" style="padding:0px">
 																		<input required="required"  style="width:150px;border-top-left-radius:0px;border-bottom-left-radius:0px;border-left:#ffffff;top:94px;left:460px" type="text" class="form-control" placeholder="9876543210" name="studentnumber"onkeypress="return onlyNumbers(event)" maxlength="10" value ="<?php echo $studentnumber ;?>">
@@ -256,7 +290,7 @@ function digitsonly(e)
 															<td>
 																<div class="row">
 																	<div class="col-md-4">
-																		<input required="required"  type="text" class="form-control" placeholder="0731-222222" name="guardiannumber" value ="<?php echo $guardiannumber ;?>" onkeypress="return onlyNumbers(event)">
+																		<input   type="text" class="form-control" placeholder="0731-222222" name="guardiannumber" value ="<?php echo $guardiannumber ;?>" onkeypress="return onlyNumbers(event)">
 																	</div>
 																	
 																</div>
@@ -265,7 +299,7 @@ function digitsonly(e)
 
 														<tr>
 															<td>
-																<label>Email</label>
+																<label>Email<span style="color:#ff0000"> *</span></label>
 															</td>
 															<td>
 																<input required="required"  type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email"value ="<?php echo $email ;?>"> 	
@@ -274,7 +308,7 @@ function digitsonly(e)
 														
 														<tr>
 															<td>
-																<label>Current Address</label>
+																<label>Current Address<span style="color:#ff0000"> *</span></label>
 															</td>
 															<td>
 																<textarea class="form-control" rows="3" id="add" name="currentaddress"><?php echo $currentaddress ;?></textarea>
@@ -292,7 +326,7 @@ function digitsonly(e)
 
 														<tr>
 															<td>
-																<label>Permanent Address</label>
+																<label>Permanent Address<span style="color:#ff0000">*</span></label>
 															</td>
 															
  	                                                        <td>
@@ -304,13 +338,14 @@ function digitsonly(e)
 		
 			
 			
-												<!--<a class="btn btn-success" href="Registration2.html" role="button">Next Step</a>-->
+												<!--<a class="btn btn-success" href="registration2.html" role="button">Next Step</a>-->
 												<center>
 												
 													<input type="submit" class="btn btn-success" value="Next Step" role="button">
 													<!--	<input required="required"  class="btn btn-success" type="submit" value="Submit" id="submit"> -->
 													<input class="btn btn-danger" type="reset" value="Reset">	
 												</center>
+												<br><br>
 		
 											</form>
 

@@ -8,17 +8,22 @@ $referrer = $_SERVER['HTTP_REFERER'];
 if(preg_match("/registration2.php/",$referrer))
 	session_destroy();
 
-  
-    
-  
-    
-  
   $highschoolname=@$_SESSION['High_School_Name'];
-  $yearofpassing10=@$_SESSION['Year_Of_Passing'] ;
+  $yearofpassing10=@$_SESSION['Year_Of_Passing10'] ;
   $highersecandryschoolname=@$_SESSION['Higher_Secondary_School_Name'];
-  $yearofpassing12=@$_SESSION['Year_Of_Passing'] ;
-  $enrollmentnumber=@$_SESSION['Enrollment_Number'];
-  $rollno=@$_SESSION['Roll_Number'];
+  $yearofpassing12=@$_SESSION['Year_Of_Passing12'] ;
+  
+  //$enrollmentnumber=@$_SESSION['Enrollment_Number'];
+  $enroll_id=@$_SESSION['enroll_id'];
+  $enroll_year=@$_SESSION['enroll_year'];
+  $enroll_no=@$_SESSION['enroll_no'];
+
+  //$rollno=@$_SESSION['Roll_Number'];
+  
+  $course_id=@$_SESSION['course_id'];
+  $year_id=@$_SESSION['year_id'];
+  $roll_id=@$_SESSION['roll_id'];
+
   $course=@$_SESSION['Current_Course'];
   $sem=@$_SESSION['Current_Sem'];
   $section=@$_SESSION['Current_section'];
@@ -26,12 +31,7 @@ if(preg_match("/registration2.php/",$referrer))
   $altemail=@$_SESSION['Alternate_Email'];
 
 
-  
-  
-  
-  
-
-
+ 
   $_SESSION['First_Name']=$_POST['firstname'];
   $_SESSION['Mid_name']=$_POST['midname'];
   $_SESSION['Last_Name']=$_POST['lastname'];
@@ -48,7 +48,6 @@ if(preg_match("/registration2.php/",$referrer))
   $_SESSION['Email']=$_POST['email'];
   $_SESSION['Current_Address']=$_POST['currentaddress'];
   $_SESSION['Permanent_Address']=$_POST['permanentaddress'];
-
 
 /* End of session variables */
 
@@ -144,7 +143,7 @@ function digitsonly(e)
 												<div class="form-group">
 													<table border="0" class="table">
 														<tr>
-															<td style="width:200px"><label>High school Name<span style="color:#ff0000"> *</span></label></td>
+															<td style="width:200px"><label>High school Name(10th)<span style="color:#ff0000"> *</span></label></td>
 															<td>
 																<input required="required"  type="text" class="form-control" placeholder="Name of School" onkeypress="return onlyChars(event)" name="highschoolname" value ="<?php echo $highschoolname ;?>">
 															</td>
@@ -153,14 +152,18 @@ function digitsonly(e)
 															<td><label>Year of passing<span style="color:#ff0000"> *</span></label></td>
 															<td><div class="row">
 																	<div class="col-xs-4">
-																		<input required="required"  type="text" class="form-control" placeholder="2010" onkeypress="return onlyNumbers(event)"  maxlength="4" name="yearofpassing10" value ="<?php echo $yearofpassing10 ;?>">
+																		
+																		<select required="required" class="form-control" name="yearofpassing10" value ="<?php echo $yearofpassing10 ;?>">
+																			<script>var i;for(i=2005;i<=2050;i++){document.write("<option>"+i+"</option>");}</script>
+																		</select>
+
 																	</div>
 																</div>
 															</td>
 														</tr> 		
 														<tr>
 															<td>
-																<label>Higher Secondary school Name
+																<label>Higher Secondary school Name(12th)
 																	<span style="color:#ff0000"> *</span>
 																</label>
 															</td>
@@ -172,7 +175,11 @@ function digitsonly(e)
 															<td><label>Year of passing <span style="color:#ff0000"> *</span></label></td>
 															<td><div class="row">
 																	<div class="col-xs-4">
-																		<input required="required"  type="text" class="form-control" placeholder="2010" onkeypress="return onlyNumbers(event)"  maxlength="4" name="yearofpassing12" value ="<?php echo $yearofpassing12 ;?>">
+																		
+																		<select required="required" class="form-control" name="yearofpassing12" value ="<?php echo $yearofpassing12 ;?>">
+																			<script>var i;for(i=2005;i<=2050;i++){document.write("<option>"+i+"</option>");}</script>
+																		</select>
+
 																	</div>
 																
 															</td>
@@ -190,7 +197,28 @@ function digitsonly(e)
 															<td  style="width:200px"><label>Enrollment Number<span style="color:#ff0000"> *</span></label></td>
 															<td>
 																<div class="row">
-																<div class="col-md-4"><input required="required"  type="text" class="form-control" placeholder="DE/11/****" name="enrollmentnumber" value ="<?php echo $enrollmentnumber ;?>"></div>
+																	<div class="col-xs-2">
+																		<input required="required" type="text"	class="form-control" name="enroll_id" value ="<?php echo $enroll_id ?>" maxlength="2">																	
+																	</div>
+
+																	<div class="col-xs-1" value="/" >
+																		<input required="required"  style="border-right:#ffffff;" type="text" class="form-control" value="/" disabled>
+																	</div>
+
+																	<div class="col-xs-3" style="width:16%">
+																		<select class="form-control" name="enroll_year">
+																			<script>var i;for(i=09;i<=31;i++){document.write("<option>"+i+"</option>");}</script>
+																		</select>
+																	</div>	
+
+																	<div class="col-xs-1" value="/" >
+																		<input required="required"  style="border-right:#ffffff;" type="text" class="form-control" value="/" disabled>
+																	</div>
+
+																	<div class="col-xs-2">
+																		<input required="required" type="text"	class="form-control" name="enroll_no" value ="<?php echo $enroll_no ?>" maxlength="4">
+																	</div>	
+
 																</div>
 															</td>
 														</tr>
@@ -200,8 +228,36 @@ function digitsonly(e)
 														
 														<tr>
 															<td><label>Roll Number<span style="color:#ff0000"> *</span></label></td>
-															<td><div class="row">
-																	<div class="col-md-4"><input required="required"  type="text" class="form-control" placeholder="IT-2K11-10" name="rollno" value ="<?php echo $rollno ;?>"></div>
+															<td>
+																<div class="row">
+																	<!--<div class="col-md-4"><input required="required"  type="text" class="form-control" placeholder="IT-2K11-10" name="rollno" value ="<?php echo $rollno ;?>"></div>-->
+																	<div class="col-xs-3" style="width:16%">
+																		<select class="form-control" name="course_id" value ="<?php echo $course_id ;?>">
+																			<option>IC</option>
+																			<option>IT</option>
+																		</select>
+																	</div>
+
+																	<div class="col-xs-2" value="-2K-">
+																		<input required="required"  style="border-right:#ffffff;" type="text" class="form-control" value="-2K-" disabled>
+																	</div>
+
+																	<div class="col-xs-3" style="width:16%">
+																		<select class="form-control" name="year_id" value ="<?php echo $year_id ;?>">
+																			<script>var i;for(i=09;i<=31;i++){document.write("<option>"+i+"</option>");}</script>
+																		</select>
+																	</div>
+
+																	<div class="col-xs-1" value="-" >
+																		<input required="required"  style="border-right:#ffffff;" type="text" class="form-control" value="-" disabled>
+																	</div>
+
+																	<div class="col-xs-3" style="width:16%">
+																		<select class="form-control" name="roll_id" value ="<?php echo $roll_id ;?>">
+																			<script>var i;for(i=01;i<=120;i++){document.write("<option>"+i+"</option>");}</script>
+																		</select>
+																	</div>																	
+
 																</div>
 															</td>
 														</tr>
@@ -235,7 +291,12 @@ function digitsonly(e)
 											 
 														<tr><td><label>Enrollment year<span style="color:#ff0000"> *</span></label></td>
 															<td><div class="row">
-																	<div class="col-md-4"><input required="required"  type="text" class="form-control" placeholder="2012" onkeypress="return onlyNumbers(event)"  maxlength="4" name="enrollmentnumber" value ="<?php echo $enrollmentnumber ;?>"></div>
+																	<div class="col-md-4">
+																		 
+																		<select required="required" class="form-control" name="enrollmentnumber" value ="<?php echo $enrollmentnumber ;?>">
+																			<script>var i;for(i=2005;i<=2050;i++){document.write("<option>"+i+"</option>");}</script>
+																		</select>
+																	</div>
 																</div>
 															</td>
 														</tr>
@@ -256,7 +317,8 @@ function digitsonly(e)
 														<input class="btn btn-danger" type="reset" value="Reset">			
 													</center>
 
-
+													<br>
+													<br>
 											  		
 											</form>	
 							
