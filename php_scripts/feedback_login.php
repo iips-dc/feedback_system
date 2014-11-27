@@ -22,11 +22,21 @@
      $semester=$_POST['semester'];
      $batch=$course_id.'-'.$batch_id;
      $section=$_POST['section'];
-     echo $semester;
-     $sql="INSERT INTO `feedback_student_info` VALUES ('', $batch,'$course_id','$semester','$section','2014')";
-    $insertStudentInfo= mysqli_query($con,$sql) or die("Error : ".mysqli_error($con));
-    echo $insertStudentInfo;
-    echo "asuccessfully";
+     $semester;
+
+     $feedbackStudentInfo="INSERT INTO `feedback_system_db`.`feedback_student_info` (`fs_id`, `batch_id`,`course`,`semester`, `section`, `feedback_session`) VALUES ('','$batch','$course_id','$semester' ,'$section',2014)";
+            $test2=mysqli_query($con,$feedbackStudentInfo);
+            $fsid=mysqli_insert_id($con);
+            echo $test2;
+            echo $fsid;
+            $_SESSION['fs_id'] = $fsid;
+            if ($test2) {
+                # code...
+                    header('location:../app/feedback_forms/infrastructure_support.php');
+            }
+
+
+    
 
 
 ?>
