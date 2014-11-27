@@ -35,7 +35,7 @@
                 <h2 class="panel-title text-center">New User </h2>
             </div>
 
-            <h2 align="center"><a href="feedback_registration.php"> IIPS Registration </a> </h2> 
+            <h2 align="center"><a href="iips_registration.php"> IIPS Registration </a> </h2> 
 
        </div> 
      </div>  
