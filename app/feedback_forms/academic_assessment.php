@@ -115,7 +115,7 @@
                                    <?php
 
                                         //query to find subjects which are available in this course.
-                                        $selectSubjectQuery = mysqli_query($con, "SELECT * FROM subject WHERE course_id = 'IC' AND semester = '11'  AND is_viva_or_lab=0" );
+                                        $selectSubjectQuery = mysqli_query($con, "SELECT * FROM subject WHERE course_id = '$course_id' AND semester = '$Current_Sem'  AND is_viva_or_lab=0" );
                                         $subjectRows = mysqli_num_rows($selectSubjectQuery);
                                         echo "rows";
                                         echo $subjectRows;
@@ -477,11 +477,8 @@
                 && !empty($suggestionForSubject) && !empty($suggestionForCourse)) 
             {*/
                 # Query to find faculty id from time table using subject id 
-            /*$facultyIdQuery = mysqli_query($con, "SELECT `faculty_id` FROM `time_table` WHERE `subject_id` = '$subjectId'");
-            $facultyRow = mysqli_fetch_array($facultyIdQuery);
-            $facultyId = $facultyRow['faculty_id'];
-            echo "faculty id = ".$facultyId."  ";
-                */
+           
+                
             /*$insertQueryRun = mysqli_query($con, "INSERT INTO `academic_assessment_info`(`s_no`, `subject_id`, `faculty_id`, `conceptual_clarity`, `subject_knowledge`, `practical_example`, `handling_capability`, `motivation`, `control_ability`, `course_completion`, `communication_skill`, `regularity_punctuality`, `outside_guidance`, `syllabus_industry_relvance`, `sufficiency_of_course`, `suggestion_for_subject`, `suggestion_for_course`) 
                                                 VALUES ('' , '$subjectId', '$facultyId', '$conceptualClearity', '$subjectKnowledge', '$practicalExamples', '$handlingCapability', '$motivation', '$controlAbility', '$courseCompletion', '$communicationSkill', '$regularityPunctuality', '$outsideGuidance', '$syllabusIndustryRelvance', '$sufficiencyOfCourse', '$suggestionForSubject', '$suggestionForCourse')");
             echo $insertQueryRun;*/
@@ -509,7 +506,7 @@
         {
             # code...
             echo "feedback submit";
-            $subjectId = $_POST['subject_code'];
+            echo $subjectId = $_POST['subject_code'];
             $conceptualClearity = $_POST['conceptual_clearity'];
             $subjectKnowledge = $_POST['subject_knowledge'];
             $practicalExamples = $_POST['practical_example'];
@@ -539,6 +536,11 @@
             /*$facultyRow = mysqli_fetch_array($facultyIdQuery);
             $facultyId = $facultyRow['faculty_id'];
             echo "faculty id = ".$facultyId."  ";*/
+
+             $facultyIdQuery = mysqli_query($con, "SELECT `faculty_id` FROM `time_table` WHERE `subject_id` = '$subjectId'");
+            $facultyRow = mysqli_fetch_array($facultyIdQuery);
+            $facultyId = $facultyRow['faculty_id'];
+            echo "faculty id = ".$facultyId."  ";
             $feedBatchId = $_SESSION['feedBatchId'];
             $fsid = $_SESSION['fs_id'];
             echo $fsid;

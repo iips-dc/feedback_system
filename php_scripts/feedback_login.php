@@ -1,4 +1,10 @@
 <?php
+	//This file is use to redirect the user to infrastructure_support.php for feedack.
+	//The user fills the information like course_id,semester, course etc on the index.php of app/feedback_forms
+	//then submit the details, those details are processed here and a record is inserted in feedback_student_info table
+	//to generate fs_id (auto-incremeted attribute).
+
+
     session_start();
     // include '../../includes/login/core.inc.php';
     include '../includes/login/connect.inc.php';
