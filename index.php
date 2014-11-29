@@ -14,12 +14,12 @@ $fsidRow = mysqli_fetch_array($fsidQuery);
         $fsid_infraQuery = mysqli_query($con, "SELECT * FROM `infrastructure_support_info` WHERE `fs_id` = '$fs_id'");
         $fsid_infraRow = mysqli_fetch_array($fsid_infraQuery);
         if ($fsid_infraRow>0){
-            //header(location : 'app/feedback_forms/academic_assessment.php');
-            echo "reached ass";
+           header('location:app/feedback_forms/academic_assessment.php');
+            //echo "reached ass";
         }
         else{
-            //header(location : app/feedback_forms/infrastructure_support.php);
-            echo "reached infra";
+            header('location:app/feedback_forms/infrastructure_support.php');
+            //echo "reached infra";
         }
     }
     else{
