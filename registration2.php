@@ -238,8 +238,8 @@ function digitsonly(e)
 																		</select>
 																	</div>
 
-																	<div class="col-xs-2" value="-2K-">
-																		<input required="required"  style="border-right:#ffffff;" type="text" class="form-control" value="-2K-" disabled>
+																	<div class="col-xs-2" value="-2K">
+																		<input required="required"  style="border-right:#ffffff;" type="text" class="form-control" value="-2K" disabled>
 																	</div>
 
 																	<div class="col-xs-3" style="width:16%">

@@ -97,6 +97,8 @@
           <h2 class="panel-title text-center">INFRASTRUCTURE SUPPORT</h2>
     </div>  <!--closing of class=panel-title-->
    <!--closing of class=panel panel-primary-->
+
+   
 			<div class=" row alert alert-info">
 					<div class="col-md-4">
                      <strong >Instructions<br></strong>
