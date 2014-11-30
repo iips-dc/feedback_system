@@ -56,6 +56,7 @@ if(preg_match("/registration2.php/",$referrer))
 <!DOCTYPE html>
 <html>
 <head>
+<title>IIPS Registration</title>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link href="assests/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script src="assests/js/jquery.min.js"></script>
