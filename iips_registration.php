@@ -1,8 +1,9 @@
 <?php 
 session_start(); 
 include 'includes/login/connect.inc.php';
-$referrer = @$_SERVER['HTTP_REFERER']; 
-if(preg_match("/registration.php/",$referrer))
+$referrer = @$_SERVER['HTTP_REFERER'];
+
+if(preg_match("/iips_registration.php/",$referrer))
   
 	session_destroy();
   //echo $referrer;

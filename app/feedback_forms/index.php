@@ -7,7 +7,17 @@ include 'includes/login/connect.inc.php';
  
  //$_SESSION['course_id']=$_POST['course_id'];
 
- 
+  if (isset($_POST['submit'])) {
+    # code...
+    $_SESSION['feedBatchId']=$_POST['batch_id'];
+   
+   $_SESSION['course_id']=$_POST['course_id'];
+   
+   $_SESSION['Current_Sem']=$_POST['semester'];
+
+   $_SESSION['Current_section']=$_POST['section'];
+
+  }
  
    //$_SESSION['course_id']=$_POST['course_id'];
 

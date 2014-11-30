@@ -6,17 +6,16 @@
 ?>
 <?php
    session_start();
+   
    $feedBatchId = $_SESSION['feedBatchId'];
-   $_SESSION['feedBatchId'] = $feedBatchId;
+  
    $course_id = $_SESSION['course_id'];
-   $_SESSION['course_id'] = $course_id;
+  
    $Current_Sem = $_SESSION['Current_Sem'];
-   $_SESSION['Current_Sem'] = $Current_Sem;
+  
    $Current_section = $_SESSION['Current_section'];
-
-   echo $feedBatchId;
+  
    $studentno=$_SESSION['student_no'];
-   echo $studentno;
 
     if (isset($_POST['infrastructure_feedback_submit'])) {
         # code...

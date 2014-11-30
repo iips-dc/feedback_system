@@ -22,7 +22,16 @@
     //echo $_SESSION['Current_Sem'];
     //$section = $studentInfo['Current_section'];
    // $section = "A";
-     $batch_id=$_POST['batch_id'];
+
+   $_SESSION['feedBatchId']=$_POST['batch_id'];
+   
+   $_SESSION['course_id']=$_POST['course_id'];
+   
+   $_SESSION['Current_Sem']=$_POST['semester'];
+
+   $_SESSION['Current_section']=$_POST['section'];
+
+     $_POST[ batch_id]=$_POST['batch_id'];
      $course=$_POST['course'];
      $course_id=$_POST['course_id'];
      $semester=$_POST['semester'];

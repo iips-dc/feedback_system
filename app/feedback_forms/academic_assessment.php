@@ -2,8 +2,12 @@
 
 <!-- Including files for DB connection and Session Control -->
 <?php
+	//echo "before session ";
     session_start();
     ob_start();
+
+    //$referrer = @$_SERVER['HTTP_REFERER'];
+    //echo $referrer;
     // include '../../includes/login/core.inc.php';
     include '../../includes/login/connect.inc.php';
 
@@ -14,15 +18,47 @@
     //$studentInfoQuery = mysqli_query($con, "SELECT * FROM `student_info` WHERE `student_no` = '$studentNo'");
     //$studentInfo = mysqli_fetch_array($studentInfoQuery);
     //$course = $studentInfo['Current_Course'];
-    $course_id = $_SESSION['course_id'];
+    
     //$course = "MCA";
     //$sem = $studentInfo['Current_Sem'];
     //$sem = 1;
-    $Current_Sem = $_SESSION['Current_Sem'];
+
+    //echo "before issset";
+    
+   	/*if ($_SESSION['flag_variable']=1)
+    {*/
+    	/*echo "inside if ";*/
+   		 $parameter_query= mysqli_query($con,"SELECT course,semester FROM feedback_student_info WHERE fs_id = '".$_SESSION['fs_id']."'" );
+                                        $parameter_row = mysqli_num_rows($parameter_query);
+                                        
+                                        
+                                        //print_r($subjectRows);
+                                        $row = mysqli_fetch_array($parameter_query);
+                                        
+                                            $course_id = $row[0];
+                                            //echo $course_id;
+                                            $Current_Sem = $row[1];
+                                            
+                                        
+    /* }
+     else
+     {
+     	echo "course_id";
+    echo $_SESSION['course_id'];
+    
+    	# code...
+    	$course_id = $_SESSION['course_id'];
+    	$Current_Sem = $_SESSION['Current_Sem'];
     echo "course id";
     echo $course_id;
     echo "current sem";
     echo $Current_Sem;
+    echo "fs id";
+    //$fs_id=$_POST['fs_id'];
+    echo $_SESSION['fs_id'];
+   	echo "after fsid";
+     }*/
+
     //$section = $studentInfo['Current_section'];
     $section = "A";
     //Query to find course id from course table using course name
@@ -34,6 +70,7 @@
     //$courseRow = mysqli_fetch_array($courseIdQuery);
     //$courseId = $courseRow['course_id'];
     //echo $courseId;
+    
 
 ?>
 
@@ -115,7 +152,7 @@
                                    <?php
 
                                         //query to find subjects which are available in this course.
-                                        $selectSubjectQuery = mysqli_query($con, "SELECT * FROM subject WHERE course_id = '$course_id' AND semester = '$Current_Sem'  AND is_viva_or_lab=0" );
+                                        $selectSubjectQuery = mysqli_query($con, "SELECT * FROM subject WHERE course_id = '".$course_id."' AND semester = '".$Current_Sem."'  AND is_viva_or_lab=0" );
                                         $subjectRows = mysqli_num_rows($selectSubjectQuery);
                                         echo "rows";
                                         echo $subjectRows;
