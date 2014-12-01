@@ -25,19 +25,19 @@
 
    $_SESSION['feedBatchId']=$_POST['batch_id'];
    
-   $_SESSION['course_id']=$_POST['course_id'];
+   $_SESSION['course_id']=$_POST['courseid'];
    
-   $_SESSION['Current_Sem']=$_POST['semester'];
+   $_SESSION['Current_Sem']=$_POST['sem'];
 
    $_SESSION['Current_section']=$_POST['section'];
 
-     $_POST[ batch_id]=$_POST['batch_id'];
+     
      $course=$_POST['course'];
      $course_id=$_POST['course_id'];
      $semester=$_POST['semester'];
      $batch=$course_id.'-'.$batch_id;
      $section=$_POST['section'];
-     $semester;
+     
 
      $feedbackStudentInfo="INSERT INTO `feedback_system_db`.`feedback_student_info` (`fs_id`, `batch_id`,`course`,`semester`, `section`, `feedback_session`) VALUES ('','$batch','$course_id','$semester' ,'$section',2014)";
             $test2=mysqli_query($con,$feedbackStudentInfo);
