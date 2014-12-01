@@ -278,7 +278,7 @@ function digitsonly(e)
 
 																	<div id="selectsem" class="col-xs-4"></div>
 												
-																	<div  id="section" style ='visibility:hidden' class="col-xs-2">
+																	<div  id="section" style ='visibility:hidden' class="col-xs-3">
 																			<select class="form-control" name="section" value ="<?php echo $section ;?>">
 																					<option>A</option>
 																					<option>B</option>
