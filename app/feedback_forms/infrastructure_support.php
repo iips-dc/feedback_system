@@ -114,8 +114,8 @@
             </div>
     <form action="#" method="POST" name="myForm">
         <div class="container" id="a">
-                <strong class="col-lg-6">1.) Availability of Books in Library</strong>
-                <div class="col-sm-6">
+                <strong class="col-md-6">1.) Availability of Books in Library</strong>
+                <div class="col-md-6">
                      <label class="radio-inline">
                        <input type="radio" name="books_availability" required="required" value="1" onClick="changeColour('a')">1
                      </label> 
@@ -136,8 +136,8 @@
         <hr>
                                                            
         <div class="container" id="b">
-            <strong class="col-lg-6">2.) Basic Requirements like Furniture, Chalk, Duster</strong>
-                <div class="col-sm-6">
+            <strong class="col-md-6">2.) Basic Requirements like Furniture, Chalk, Duster</strong>
+                <div class="col-md-6">
                   <label class="radio-inline">
                       <input type="radio" name="basic_requirements" required="required" value="1" onClick="changeColour('b')">1
                   </label> 
@@ -157,8 +157,8 @@
         </div>  
         <hr >
         <div class="container" id="c">                            
-          <strong class="col-lg-6">3.) Technological Support like OHP/LCD  </strong>
-              <div class="col-sm-6">
+          <strong class="col-md-6">3.) Technological Support like OHP/LCD  </strong>
+              <div class="col-md-6">
                   <label class="radio-inline">
                     <input type="radio" name="technological_support"  required="required" value="1" onClick="changeColour('c')">1
                   </label> 
@@ -178,8 +178,8 @@
         </div> 
         <hr>
         <div class="container" id="d">                        
-          <strong class="col-lg-6">4.) Photocopy of Study Material</strong>
-            <div class="col-sm-6">
+          <strong class="col-md-6">4.) Photocopy of Study Material</strong>
+            <div class="col-md-6">
               <label class="radio-inline">
                 <input type="radio" name="study_material" required="required" value="1" onClick="changeColour('d')">1
               </label> 
@@ -199,8 +199,8 @@
         </div>                           
         <hr>                                             
         <div class="container" id="e">
-          <strong class="col-lg-6">5.) Availability of Other Resources Like Internet/Computers/Softwares/Databases etc</strong>
-            <div class="col-sm-6">
+          <strong class="col-md-6">5.) Availability of Other Resources Like Internet/Computers/Softwares/Databases etc</strong>
+            <div class="col-md-6">
               <label class="radio-inline">
                 <input type="radio" name="resourse_availability" required="required" value="1" onClick="changeColour('e')">1
               </label> 
@@ -220,8 +220,8 @@
         </div>                           
         <hr>
         <div class="container" id="f">
-            <strong class="col-lg-6">6.) Cleanliness in the Classroom</strong>
-              <div class="col-sm-6">
+            <strong class="col-md-6">6.) Cleanliness in the Classroom</strong>
+              <div class="col-md-6">
                 <label class="radio-inline">
                   <input type="radio" name="cleaniliness_of_class" required="required" value="1" onClick="changeColour('f')">1
                 </label> 
