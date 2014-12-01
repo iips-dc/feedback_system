@@ -103,7 +103,7 @@ include 'includes/login/connect.inc.php';
      <div class="form-group">
          <div class="row">  
               <label class="control-label col-sm-offset-2 col-sm-2" for="company">Course ID</label>
-            <div class="col-sm-6 col-sm-4" id="selectid">
+            <div class="col-sm-6 col-sm-4" id="selectid" >
                <select name="course_id" class="form-control">
                   <option>IC</option>
                   <option>IT</option>
