@@ -80,19 +80,42 @@ include 'includes/login/connect.inc.php';
          <div class="row">  
               <label class="control-label col-sm-offset-2 col-sm-2" for="company">Name of programmes</label>
             <div class="col-sm-6 col-sm-4">
-               <select name="course" class="form-control">
-                  <option>MCA</option>
-                  <option>MTECH</option>
-                  
-               </select> 
+               <select onchange ="generate(this.value)" onchange="changeID(this.value)" class="form-control" name="course" value ="">
+                    <option >Select Course</option>
+                    <option >MTECH</option>
+                    <option >MCA</option>
+                                    
+                </select> 
             </div>
         </div>
      </div>
 
      <div class="form-group">
+        <div class="row">
+                   <label class="control-label col-md-offset-2 col-md-2" for="company">Semester</label>
+            <div class="col-md-4 col-md-4" id="selectsem">
+                     <select name="semester" class="form-control">
+                            <option>1 SEM</option>
+                            <option>2 SEM</option>
+                            <option>3 SEM</option>
+                            <option>4 SEM</option>
+                            <option>5 SEM</option>
+                            <option>6 SEM</option>
+                            <option>7 SEM</option>
+                            <option>8 SEM</option>
+                            <option>9 SEM</option>
+                            <option>10 SEM</option>
+                            <option>11 SEM</option>
+                            <option>12 SEM</option>
+                    </select> 
+            </div>
+        </div>
+    </div>
+
+     <div class="form-group">
          <div class="row">  
               <label class="control-label col-sm-offset-2 col-sm-2" for="company">Course ID</label>
-            <div class="col-sm-6 col-sm-4">
+            <div class="col-sm-6 col-sm-4" id="selectid">
                <select name="course_id" class="form-control">
                   <option>IC</option>
                   <option>IT</option>
@@ -120,9 +143,9 @@ include 'includes/login/connect.inc.php';
         </div>
      </div>
 
-      <div class="form-group">
-         <div class="row">  
-              <label class="control-label col-sm-offset-2 col-sm-2" for="company">Section</label>
+      <div class="form-group" id="section" style ='visibility:hidden'>
+         <div class="row" >  
+              <label class="control-label col-sm-offset-2 col-sm-2"  for="company">Section</label>
             <div class="col-sm-6 col-sm-4">
                 <select name="section" class="form-control">
                   <option>A</option>
@@ -131,28 +154,9 @@ include 'includes/login/connect.inc.php';
 
             </div>
         </div>
-     </div>         
+     </div>       
 
-   <div class="form-group">
-        <div class="row">
-                   <label class="control-label col-md-offset-2 col-md-2" for="company">Semester</label>
-            <div class="col-md-4 col-md-4">
-                     <select name="semester" class="form-control">
-                            <option>1</option>
-                            
-                            <option>3</option>
-                            <option>5</option>
-                            
-                            <option>7</option>
-                            
-                            <option>9</option>
-                            
-                            <option>11</option>
-                            
-                    </select> 
-            </div>
-        </div>
-    </div>
+   
 
 <!-- <div class="form-group">
         <div class="row">
@@ -177,6 +181,63 @@ include 'includes/login/connect.inc.php';
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+            
+
+            function generate(x)
+                            {
+                              
+                              var i;
+                                          
+                              msg = '';
+                              
+                              msg ='<select class="form-control" name="sem">';
+                                                      
+                                                                                      
+                              count = 0;
+                              if (x=='MTECH')
+                                count  = 11;
+                              else if(x =='MCA')
+                                count = 12;
+                              else 
+                                count = 12 ;
+                              //document.write('');
+                              for(i=1;i<=count;i++)
+                              {
+                                msg += "<option>"+i+" SEM </option>";
+                              }
+                              
+                            
+                              
+                              msg += '</select>' ;
+                              
+                            //  $('#selectsem').html(msg);
+                              document.getElementById('selectsem').innerHTML = msg;
+                              
+                              if(x =='MCA')
+                                $('#section').css('visibility','visible');
+                              else
+                                $('#section').css('visibility','hidden');
+
+
+                              course='';
+              course ='<select class="form-control" name="courseid">';
+                                                      
+                                                                                      
+                              if (x=='MTECH')
+                                course += "<option> IT </option>";
+                              else if(x =='MCA')
+                                course += "<option> IC </option>";
+                              else 
+                                course += "<option> Select ID </option>";
+                              
+                              course += '</select>' ;
+                              
+                            //  $('#selectsem').html(msg);
+                              document.getElementById('selectid').innerHTML = course;
+                                                          
+                          }
+</script>
 <!--script src="bootstrap/js/jquery.js"></script-->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
