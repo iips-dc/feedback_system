@@ -185,8 +185,8 @@
 
                                     
             <div class="container" id="a">
-                <strong class="col-lg-6">1. Availability to bring conceptual clearity</strong>
-                 <div class="col-sm-6">
+                <strong class="col-md-6">1. Availability to bring conceptual clearity</strong>
+                 <div class="col-md-6">
                     <label class="radio-inline">
                         <input type="radio" name="conceptual_clearity" required="required" value="1" onClick="changeColour('a')">1
                     </label>         
@@ -208,8 +208,8 @@
             <hr>
 
            <div class="container" id="b">
-                <strong class="col-lg-6">2. Teacher's Subject Knowledge</strong>
-                 <div class="col-sm-6">
+                <strong class="col-md-6">2. Teacher's Subject Knowledge</strong>
+                 <div class="col-md-6">
                      <label class="radio-inline">
                         <input type="radio" name="subject_knowledge" required="required" value="1" onClick="changeColour('b')">1
                      </label> 
@@ -231,8 +231,8 @@
             <hr>
 
             <div class="container" id="c">         
-                <strong class="col-lg-6">3. Compliments theory with practical examples</strong>
-                <div class="col-sm-6" id="A3">
+                <strong class="col-md-6">3. Compliments theory with practical examples</strong>
+                <div class="col-md-6" id="A3">
                     <label class="radio-inline">
                         <input type="radio" name="practical_example" required="required" value="1" onClick="changeColour('c')">1
                     </label> 
@@ -254,8 +254,8 @@
             <hr>
 
             <div class="container" id="d">                                                     
-                <strong class="col-lg-6">4. Handling of cases/ assignment/ exercises/ activities</strong>
-                <div class="col-sm-6" id="A4">
+                <strong class="col-md-6">4. Handling of cases/ assignment/ exercises/ activities</strong>
+                <div class="col-md-6" id="A4">
                     <label class="radio-inline">
                         <input type="radio" name="handling_capability" required="required" value="1" onClick="changeColour('d')">1
                     </label> 
@@ -277,8 +277,8 @@
             <hr>
 
             <div class="container" id="e">
-                <strong class="col-lg-6">5. Motivation Provided By Teacher</strong>
-                <div class="col-sm-6">
+                <strong class="col-md-6">5. Motivation Provided By Teacher</strong>
+                <div class="col-md-6">
                     <label class="radio-inline">
                         <input type="radio" name="motivation" required="required" value="1" onClick="changeColour('e')">1
                     </label> 
@@ -300,8 +300,8 @@
             <hr>
 
             <div class="container" id="f">
-                <strong class="col-lg-6">6. Ability of control the class</strong>
-                <div class="col-sm-6">
+                <strong class="col-md-6">6. Ability of control the class</strong>
+                <div class="col-md-6">
                     <label class="radio-inline">
                         <input type="radio" name="control_ability" required="required" value="1" onClick="changeColour('f')">1
                     </label> 
@@ -323,8 +323,8 @@
             <hr>
 
             <div class="container" id="g">
-                <strong class="col-lg-6">7. Completion and coverage of course</strong>
-                <div class="col-sm-6">
+                <strong class="col-md-6">7. Completion and coverage of course</strong>
+                <div class="col-md-6">
                     <label class="radio-inline">
                         <input type="radio" name="course_completion" required="required" value="1" onClick="changeColour('g')">1
                     </label> 
@@ -346,8 +346,8 @@
             <hr>
                 
             <div class="container" id="h">  
-                <strong class="col-lg-6">8. Teacher's communication of skill  </strong>
-                <div class="col-sm-6">
+                <strong class="col-md-6">8. Teacher's communication of skill  </strong>
+                <div class="col-md-6">
                     <label class="radio-inline">
                         <input type="radio" name="communication_skill" required="required" value="1" onClick="changeColour('h')">1
                     </label> 
@@ -369,8 +369,8 @@
             <hr>
 
             <div class="container" id="i">
-                <strong class="col-lg-6">9. Teacher's Regularity and Punctuality</strong>
-                <div class="col-sm-6">
+                <strong class="col-md-6">9. Teacher's Regularity and Punctuality</strong>
+                <div class="col-md-6">
                     <label class="radio-inline">
                         <input type="radio" name="regularity_punctuality" required="required" value="1" onClick="changeColour('i')">1
                     </label> 
@@ -392,8 +392,8 @@
             <hr>
 
             <div class="container" id="j">
-                <strong class="col-lg-6">10. Interaction and Guidance Outside the Classroom</strong>
-                <div class="col-sm-6">
+                <strong class="col-md-6">10. Interaction and Guidance Outside the Classroom</strong>
+                <div class="col-md-6">
                     <label class="radio-inline">
                         <input type="radio" name="outside_guidance" required="required" value="1" onClick="changeColour('j')">1
                     </label> 
@@ -413,8 +413,8 @@
             </div></br>
             </div>
             <div class="container">
-                <label class="col-lg-6">Any Other Suggestion(Regarding Subject):</label>
-                <div class="col-sm-6">
+                <label class="col-md-6">Any Other Suggestion(Regarding Subject):</label>
+                <div class="col-md-6">
                    <textarea rows="5" class="form-control" name="suggestion_for_subject" placeholder="Suggestions..."></textarea>
                 </div>
             </div>
@@ -426,8 +426,8 @@
             </div>
             
             <div class="container" id="A">
-                <strong class="col-lg-6">1. Relevance Of Syllabus As Per Industry Requirement</strong>
-                <div class="col-sm-6">
+                <strong class="col-md-6">1. Relevance Of Syllabus As Per Industry Requirement</strong>
+                <div class="col-md-6">
                     <label class="radio-inline">
                         <input type="radio" name="syllabus_industry_relevance" required="required" value="1" onClick="changeColour('A')" >1
                     </label> 
@@ -449,8 +449,8 @@
             <hr>
 
             <div class="container" id="B">
-                <strong class="col-lg-6">2. Sufficiency Of Course Content</strong>
-                <div class="col-sm-6">
+                <strong class="col-md-6">2. Sufficiency Of Course Content</strong>
+                <div class="col-md-6">
                     <label class="radio-inline">
                         <input type="radio" name="sufficiency_of_course"  required="required" value="1" onClick="changeColour('B')">1
                     </label> 
@@ -471,8 +471,8 @@
             <br>
 
             <div class="container">
-                <label class="col-lg-6">Any Other Suggestion(Regarding Subject):</label>
-                 <div class="col-sm-6">
+                <label class="col-md-6">Any Other Suggestion(Regarding Subject):</label>
+                 <div class="col-md-6">
                     <textarea rows="5" class="form-control" name="suggestion_for_course" placeholder="Suggestions..."></textarea>  
                  </div>
             </div>
