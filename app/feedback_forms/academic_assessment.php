@@ -116,7 +116,14 @@
           <h2 class="panel-title text-center">ACADEMIC ASSESSMENT</h2>
         </div>
 </div>
-
+			<!--div to show ID for the session, if power gets cut than this ID can be used to resume-->
+          <div class="alert alert-block">
+              
+              
+                             <?php echo "Note down this ID for feedback session :";
+                                   echo $_SESSION['fs_id']; 
+                              ?>
+          </div>
             <div class="row alert alert-info">
                      <strong class="col-md-6">Instructions:</strong><br>
                     <!-- <div class="col-sm-6" style="margin-left:-10px;"> -->
