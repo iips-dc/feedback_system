@@ -6,28 +6,10 @@
     session_start();
     ob_start();
 
-    //$referrer = @$_SERVER['HTTP_REFERER'];
-    //echo $referrer;
-    // include '../../includes/login/core.inc.php';
+    
     include '../../includes/login/connect.inc.php';
 
-    //$studentNo = $_SESSION['student_no'];
-    //echo $studentNo;
     
-    //Query to find student details like course name, semester, section etc.
-    //$studentInfoQuery = mysqli_query($con, "SELECT * FROM `student_info` WHERE `student_no` = '$studentNo'");
-    //$studentInfo = mysqli_fetch_array($studentInfoQuery);
-    //$course = $studentInfo['Current_Course'];
-    
-    //$course = "MCA";
-    //$sem = $studentInfo['Current_Sem'];
-    //$sem = 1;
-
-    //echo "before issset";
-    
-   	/*if ($_SESSION['flag_variable']=1)
-    {*/
-    	/*echo "inside if ";*/
    		 $parameter_query= mysqli_query($con,"SELECT course,semester FROM feedback_student_info WHERE fs_id = '".$_SESSION['fs_id']."'" );
                                         $parameter_row = mysqli_num_rows($parameter_query);
                                         
@@ -40,40 +22,44 @@
                                             $Current_Sem = $row[1];
                                             
                                         
-    /* }
-     else
-     {
-     	echo "course_id";
-    echo $_SESSION['course_id'];
-    
-    	# code...
-    	$course_id = $_SESSION['course_id'];
-    	$Current_Sem = $_SESSION['Current_Sem'];
-    echo "course id";
-    echo $course_id;
-    echo "current sem";
-    echo $Current_Sem;
-    echo "fs id";
-    //$fs_id=$_POST['fs_id'];
-    echo $_SESSION['fs_id'];
-   	echo "after fsid";
-     }*/
 
-    //$section = $studentInfo['Current_section'];
     $section = "A";
-    //Query to find course id from course table using course name
-    //$courseIdQuery = mysqli_query($con, "SELECT `course_id` FROM `course` WHERE `course_name` = '$course'");
-    /*if($courseIdQuery)
-        echo "Success".$course;
-    else
-        echo "Failure";*/
-    //$courseRow = mysqli_fetch_array($courseIdQuery);
-    //$courseId = $courseRow['course_id'];
-    //echo $courseId;
     
 
 ?>
 
+<?php 
+	$all_subjects_ids    = array(); 		// array containing list of all subject ids
+	$filled_subjects_ids = array(); 		// array containing list of filled subjects
+	$subjects_to_fill    = array();			// array containing list of subjects still to be filled
+	/* Query for selecting filled subjects in feedback of academic_assessment_info table*/
+	 $query= mysqli_query($con,"SELECT subject_id FROM academic_assessment_info WHERE fs_id = '".$_SESSION['fs_id']."'" );
+	 while ($row = mysqli_fetch_array($query)) {
+			array_push($filled_subjects_ids, $row['subject_id']);
+	 }
+
+	/* Query for selecting all subjects from subject table */
+	$selectSubjectQuery = mysqli_query($con, "SELECT * FROM subject WHERE course_id = '".$course_id."' AND semester = '".$Current_Sem."'  AND is_viva_or_lab=0" );
+    $subjectRows = mysqli_num_rows($selectSubjectQuery);
+	while ($subject_row = mysqli_fetch_array($selectSubjectQuery)){
+        $name = $subject_row['name_of_subject'];
+        $id = $subject_row['subject_id'];
+        $all_subjects_ids[$id] = $name;
+	    }
+	    
+
+	/* creating the $subjects_to_fill array*/
+	
+	foreach ($all_subjects_ids as $subject_id => $subject_name) {
+	       	# code...
+			if (!in_array($subject_id, $filled_subjects_ids)) {
+				# code...
+				$subjects_to_fill[$subject_id] = $subject_name;
+			}
+	       }       
+
+
+ ?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -99,7 +85,7 @@
         </style>
     </head>
  
-<body>
+<body onload="show_all()">
 <div class="panel panel-primary"> <!--Outermost panel-->
     <div class="panel-title">   <!--class=panelheading-->
         <div class="container">    <!--class=container-->
@@ -110,7 +96,7 @@
     </div> <!--closing of class=panelheading--> 
 </div>  <!--closing of outermost panel-->
 <div class="container">
-<div class="panel panely-primary" >
+
 <div class="panel panel-primary">
         <div class="panel-heading">
           <h2 class="panel-title text-center">ACADEMIC ASSESSMENT</h2>
@@ -126,56 +112,46 @@
           </div>
             <div class="row alert alert-info">
                      <strong class="col-md-6">Instructions:</strong><br>
-                    <!-- <div class="col-sm-6" style="margin-left:-10px;"> -->
                          <label>1-Very poor</label> 
                          <label>2-Poor</label>
                          <label>3-Good</label>
                          <label>4-Average</label>
                          <label>5-Excellence</label>
-                    <!-- </div> --><!-- Closing of class=colm-sm-6-->
             </div>  
 
-    <form action="#" method="POST">   
+    <form action="#" method="POST" >   
         <div class="lead"> 
             <div class="panel panel-primary">
             <div class="container">
             <div class="row">
 
-                    <!--<label class=" control-label col-sm-offset-2 col-sm-2" for="faculty">Faculty Name:</label>  
-                        <div class=" col-sm-2 col-sm-2">
-                                <select id="company" class="form-control">
-                                               <option>Faculty1</option>
-                                               <option>Faculty2</option>
-                                               <option>Faculty3</option>
-                                               <option>Faculty4</option>
-                                               <option>Faculty5</option>
-                                </select> 
-                        </div>-->
+
                     <br>
                     
                     <label class=" control-label col-sm-offset-2 col-sm-2" for="subject">Subject:</label>  
                         <div class=" col-sm-2 col-sm-2">
-                                <select id="company" required="required" class="form-control" name="subject_code">
+                                <select id="company" required="required" class="form-control" value = "select" name="subject_code" placeholder="Select" onchange="show_all()">
                                    <?php
 
-                                        //query to find subjects which are available in this course.
-                                        $selectSubjectQuery = mysqli_query($con, "SELECT * FROM subject WHERE course_id = '".$course_id."' AND semester = '".$Current_Sem."'  AND is_viva_or_lab=0" );
-                                        $subjectRows = mysqli_num_rows($selectSubjectQuery);
-                                        echo "rows";
-                                        echo $subjectRows;
-                                        //print_r($subjectRows);
-                                        while ($row = mysqli_fetch_array($selectSubjectQuery)){
-                                            $name = $row['name_of_subject'];
-                                            $id = $row['subject_id'];
-                                            echo "<option value=".$id."> ".$name." </option>";
+                                        //Iterating list of subjects available to be filled .
+                                        echo "<option> Select </option>";
+                                        foreach ($subjects_to_fill as $subject_id => $subject_name) {
+                                        	# code...
+                                            echo "<option value=".$subject_id."> ".$subject_name." </option>";
                                         }
+                                            
+                                        
                                     ?>
                                 </select> 
+
                         
-                    </div>
-                </div>
+                   		 </div>
+                    
+            </div>
             </div> 
             </div>
+            <!-- main form starts here . Below will be hided onload and will show after subject is selected -->
+    <div id="main-form" class="container">
             <div class="panel panel-primary">
                     <div class="panel-heading">
                     <h3 class="panel-title text-center">Teaching Assessment</h2>
@@ -411,7 +387,7 @@
                     </label>
                 </div>
             </div></br>
-            </div>
+            
             <div class="container">
                 <label class="col-md-6">Any Other Suggestion(Regarding Subject):</label>
                 <div class="col-md-6">
@@ -419,6 +395,7 @@
                 </div>
             </div>
             <hr>
+            
             <div class="panel panel-primary">
                     <div class="panel-heading">
                     <h3 class="panel-title text-center">Teaching Assessment</h2>
@@ -477,73 +454,44 @@
                  </div>
             </div>
             <br>
+            
             <div class="col-md-offset-6"><input type="submit" name="submit_feedback" class="btn btn-primary" value="Submit"></div>    
-        </div>
-    </form>          
- </div>
-</div>
+        	
+    </div> <!-- main-form div ended -->
+    	</div>
 
+    </form>   
+    </div>
+    </div>       
     <script>
+
+	function show_all(){
+	    	// Showing the form after selecting subject
+	    	var val = document.getElementById('company').value;
+	    	if (val != "Select") {
+	    	document.getElementById('main-form').style.display = 'inherit';
+	    }
+	    else{
+	    	document.getElementById('main-form').style.display = 'none';
+
+	    }
+	}
+
+  
     function changeColour(id)
     {
         document.getElementById(id).style.backgroundColor = "#D9F7BC";
     }
     </script>
 
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+    
 </body>
 </html>
 
 <?php
-/*    if (isset($_POST['submit_feedback'])) 
-        {
-            # code...
-            echo "feedback submit";
-            $subjectId = $_POST['subject_code'];
-            $conceptualClearity = $_POST['conceptual_clearity'];
-            $subjectKnowledge = $_POST['subject_knowledge'];
-            $practicalExamples = $_POST['practical_example'];
-            $handlingCapability = $_POST['handling_capability'];
-            $motivation = $_POST['motivation'];
-            $controlAbility = $_POST['control_ability'];
-            $courseCompletion = $_POST['course_completion'];
-            $communicationSkill = $_POST['communication_skill'];
-            $regularityPunctuality = $_POST['regularity_punctuality'];
-            $outsideGuidance = $_POST['outside_guidance'];
-            $syllabusIndustryRelvance = $_POST['syllabus_industry_relevance'];
-            $sufficiencyOfCourse = $_POST['sufficiency_of_course'];
-            $suggestionForSubject = $_POST['suggestion_for_subject'];
-            $suggestionForCourse = $_POST['suggestion_for_course'];
-*/
-            /*if (!empty($conectualClearity) && !empty($subjectKnowledge) && !empty($practicalExamples) && !empty($handlingCapability) 
-                && !empty($motivation) && !empty($controlAbility) && !empty($courseCompletion) && !empty($communicationSkill)
-                && !empty($regularityPunctuality) && !empty($outsideGuidance) && !empty($syllabusIndustryRelvance) && !empty($sufficiencyOfCourse)
-                && !empty($suggestionForSubject) && !empty($suggestionForCourse)) 
-            {*/
-                # Query to find faculty id from time table using subject id 
-           
-                
-            /*$insertQueryRun = mysqli_query($con, "INSERT INTO `academic_assessment_info`(`s_no`, `subject_id`, `faculty_id`, `conceptual_clarity`, `subject_knowledge`, `practical_example`, `handling_capability`, `motivation`, `control_ability`, `course_completion`, `communication_skill`, `regularity_punctuality`, `outside_guidance`, `syllabus_industry_relvance`, `sufficiency_of_course`, `suggestion_for_subject`, `suggestion_for_course`) 
-                                                VALUES ('' , '$subjectId', '$facultyId', '$conceptualClearity', '$subjectKnowledge', '$practicalExamples', '$handlingCapability', '$motivation', '$controlAbility', '$courseCompletion', '$communicationSkill', '$regularityPunctuality', '$outsideGuidance', '$syllabusIndustryRelvance', '$sufficiencyOfCourse', '$suggestionForSubject', '$suggestionForCourse')");
-            echo $insertQueryRun;*/
- /*           mysqli_query($con, "UPDATE `subject` SET `status` = 1 WHERE `subject_id` = '$subjectId'");
-            echo "update query for subject status";
 
-            if ($subjectRows == 0) {
-                # code...
-                echo "final feedback submission";
-                mysqli_query($con, "UPDATE `subject` SET `status` = 0" );
-                echo "<script type='javascript'> window.alert('Feedback successfully submitted!'); </script>";
-            }
-            else {
-                echo "<script type='javascript'> window.alert('Feedback for ".$name." submitted, Press OK to submit next subject feedback.'); </script>";
-            }
- */           /*}
-            else
-            {
-                echo "<script type='javascript'> window.alert('Please fill all the required fields.'); </script>";
-            }*/
-       // }
 ?>
 <?php
     if (isset($_POST['submit_feedback'])) 
@@ -566,22 +514,8 @@
             $suggestionForSubject = $_POST['suggestion_for_subject'];
             $suggestionForCourse = $_POST['suggestion_for_course'];
 
-            /*if (!empty($conectualClearity) && !empty($subjectKnowledge) && !empty($practicalExamples) && !empty($handlingCapability) 
-                && !empty($motivation) && !empty($controlAbility) && !empty($courseCompletion) && !empty($communicationSkill)
-                && !empty($regularityPunctuality) && !empty($outsideGuidance) && !empty($syllabusIndustryRelvance) && !empty($sufficiencyOfCourse)
-                && !empty($suggestionForSubject) && !empty($suggestionForCourse)) 
-            {*/
-                # Query to find faculty id from time table using subject id 
-            /*$facultyIdQuery = mysqli_query($con, "SELECT `faculty_id` FROM `time_table` WHERE `subject_id` = '$subjectId'");
-            if($facultyIdQuery)
-                echo "Success";
-            else
-                echo "Failure";*/
-            /*$facultyRow = mysqli_fetch_array($facultyIdQuery);
-            $facultyId = $facultyRow['faculty_id'];
-            echo "faculty id = ".$facultyId."  ";*/
-
-             $facultyIdQuery = mysqli_query($con, "SELECT `faculty_id` FROM `time_table` WHERE `subject_id` = '$subjectId'");
+            
+            $facultyIdQuery = mysqli_query($con, "SELECT `faculty_id` FROM `time_table` WHERE `subject_id` = '$subjectId'");
             $facultyRow = mysqli_fetch_array($facultyIdQuery);
             $facultyId = $facultyRow['faculty_id'];
             echo "faculty id = ".$facultyId."  ";
@@ -605,10 +539,6 @@
                 echo "<script type='javascript'> window.alert('Feedback for ".$name." submitted, Press OK to submit next subject feedback.'); </script>";
             }
             header('Location: '.$_SERVER['PHP_SELF']);
-            /*}
-            else
-            {
-                echo "<script type='javascript'> window.alert('Please fill all the required fields.'); </script>";
-            }*/
+            
         }
         ?>
