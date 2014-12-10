@@ -1,12 +1,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Thanyou</title>
+        <title>Thankyou</title>
         <link rel="stylesheet" href="../../assests/css/bootstrap/bootstrap.min.css">
         
     </head>
     <body >
-    
+
     	<div class="panel panel-primary"> <!--Outermost panel-->
     		<div class="panel-title">   <!--class=panelheading-->
         		<div class="container">    <!--class=container-->
