@@ -56,7 +56,14 @@
 				# code...
 				$subjects_to_fill[$subject_id] = $subject_name;
 			}
-	       }       
+
+	       } 
+
+	    //Condition to check if feedback of all subjects had been given than redirect to a thankyou page
+	    if (count($subjects_to_fill)==0) {
+	          	# code...
+	    		 header('location:thankyou.php');
+	          }      
 
 
  ?>
@@ -137,7 +144,9 @@
                                         echo "<option> Select </option>";
                                         foreach ($subjects_to_fill as $subject_id => $subject_name) {
                                         	# code...
-                                            echo "<option value=".$subject_id."> ".$subject_name." </option>";
+                                        	
+                                        		echo "<option value=".$subject_id."> ".$subject_name." </option>";
+                                            
                                         }
                                             
                                         
