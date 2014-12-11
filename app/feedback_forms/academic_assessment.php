@@ -139,7 +139,7 @@
                     
                     <label class=" control-label col-md-1" for="subject">Subject:</label>  
                         <div class=" col-md-4">
-                                <select id="subject_name" required="required" class="form-control" value = "select" name="subject_code" placeholder="Select" onchange="show_all()">
+                                <select id="subject_name" required="required" class="form-control" value = "select" name="subject_code" placeholder="Select" onchange="show_all()" onkeydown="show_all()">
                                    <?php
 
                                         //Iterating list of subjects available to be filled .
@@ -503,10 +503,7 @@
 
            } 
         });
-
-
-
-            
+           
 	    }
 	    else{
 	    	document.getElementById('main-form').style.display = 'none';
