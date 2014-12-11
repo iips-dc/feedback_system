@@ -23,18 +23,18 @@
     //$section = $studentInfo['Current_section'];
    // $section = "A";
 
-   $_SESSION['feedBatchId']=$_POST['batch_id'];
+    $_SESSION['feedBatchId']=$_POST['batch_id'];
    
-   $_SESSION['course_id']=$_POST['courseid'];
+    $_SESSION['course_id']=$_POST['courseid'];
    
-   $_SESSION['Current_Sem']=$_POST['sem'];
+    $_SESSION['Current_Sem']=$_POST['sem'];
 
-   $_SESSION['Current_section']=$_POST['section'];
+    $_SESSION['Current_section']=$_POST['section'];
 
-     
-     $course=$_POST['course'];
-     $course_id=$_POST['course_id'];
-     $semester=$_POST['semester'];
+     $batch_id=$_POST['batch_id'];
+    $course=$_POST['course'];
+     $course_id=$_POST['courseid'];
+     $semester=$_POST['sem'];
      $batch=$course_id.'-'.$batch_id;
      $section=$_POST['section'];
      
