@@ -136,6 +136,7 @@ include 'includes/login/connect.inc.php';
               <label class="control-label col-sm-offset-2 col-sm-2"  for="company">Section</label>
             <div class="col-sm-6 col-sm-4">
                 <select name="section" class="form-control">
+                  <option>Select Section</option>
                   <option>A</option>
                   <option>B</option>              
                </select>

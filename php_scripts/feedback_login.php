@@ -38,6 +38,16 @@
      $batch=$course_id.'-'.$batch_id;
      $section=$_POST['section'];
      
+     if ($_POST['courseid']== "IC")
+     {
+        $_SESSION['Current_section']=$_POST['section'];
+        $section=$_POST['section'];
+     } 
+     else{
+
+       $section="";
+       $_SESSION['Current_section']=$section;
+     }
 
      $feedbackStudentInfo="INSERT INTO `feedback_system_db`.`feedback_student_info` (`fs_id`, `batch_id`,`course`,`semester`, `section`, `feedback_session`) VALUES ('','$batch','$course_id','$semester' ,'$section',2014)";
             $test2=mysqli_query($con,$feedbackStudentInfo);
