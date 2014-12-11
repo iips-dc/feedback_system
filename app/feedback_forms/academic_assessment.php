@@ -10,7 +10,7 @@
     include '../../includes/login/connect.inc.php';
 
     
-   		 $parameter_query= mysqli_query($con,"SELECT course,semester FROM feedback_student_info WHERE fs_id = '".$_SESSION['fs_id']."'" );
+   		 $parameter_query= mysqli_query($con,"SELECT course,semester,section FROM feedback_student_info WHERE fs_id = '".$_SESSION['fs_id']."'" );
                                         $parameter_row = mysqli_num_rows($parameter_query);
                                         
                                         
@@ -20,10 +20,12 @@
                                             $course_id = $row[0];
                                             //echo $course_id;
                                             $Current_Sem = $row[1];
+                                            $section=$row[2];
+                                            $_SESSION['section']=$section;
                                             
                                         
 
-    $section = "A";
+   
     
 
 ?>
@@ -135,9 +137,9 @@
 
                     <br>
                     
-                    <label class=" control-label col-sm-offset-2 col-sm-2" for="subject">Subject:</label>  
-                        <div class=" col-sm-2 col-sm-2">
-                                <select id="company" required="required" class="form-control" value = "select" name="subject_code" placeholder="Select" onchange="show_all()">
+                    <label class=" control-label col-md-1" for="subject">Subject:</label>  
+                        <div class=" col-md-4">
+                                <select id="subject_name" required="required" class="form-control" value = "select" name="subject_code" placeholder="Select" onchange="show_all()">
                                    <?php
 
                                         //Iterating list of subjects available to be filled .
@@ -155,6 +157,11 @@
 
                         
                    		 </div>
+
+                         <div>
+                             <label class=" control-label col-md-2" for="subject">Faculty Name :</label>  
+                             <label class=" control-label col-md-4" for="subject" id="faculty"></label>  
+                         </div>
                     
             </div>
             </div> 
@@ -471,14 +478,35 @@
 
     </form>   
     </div>
-    </div>       
+    </div>  
+    <script src="../../assests/js/jquery.min.js"></script> 
     <script>
 
 	function show_all(){
 	    	// Showing the form after selecting subject
-	    	var val = document.getElementById('company').value;
-	    	if (val != "Select") {
-	    	document.getElementById('main-form').style.display = 'inherit';
+	    var val = document.getElementById('subject_name').value;
+	    if (val != "Select") {
+	    document.getElementById('main-form').style.display = 'inherit';
+                
+        var id = document.getElementById("subject_name").value;
+        var dataString = 'id='+ id;
+        
+        $.ajax
+        ({
+            //window.alert("inside ajax");
+            type: "POST",
+            url: "../../php_scripts/get_faculty.php",
+            data: dataString,
+            success: function(html)
+           {
+           $("#faculty").html(html);
+
+           } 
+        });
+
+
+
+            
 	    }
 	    else{
 	    	document.getElementById('main-form').style.display = 'none';
@@ -492,7 +520,6 @@
         document.getElementById(id).style.backgroundColor = "#D9F7BC";
     }
     </script>
-
 
 
     
@@ -524,10 +551,11 @@
             $suggestionForCourse = $_POST['suggestion_for_course'];
 
             
-            $facultyIdQuery = mysqli_query($con, "SELECT `faculty_id` FROM `time_table` WHERE `subject_id` = '$subjectId'");
+            $facultyIdQuery = mysqli_query($con, "SELECT `faculty_id` FROM `time_table` WHERE `subject_id` = '$subjectId' and `section`='$section'");
             $facultyRow = mysqli_fetch_array($facultyIdQuery);
-            $facultyId = $facultyRow['faculty_id'];
-            echo "faculty id = ".$facultyId."  ";
+            $facultyId = $facultyRow[0];
+
+            //echo "faculty id = ".$facultyId."  ";
             $feedBatchId = $_SESSION['feedBatchId'];
             $fsid = $_SESSION['fs_id'];
             echo $fsid;
@@ -535,18 +563,9 @@
             $insertQueryRun = mysqli_query($con, "INSERT INTO `academic_assessment_info`(`s_no`,`fs_id`, `subject_id`, `faculty_id`, `conceptual_clarity`, `subject_knowledge`, `practical_example`, `handling_capability`, `motivation`, `control_ability`, `course_completion`, `communication_skill`, `regularity_punctuality`, `outside_guidance`, `syllabus_industry_relvance`, `sufficiency_of_course`, `suggestion_for_subject`, `suggestion_for_course`) 
                                                 VALUES ('' ,'$fsid','$subjectId', '$facultyId', '$conceptualClearity', '$subjectKnowledge', '$practicalExamples', '$handlingCapability', '$motivation', '$controlAbility', '$courseCompletion', '$communicationSkill', '$regularityPunctuality', '$outsideGuidance', '$syllabusIndustryRelvance', '$sufficiencyOfCourse', '$suggestionForSubject', '$suggestionForCourse')");
             echo $insertQueryRun;
-            mysqli_query($con, "UPDATE `subject` SET `status` = 1 WHERE `subject_id` = '$subjectId'");
-            echo "no. of rows- ".$subjectRows;
+           
             
-            if ($subjectRows == 0) {
-                # code...
-                echo "final feedback submission";
-                mysqli_query($con, "UPDATE `subject` SET `status` = 0" );
-                echo "<script type='javascript'> window.alert('Feedback successfully submitted!'); </script>";
-            }
-            else {
-                echo "<script type='javascript'> window.alert('Feedback for ".$name." submitted, Press OK to submit next subject feedback.'); </script>";
-            }
+            
             header('Location: '.$_SERVER['PHP_SELF']);
             
         }
