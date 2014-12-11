@@ -7,15 +7,15 @@
 <?php
    session_start();
    
-  $feedBatchId = $_SESSION['feedBatchId'];
+echo  $feedBatchId = $_SESSION['feedBatchId'];
   
-  $course_id = $_SESSION['course_id'];
+ echo $course_id = $_SESSION['course_id'];
   
-  $Current_Sem = $_SESSION['Current_Sem'];
+ echo $Current_Sem = $_SESSION['Current_Sem'];
   
-  $Current_section = $_SESSION['Current_section'];
+ echo $Current_section = $_SESSION['Current_section'];
   
-  $studentno=$_SESSION['student_no'];
+ echo $studentno=$_SESSION['student_no'];
 
     if (isset($_POST['infrastructure_feedback_submit'])) {
         # code...
