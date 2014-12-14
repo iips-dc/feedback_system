@@ -60,11 +60,11 @@ $fsidRow = mysqli_fetch_array($fsidQuery);
 </div>  <!--closing of outermost panel-->
 
 <div class="row alert alert-info">
-    <div class="col-sm-1" style="margin-left:-10px;">
+    <div class="col-sm-3" style="margin-left:-10px;">
      
     </div>
-    <div class="col-sm-5" style="margin-left:-10px;">
-       <div class="panel panel-primary" >
+    <div class="col-sm-6" style="margin-left:-10px;" >
+       <div class="panel panel-primary" align="center">
             <div class="panel-heading">
                 <h2 class="panel-title text-center">New User </h2>
             </div>
@@ -73,11 +73,41 @@ $fsidRow = mysqli_fetch_array($fsidQuery);
 
        </div> 
      </div>  
-    <div class="col-sm-1" style="margin-left:-10px;">
+    
+    <div class="col-sm-3" style="margin-left:-10px;">
      
     </div>
-    <div class="col-sm-5" style="margin-left:-10px;">
-       <div class="panel panel-primary" >
+    
+    
+</div>
+
+
+<div class="row alert alert-info">
+    <div class="col-sm-3" style="margin-left:-10px;">
+     
+    </div>
+    <div class="col-sm-6" style="margin-left:-10px;" >
+       <div class="panel panel-primary" align="center">
+            <div class="panel-heading">
+                <h2 class="panel-title text-center">Already Registered ?? </h2>
+            </div>
+
+            <h2 align="center"><a href="app/feedback_forms/index.php"> Home | Feedback </a> </h2> 
+
+       </div> 
+     </div>  
+    
+    <div class="col-sm-3" style="margin-left:-10px;">
+     
+    </div>
+    
+    
+</div> 
+
+<div class="row alert alert-info">
+<div class="col-sm-3"></div>
+<div class="col-sm-6" style="margin-left:-10px;" align="center">
+       <div class="panel panel-primary" align="center" >
             <div class="panel-heading">
                 <h2 class="panel-title text-center">Existing User</h2>
             </div>
@@ -109,7 +139,8 @@ $fsidRow = mysqli_fetch_array($fsidQuery);
 			</div><!-- ./modal-dialog -->
         </div> <!-- ./modal -->
     </div>
-</div> 
+    <div class="col-sm-3"></div>
+</div>
 
 
 
