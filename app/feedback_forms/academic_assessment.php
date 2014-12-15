@@ -292,7 +292,7 @@
             <hr>
 
             <div class="container" id="f">
-                <strong class="col-md-6">6. Ability of control the class</strong>
+                <strong class="col-md-6">6. Ability to control the class</strong>
                 <div class="col-md-6">
                     <label class="radio-inline">
                         <input type="radio" name="control_ability" required="required" value="1" onClick="changeColour('f')">1
@@ -338,7 +338,7 @@
             <hr>
                 
             <div class="container" id="h">  
-                <strong class="col-md-6">8. Teacher's communication of skill  </strong>
+                <strong class="col-md-6">8. Teacher's communication skill  </strong>
                 <div class="col-md-6">
                     <label class="radio-inline">
                         <input type="radio" name="communication_skill" required="required" value="1" onClick="changeColour('h')">1
