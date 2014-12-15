@@ -74,7 +74,7 @@ function onlyChars(event)
 {
 	var e =event;
 	var charCode = e.which || e.keyCode;
-	if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 8 || charCode == 9 )
+	if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 8 || charCode == 9 || charCode == 37 || charCode == 39)
 		return true;
 	else 
 		return false;
@@ -86,7 +86,7 @@ function onlyCharsn(event)
 	var e =event;
 	var charCode = e.which || e.keyCode;
 	if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 8 || charCode == 9 
-	||charCode == 32 || charCode == 46)
+	||charCode == 32 || charCode == 46 || charCode == 37 || charCode == 39)
 		return true;
 	else 
 		return false;
