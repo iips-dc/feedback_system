@@ -120,7 +120,7 @@ function digitsonly(e)
 <body>  
    
    <div>  <!-- 1st panel-->
-		<div <h3 class="panel-title" <br><center><img src="assests/img/2.png"></center></h3></div>
+		<div> <h3 class="panel-title"> <br><center><img class="img-responsive" src="assests/img/2.png"></center></h3></div>
    
    
 		<!--<div class="panel-body"> Panel content -->

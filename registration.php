@@ -128,7 +128,7 @@ $(document).ready(function() {
 </head>
 <body>
 	<div>  <!-- This div for outermost panel where panel property is removed-->
-		<div <h3 class="panel-title" <br><center><img src="assests/img/2.png"></center></h3></div>
+		<div> <h3 class="panel-title"> <br><center><img class="img-responsive" src="assests/img/2.png"></center></h3></div>
 			<div class="panel panel-default">
 				<body style="background-color:white;">
 					<div class="container">
