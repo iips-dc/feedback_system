@@ -30,9 +30,11 @@ if(preg_match("/registration.php/",$referrer))
   $_SESSION['Year_Of_Passing12']=@ $_POST['yearofpassing12'];
   
   //$_SESSION['Enrollment_Number']=@$_POST['enrollmentnumber'];
-  $_SESSION['enroll_id']=@$_POST['enroll_id'];
+  /*$_SESSION['enroll_id']=@$_POST['enroll_id'];
   $_SESSION['enroll_year']=@$_POST['enroll_year'];
   $_SESSION['enroll_no']=@$_POST['enroll_no'];
+*/
+  $_SESSION['eno']=@$_POST['eno'];
   
   //$_SESSION['Roll_Number']=@$_POST['rollno'];
   $_SESSION['course_id']=@$_POST['course_id'];

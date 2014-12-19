@@ -1,7 +1,7 @@
 
 <?php 
 session_start(); 
-include 'includes/login/connect.inc.php';
+include '../../includes/login/connect.inc.php';
 /* variables from previous page */
 /* for storing data of registration.php */
  

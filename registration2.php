@@ -14,10 +14,11 @@ if(preg_match("/registration2.php/",$referrer))
   $yearofpassing12=@$_SESSION['Year_Of_Passing12'] ;
   
   //$enrollmentnumber=@$_SESSION['Enrollment_Number'];
-  $enroll_id=@$_SESSION['enroll_id'];
+  /*$enroll_id=@$_SESSION['enroll_id'];
   $enroll_year=@$_SESSION['enroll_year'];
   $enroll_no=@$_SESSION['enroll_no'];
-
+  */
+  $eno =@$_SESSION['eno']; 
   //$rollno=@$_SESSION['Roll_Number'];
   
   $course_id=@$_SESSION['course_id'];
@@ -194,7 +195,7 @@ function digitsonly(e)
 
 													<table border="0" class="table">
 														
-														<tr>
+														<!--<tr>
 															<td  style="width:200px"><label>Enrollment Number<span style="color:#ff0000"> *</span></label></td>
 															<td>
 																<div class="row">
@@ -221,6 +222,16 @@ function digitsonly(e)
 																	</div>	
 
 																</div>
+															</td>
+														</tr>-->
+														<tr>
+															<td><label>Enrollment Number<span style="color:#ff0000"> *</span></label></td>
+															<td>
+																<div class="row">
+																	<div class="col-md-4">
+																         <input  type="text" class="form-control" id="inputEmail3" placeholder="D1211SXXX" name="eno" value ="<?php echo $eno ;?>">
+																	</div>
+																</div>		
 															</td>
 														</tr>
 														
