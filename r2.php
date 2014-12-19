@@ -51,6 +51,7 @@ $con=mysqli_connect($server,$username,$password,$database);
   $Enrollment_Number=$enroll_id."/".$enroll_year."/".$enroll_no;
   */
   $eno=$_POST['eno'];
+  $eno=strtoupper($eno);
   //$Roll_Number=$_POST['rollno'];
   $course_id=$_POST['course_id'];
   $year_id=$_POST['year_id'];
@@ -78,7 +79,7 @@ $con=mysqli_connect($server,$username,$password,$database);
   $sql="INSERT INTO `student_info`(`student_no`,`High_School_Name`, `Year_Of_Passing`, `Higher_Secondary_School_Name`, `Year_Of_Passing1`, `Enrollment_Number`, `Roll_Number`, `Current_Course`, `Current_Sem`, `Current_section`, `Enrollment_Year`, `Alternate_Email`) VALUES ('$studentno','$High_School_Name','$Year_Of_Passing10','$Higher_Secondary_School_Name','$Year_Of_Passing12','$eno','$Roll_Number','$Current_Course','$Current_Sem','$Current_section','$Enrollment_Year','$Alternate_Email' )";
   $test=mysqli_query($con,$sql);
   
-  if($test){
+  if($test){  
     header('location:app/feedback_forms/index.php');
   }
   echo "thank you";

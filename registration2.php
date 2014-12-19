@@ -18,7 +18,9 @@ if(preg_match("/registration2.php/",$referrer))
   $enroll_year=@$_SESSION['enroll_year'];
   $enroll_no=@$_SESSION['enroll_no'];
   */
-  $eno =@$_SESSION['eno']; 
+  $eno=strtoupper($eno); 
+  $eno =@$_SESSION['eno'];
+  echo $eno;
   //$rollno=@$_SESSION['Roll_Number'];
   
   $course_id=@$_SESSION['course_id'];
