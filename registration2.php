@@ -353,7 +353,7 @@ function digitsonly(e)
 																											
 																																											
 															count = 0;
-															if (x=='M.Tech')
+															if (x=='MTECH')
 																count  = 11;
 															else if(x =='MCA')
 																count = 12;
